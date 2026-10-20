@@ -53,8 +53,11 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: "/brand/navaroha-icon.png",
-    shortcut: "/brand/navaroha-icon.png",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/brand/navaroha-icon.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
     apple: "/brand/navaroha-icon.png",
   },
 };

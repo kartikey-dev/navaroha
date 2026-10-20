@@ -29,7 +29,7 @@ export function Footer() {
             gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
           }}
         >
-          {/* Brand Column */}
+          {/* Brand & Connect Column */}
           <div style={{ maxWidth: "340px" }}>
             <Link
               href="/"
@@ -55,8 +55,8 @@ export function Footer() {
               {siteConfig.supportingMessage}
             </p>
 
-            {/* Direct Contact Points */}
-            <div className="space-y-2 mb-5 text-sm">
+            {/* Direct Contact & Social — Single Unified Placement */}
+            <div className="space-y-2 mb-4 text-sm">
               <div>
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
@@ -94,13 +94,13 @@ export function Footer() {
               </div>
             </div>
 
-            {/* Social Icons */}
-            <div className="flex items-center gap-3 pt-1">
+            {/* Social Links — Sole Dedicated Placement in Footer */}
+            <div className="flex items-center gap-3 pt-2">
               <a
                 href={siteConfig.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Navaroha on Instagram"
+                aria-label="Navaroha on Instagram (@navaroha)"
                 className="w-9 h-9 rounded-full bg-slate-800 hover:bg-gradient-to-tr hover:from-amber-500 hover:via-rose-500 hover:to-purple-600 flex items-center justify-center text-slate-300 hover:text-white transition-all shadow-sm"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -111,7 +111,7 @@ export function Footer() {
                 href={siteConfig.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Navaroha on Facebook"
+                aria-label="Navaroha on Facebook (@navaroha)"
                 className="w-9 h-9 rounded-full bg-slate-800 hover:bg-[#1877F2] flex items-center justify-center text-slate-300 hover:text-white transition-all shadow-sm"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -193,7 +193,7 @@ export function Footer() {
                 marginBottom: "1.25rem",
               }}
             >
-              Legal & Direct
+              Legal
             </h3>
             <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
               {siteConfig.footer.legal.map((item) => (
@@ -206,17 +206,6 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
-              <li style={{ marginTop: "1rem" }}>
-                <a
-                  href={siteConfig.contact.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-medium hover:bg-emerald-500/20 transition-colors"
-                >
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  Chat on WhatsApp
-                </a>
-              </li>
             </ul>
           </div>
         </div>
@@ -238,15 +227,6 @@ export function Footer() {
           <p>
             © {currentYear} {siteConfig.name}. All rights reserved.
           </p>
-          <div className="flex items-center gap-4 text-xs text-slate-400">
-            <a href={siteConfig.social.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-              Instagram (@navaroha)
-            </a>
-            <span>•</span>
-            <a href={siteConfig.social.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-              Facebook (@navaroha)
-            </a>
-          </div>
           <p style={{ fontFamily: "var(--font-heading)", letterSpacing: "0.04em" }}>
             {siteConfig.tagline}
           </p>
