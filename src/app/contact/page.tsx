@@ -63,13 +63,67 @@ export default function ContactPage() {
                   </h3>
                   <a
                     href={`mailto:${siteConfig.contact.email}`}
-                    className="text-lg font-semibold text-[var(--color-primary)] hover:underline"
+                    className="text-base font-semibold text-[var(--color-primary)] hover:underline"
                   >
                     {siteConfig.contact.email}
                   </a>
-                  <p className="text-xs text-slate-500 mt-1">
+                  <p className="text-xs text-slate-500 mt-0.5">
                     Direct channel monitored by engineering leads.
                   </p>
+                </div>
+
+                <div className="pt-6 border-t border-[var(--color-border)]">
+                  <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 mb-2">
+                    Phone & Call Support
+                  </h3>
+                  <a
+                    href={`tel:${siteConfig.contact.phoneRaw}`}
+                    className="text-base font-semibold text-slate-900 hover:text-[var(--color-primary)] transition-colors inline-flex items-center gap-2"
+                  >
+                    <span>📞</span> {siteConfig.contact.phoneDisplay}
+                  </a>
+                  <p className="text-xs text-slate-500 mt-0.5">
+                    Available Monday to Saturday, 9 AM – 7 PM IST.
+                  </p>
+                </div>
+
+                <div className="pt-6 border-t border-[var(--color-border)]">
+                  <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 mb-2">
+                    WhatsApp Quick Connect
+                  </h3>
+                  <a
+                    href={siteConfig.contact.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-semibold hover:bg-emerald-100 transition-colors"
+                  >
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                    Chat on WhatsApp ({siteConfig.contact.whatsappDisplay})
+                  </a>
+                </div>
+
+                <div className="pt-6 border-t border-[var(--color-border)]">
+                  <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 mb-2">
+                    Official Social Channels
+                  </h3>
+                  <div className="flex flex-wrap gap-3">
+                    <a
+                      href={siteConfig.social.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-xs font-medium text-slate-700 hover:border-rose-400 hover:text-rose-600 transition-colors"
+                    >
+                      <span>📸</span> Instagram (@navaroha)
+                    </a>
+                    <a
+                      href={siteConfig.social.facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-xs font-medium text-slate-700 hover:border-blue-400 hover:text-blue-600 transition-colors"
+                    >
+                      <span>👥</span> Facebook (@navaroha)
+                    </a>
+                  </div>
                 </div>
 
                 <div className="pt-6 border-t border-[var(--color-border)]">

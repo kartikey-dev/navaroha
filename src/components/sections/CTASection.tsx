@@ -61,6 +61,15 @@ export function CTASection() {
                   Start a Project
                   <span aria-hidden="true">→</span>
                 </Link>
+                <a
+                  href={siteConfig.contact.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-secondary btn-lg !border-emerald-500/40 !text-emerald-400 hover:!bg-emerald-500/10 flex items-center gap-2"
+                >
+                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                  WhatsApp Us
+                </a>
                 {siteConfig.contact.email && (
                   <a
                     href={`mailto:${siteConfig.contact.email}`}

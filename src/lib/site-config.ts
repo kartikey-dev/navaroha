@@ -27,14 +27,18 @@ export const siteConfig = {
 
   contact: {
     email: "hello@navaroha.com",
-    // phone: "+1-XXX-XXX-XXXX", // Uncomment when confirmed
+    phone: "+91 7015520736",
+    phoneDisplay: "+91 70155 20736",
+    phoneRaw: "+917015520736",
+    whatsapp: "https://wa.me/917015520736",
+    whatsappDisplay: "+91 70155 20736",
   },
 
   social: {
-    // Add confirmed social links
-    // twitter: "https://twitter.com/navaroha",
-    // linkedin: "https://linkedin.com/company/navaroha",
-    // github: "https://github.com/navaroha",
+    instagram: "https://instagram.com/navaroha",
+    instagramHandle: "@navaroha",
+    facebook: "https://facebook.com/navaroha",
+    facebookHandle: "@navaroha",
   },
 
   navigation: {
