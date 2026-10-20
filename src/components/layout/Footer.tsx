@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
 
 export function Footer() {
@@ -32,38 +33,16 @@ export function Footer() {
           <div style={{ maxWidth: "320px" }}>
             <Link
               href="/"
-              className="flex items-center gap-2 no-underline"
-              style={{ marginBottom: "1rem" }}
+              className="inline-block no-underline mb-4 group"
               aria-label={`${siteConfig.name} — Home`}
             >
-              <span
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: "32px",
-                  height: "32px",
-                  borderRadius: "var(--radius-md)",
-                  background: "var(--gradient-brand)",
-                  color: "white",
-                  fontFamily: "var(--font-heading)",
-                  fontWeight: 700,
-                  fontSize: "1.1rem",
-                  lineHeight: 1,
-                }}
-              >
-                N
-              </span>
-              <span
-                style={{
-                  fontFamily: "var(--font-heading)",
-                  fontWeight: 600,
-                  fontSize: "1.2rem",
-                  color: "#F1F5F9",
-                }}
-              >
-                {siteConfig.name}
-              </span>
+              <Image
+                src="/brand/navaroha-logo-dark.png"
+                alt={`${siteConfig.name} — ${siteConfig.tagline}`}
+                width={170}
+                height={45}
+                className="h-10 w-auto object-contain transition-transform group-hover:scale-[1.02]"
+              />
             </Link>
             <p
               style={{

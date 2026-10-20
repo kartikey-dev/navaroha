@@ -17,10 +17,12 @@ export const siteConfig = {
 
   brand: {
     logoAlt: "Navaroha",
-    // Brand asset paths — replace after official logo delivery
-    iconPath: "/brand/navaroha-icon.svg",
-    wordmarkLightPath: "/brand/navaroha-wordmark-light.svg",
-    wordmarkDarkPath: "/brand/navaroha-wordmark-dark.svg",
+    iconPath: "/brand/navaroha-icon.png",
+    iconLightPath: "/brand/navaroha-icon-light.png",
+    iconDarkPath: "/brand/navaroha-icon-dark.png",
+    cardPath: "/brand/navaroha-card.png",
+    logoLightPath: "/brand/navaroha-logo-light.png",
+    logoDarkPath: "/brand/navaroha-logo-dark.png",
   },
 
   contact: {

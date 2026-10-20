@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
 
 export function Header() {
@@ -65,43 +66,21 @@ export function Header() {
           style={{ height: isScrolled ? "64px" : "80px", transition: "height var(--duration-base) var(--ease-out)" }}
           aria-label="Main navigation"
         >
-          {/* Logo / Wordmark */}
+          {/* Official Brand Logo */}
           <Link
             href="/"
-            className="relative z-50 flex items-center gap-2 no-underline"
+            className="relative z-50 flex items-center no-underline group"
             aria-label={`${siteConfig.name} — Home`}
             onClick={closeMenu}
           >
-            {/* Gradient N Icon */}
-            <span
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                width: "36px",
-                height: "36px",
-                borderRadius: "var(--radius-lg)",
-                background: "var(--gradient-brand)",
-                color: "white",
-                fontFamily: "var(--font-heading)",
-                fontWeight: 700,
-                fontSize: "1.25rem",
-                lineHeight: 1,
-              }}
-            >
-              N
-            </span>
-            <span
-              style={{
-                fontFamily: "var(--font-heading)",
-                fontWeight: 600,
-                fontSize: "1.3rem",
-                color: "var(--color-text)",
-                letterSpacing: "-0.01em",
-              }}
-            >
-              {siteConfig.name}
-            </span>
+            <Image
+              src="/brand/navaroha-logo-light.png"
+              alt={`${siteConfig.name} — ${siteConfig.tagline}`}
+              width={180}
+              height={43}
+              priority
+              className="h-9 md:h-10 w-auto object-contain transition-transform group-hover:scale-[1.02]"
+            />
           </Link>
 
           {/* Desktop Navigation */}

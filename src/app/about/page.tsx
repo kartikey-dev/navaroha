@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { studioValues, processSteps } from "@/content/data";
 import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
 import { CTASection } from "@/components/sections/CTASection";
@@ -38,30 +39,41 @@ export default function AboutPage() {
       {/* Story & Ethos */}
       <section className="py-20 border-t border-[var(--color-border)]">
         <div className="container-main">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold font-heading text-[var(--color-midnight)] mb-6">
-              A studio built on principles, not templates
-            </h2>
-            <div className="space-y-6 text-base md:text-lg text-slate-700 leading-relaxed font-sans">
-              <p>
-                Navaroha was founded with a straightforward perspective:
-                businesses don&apos;t just need more code—they need thoughtful,
-                durable digital products that solve real problems.
-              </p>
-              <p>
-                Too many development agencies operate like assembly lines,
-                handing off fragile code built on bloated templates with no
-                regard for long-term maintainability or real business impact.
-                When the contract ends, clients are left with technical debt and
-                inscrutable systems.
-              </p>
-              <p>
-                We do things differently. We operate as an extension of your
-                founding or leadership team. We take the time to understand your
-                operational constraints, design interfaces that real humans enjoy
-                using, and write strict, tested code that your future engineers
-                will thank you for.
-              </p>
+          <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-14">
+            <div className="shrink-0 flex justify-center">
+              <Image
+                src="/brand/navaroha-card.png"
+                alt="Navaroha Brand Emblem"
+                width={223}
+                height={154}
+                className="rounded-2xl shadow-xl border border-slate-800 w-52 md:w-60 h-auto"
+              />
+            </div>
+            <div className="flex-1">
+              <h2 className="text-2xl md:text-3xl font-bold font-heading text-[var(--color-midnight)] mb-6">
+                A studio built on principles, not templates
+              </h2>
+              <div className="space-y-4 text-base md:text-lg text-slate-700 leading-relaxed font-sans">
+                <p>
+                  Navaroha was founded with a straightforward perspective:
+                  businesses don&apos;t just need more code—they need thoughtful,
+                  durable digital products that solve real problems.
+                </p>
+                <p>
+                  Too many development agencies operate like assembly lines,
+                  handing off fragile code built on bloated templates with no
+                  regard for long-term maintainability or real business impact.
+                  When the contract ends, clients are left with technical debt and
+                  inscrutable systems.
+                </p>
+                <p>
+                  We do things differently. We operate as an extension of your
+                  founding or leadership team. We take the time to understand your
+                  operational constraints, design interfaces that real humans enjoy
+                  using, and write strict, tested code that your future engineers
+                  will thank you for.
+                </p>
+              </div>
             </div>
           </div>
         </div>
