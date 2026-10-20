@@ -37,8 +37,8 @@ export const siteConfig = {
   social: {
     instagram: "https://instagram.com/navaroha",
     instagramHandle: "@navaroha",
-    facebook: "https://facebook.com/navaroha",
-    facebookHandle: "@navaroha",
+    facebook: "https://www.facebook.com/navarohadigital",
+    facebookHandle: "@navarohadigital",
   },
 
   navigation: {
@@ -54,9 +54,10 @@ export const siteConfig = {
   footer: {
     services: [
       { label: "Website Development", href: "/services/website-development" },
-      { label: "Web Applications", href: "/services/web-applications" },
+      { label: "Web Applications & SaaS", href: "/services/web-applications" },
       { label: "Mobile & Desktop Apps", href: "/services/mobile-desktop-apps" },
-      { label: "AI & Automation", href: "/services/ai-automation" },
+      { label: "AI & Workflow Automation", href: "/services/ai-automation" },
+      { label: "Technical Advisory & Architecture", href: "/services/technical-advisory" },
     ],
     company: [
       { label: "About", href: "/about" },

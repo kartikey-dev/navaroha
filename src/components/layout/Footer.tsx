@@ -100,7 +100,7 @@ export function Footer() {
                 href={siteConfig.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Navaroha on Instagram (@navaroha)"
+                aria-label="Navaroha on Instagram"
                 className="w-9 h-9 rounded-full bg-slate-800 hover:bg-gradient-to-tr hover:from-amber-500 hover:via-rose-500 hover:to-purple-600 flex items-center justify-center text-slate-300 hover:text-white transition-all shadow-sm"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -111,14 +111,13 @@ export function Footer() {
                 href={siteConfig.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Navaroha on Facebook (@navaroha)"
+                aria-label="Navaroha on Facebook"
                 className="w-9 h-9 rounded-full bg-slate-800 hover:bg-[#1877F2] flex items-center justify-center text-slate-300 hover:text-white transition-all shadow-sm"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                   <path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.7 5H18V0h-3.808C10.597 0 9 1.583 9 4.615V8z"/>
                 </svg>
               </a>
-              <span className="text-xs text-slate-400">@navaroha</span>
             </div>
           </div>
 

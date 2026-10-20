@@ -113,7 +113,7 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-xs font-medium text-slate-700 hover:border-rose-400 hover:text-rose-600 transition-colors"
                     >
-                      <span>📸</span> Instagram (@navaroha)
+                      <span>📸</span> Instagram
                     </a>
                     <a
                       href={siteConfig.social.facebook}
@@ -121,7 +121,7 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-xs font-medium text-slate-700 hover:border-blue-400 hover:text-blue-600 transition-colors"
                     >
-                      <span>👥</span> Facebook (@navaroha)
+                      <span>👥</span> Facebook
                     </a>
                   </div>
                 </div>

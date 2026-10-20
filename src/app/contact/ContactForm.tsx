@@ -179,7 +179,7 @@ export function ContactForm() {
             <option value="web-applications">Web Applications & SaaS</option>
             <option value="mobile-desktop-apps">Mobile & Desktop Apps</option>
             <option value="ai-automation">AI & Workflow Automation</option>
-            <option value="advisory">Technical Advisory & Architecture</option>
+            <option value="technical-advisory">Technical Advisory & Architecture</option>
           </select>
         </div>
       </div>
