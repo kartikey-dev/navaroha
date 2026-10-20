@@ -48,16 +48,13 @@ export function Header() {
     <header
       id="site-header"
       role="banner"
-      className="fixed top-0 left-0 right-0 z-50 transition-all"
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-200"
       style={{
-        backdropFilter: isScrolled ? "blur(16px) saturate(180%)" : "none",
-        WebkitBackdropFilter: isScrolled ? "blur(16px) saturate(180%)" : "none",
-        backgroundColor: isScrolled
-          ? "rgba(248, 250, 252, 0.85)"
-          : "transparent",
-        borderBottom: isScrolled
-          ? "1px solid var(--color-border)"
-          : "1px solid transparent",
+        backgroundColor: "#FFFFFF",
+        borderBottom: "1px solid var(--color-border)",
+        boxShadow: isScrolled
+          ? "0 4px 20px -2px rgba(15, 23, 42, 0.06)"
+          : "none",
       }}
     >
       <div className="container-main">
@@ -160,9 +157,7 @@ export function Header() {
           position: "fixed",
           inset: 0,
           zIndex: 40,
-          background: "rgba(248, 250, 252, 0.98)",
-          backdropFilter: "blur(20px)",
-          WebkitBackdropFilter: "blur(20px)",
+          background: "#FFFFFF",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
