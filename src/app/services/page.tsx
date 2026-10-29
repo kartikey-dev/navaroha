@@ -3,7 +3,6 @@ import Link from "next/link";
 import { services } from "@/content/data";
 import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
 import { CTASection } from "@/components/sections/CTASection";
-import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Services & Capabilities",

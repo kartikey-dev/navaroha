@@ -30,8 +30,12 @@ export const siteConfig = {
     phone: "+91 7015520736",
     phoneDisplay: "+91 70155 20736",
     phoneRaw: "+917015520736",
+    alternatePhone: "+91 9816444480",
+    alternatePhoneDisplay: "+91 98164 44480",
+    alternatePhoneRaw: "+919816444480",
     whatsapp: "https://wa.me/917015520736",
     whatsappDisplay: "+91 70155 20736",
+    availability: "All-time available (24/7)",
   },
 
   social: {
@@ -54,10 +58,13 @@ export const siteConfig = {
   footer: {
     services: [
       { label: "Website Development", href: "/services/website-development" },
+      { label: "UI/UX & Brand Design", href: "/services/ui-ux-brand-design" },
+      { label: "Android & iOS Apps", href: "/services/android-ios-development" },
       { label: "Web Applications & SaaS", href: "/services/web-applications" },
-      { label: "Mobile & Desktop Apps", href: "/services/mobile-desktop-apps" },
-      { label: "AI & Workflow Automation", href: "/services/ai-automation" },
-      { label: "Technical Advisory & Architecture", href: "/services/technical-advisory" },
+      { label: "Browser Extensions", href: "/services/browser-extension-development" },
+      { label: "Maintenance & Support", href: "/services/website-maintenance-support" },
+      { label: "AI & Automation", href: "/services/ai-automation" },
+      { label: "Technical Advisory", href: "/services/technical-advisory" },
     ],
     company: [
       { label: "About", href: "/about" },

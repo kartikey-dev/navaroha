@@ -1,6 +1,22 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
+
+function subscribeReducedMotion(callback: () => void) {
+  if (typeof window === "undefined") return () => {};
+  const mql = window.matchMedia("(prefers-reduced-motion: reduce)");
+  mql.addEventListener("change", callback);
+  return () => mql.removeEventListener("change", callback);
+}
+
+function getReducedMotionSnapshot() {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+function getReducedMotionServerSnapshot() {
+  return false;
+}
 
 interface RevealOnScrollProps {
   children: ReactNode;
@@ -23,14 +39,14 @@ export function RevealOnScroll({
 }: RevealOnScrollProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const prefersReduced = useSyncExternalStore(
+    subscribeReducedMotion,
+    getReducedMotionSnapshot,
+    getReducedMotionServerSnapshot
+  );
 
   useEffect(() => {
-    // Respect prefers-reduced-motion
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
     if (prefersReduced) {
-      setIsVisible(true);
       return;
     }
 
@@ -56,7 +72,7 @@ export function RevealOnScroll({
     }
 
     return () => observer.disconnect();
-  }, [once]);
+  }, [once, prefersReduced]);
 
   const transforms: Record<string, string> = {
     up: "translateY(24px)",
@@ -66,15 +82,19 @@ export function RevealOnScroll({
     none: "none",
   };
 
+  const shouldShow = isVisible || prefersReduced;
+
   return (
     <div
       ref={ref}
       className={className}
       style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? "none" : transforms[direction],
-        transition: `opacity var(--duration-reveal) var(--ease-out) ${delay}ms, transform var(--duration-reveal) var(--ease-out) ${delay}ms`,
-        willChange: isVisible ? "auto" : "opacity, transform",
+        opacity: shouldShow ? 1 : 0,
+        transform: shouldShow ? "none" : transforms[direction],
+        transition: prefersReduced
+          ? "none"
+          : `opacity var(--duration-reveal) var(--ease-out) ${delay}ms, transform var(--duration-reveal) var(--ease-out) ${delay}ms`,
+        willChange: shouldShow ? "auto" : "opacity, transform",
       }}
     >
       {children}

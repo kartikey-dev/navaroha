@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { studioValues, processSteps } from "@/content/data";
+import { studioValues } from "@/content/data";
 import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
 import { CTASection } from "@/components/sections/CTASection";
 import { siteConfig } from "@/lib/site-config";

@@ -72,8 +72,12 @@ export default function RootLayout({
       lang="en"
       data-scroll-behavior="smooth"
       className={`${inter.variable} ${spaceGrotesk.variable} h-full antialiased scroll-smooth`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col text-[var(--color-text)] bg-[var(--color-background)] font-sans">
+      <body
+        className="min-h-full flex flex-col text-[var(--color-text)] bg-[var(--color-background)] font-sans"
+        suppressHydrationWarning
+      >
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

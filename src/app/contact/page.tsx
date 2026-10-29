@@ -52,6 +52,14 @@ export default function ContactPage() {
               >
                 <ContactForm />
               </Suspense>
+
+              {/* Quick FAQ */}
+              <div className="p-8 rounded-[var(--radius-2xl)] bg-white border border-[var(--color-border)] shadow-sm mt-6">
+                <h3 className="text-base font-bold text-slate-900 mb-4 font-heading">
+                  Quick Questions
+                </h3>
+                <Accordion items={faqItems.slice(0, 3)} />
+              </div>
             </div>
 
             {/* Sidebar Contact Info (5 Cols) */}
@@ -74,16 +82,21 @@ export default function ContactPage() {
 
                 <div className="pt-6 border-t border-[var(--color-border)]">
                   <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 mb-2">
-                    Phone & Call Support
+                    Phone & Direct Call Support
                   </h3>
-                  <a
-                    href={`tel:${siteConfig.contact.phoneRaw}`}
-                    className="text-base font-semibold text-slate-900 hover:text-[var(--color-primary)] transition-colors inline-flex items-center gap-2"
-                  >
-                    <span>📞</span> {siteConfig.contact.phoneDisplay}
-                  </a>
-                  <p className="text-xs text-slate-500 mt-0.5">
-                    Available Monday to Saturday, 9 AM – 7 PM IST.
+                  <div className="space-y-1.5">
+                    <div>
+                      <a
+                        href={`tel:${siteConfig.contact.phoneRaw}`}
+                        className="text-base font-semibold text-slate-900 hover:text-[var(--color-primary)] transition-colors inline-flex items-center gap-2"
+                      >
+                        <span>📞</span> {siteConfig.contact.phoneDisplay}, {siteConfig.contact.alternatePhoneDisplay}
+                      </a>
+                    </div>
+                  </div>
+                  <p className="text-xs text-emerald-600 font-medium mt-2 flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                    All-time available (24/7 direct response)
                   </p>
                 </div>
 
@@ -155,14 +168,6 @@ export default function ContactPage() {
                     </li>
                   </ol>
                 </div>
-              </div>
-
-              {/* Quick FAQ */}
-              <div className="p-8 rounded-[var(--radius-2xl)] bg-white border border-[var(--color-border)] shadow-sm">
-                <h3 className="text-base font-bold text-slate-900 mb-4 font-heading">
-                  Quick Questions
-                </h3>
-                <Accordion items={faqItems.slice(0, 3)} />
               </div>
             </div>
           </div>

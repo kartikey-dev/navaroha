@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { siteConfig } from "@/lib/site-config";
+import { services } from "@/content/data";
 
 export function ContactForm() {
   const searchParams = useSearchParams();
@@ -11,22 +11,21 @@ export function ContactForm() {
   const [formState, setFormState] = useState({
     name: "",
     email: "",
-    company: "",
     service: initialService,
-    budget: "",
-    timeline: "",
     message: "",
   });
+
+  const [prevInitialService, setPrevInitialService] = useState(initialService);
+  if (prevInitialService !== initialService) {
+    setPrevInitialService(initialService);
+    if (initialService) {
+      setFormState((prev) => ({ ...prev, service: initialService }));
+    }
+  }
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-
-  useEffect(() => {
-    if (initialService) {
-      setFormState((prev) => ({ ...prev, service: initialService }));
-    }
-  }, [initialService]);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -75,10 +74,7 @@ export function ContactForm() {
             setFormState({
               name: "",
               email: "",
-              company: "",
               service: "",
-              budget: "",
-              timeline: "",
               message: "",
             });
           }}
@@ -126,7 +122,7 @@ export function ContactForm() {
             htmlFor="email"
             className="block text-xs font-semibold uppercase tracking-wider text-slate-800 mb-2"
           >
-            Work Email <span className="text-rose-500">*</span>
+            Email Address <span className="text-rose-500">*</span>
           </label>
           <input
             id="email"
@@ -141,94 +137,27 @@ export function ContactForm() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <div>
-          <label
-            htmlFor="company"
-            className="block text-xs font-semibold uppercase tracking-wider text-slate-800 mb-2"
-          >
-            Company / Organization
-          </label>
-          <input
-            id="company"
-            name="company"
-            type="text"
-            value={formState.company}
-            onChange={handleChange}
-            placeholder="Acme Corp"
-            className="w-full px-4 py-3 rounded-[var(--radius-md)] border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-slate-900 bg-white"
-          />
-        </div>
-
-        <div>
-          <label
-            htmlFor="service"
-            className="block text-xs font-semibold uppercase tracking-wider text-slate-800 mb-2"
-          >
-            Primary Interest
-          </label>
-          <select
-            id="service"
-            name="service"
-            value={formState.service}
-            onChange={handleChange}
-            className="w-full px-4 py-3 rounded-[var(--radius-md)] border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-slate-900 bg-white"
-          >
-            <option value="">Select a service...</option>
-            <option value="website-development">Website Development</option>
-            <option value="web-applications">Web Applications & SaaS</option>
-            <option value="mobile-desktop-apps">Mobile & Desktop Apps</option>
-            <option value="ai-automation">AI & Workflow Automation</option>
-            <option value="technical-advisory">Technical Advisory & Architecture</option>
-          </select>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <div>
-          <label
-            htmlFor="budget"
-            className="block text-xs font-semibold uppercase tracking-wider text-slate-800 mb-2"
-          >
-            Expected Budget Range
-          </label>
-          <select
-            id="budget"
-            name="budget"
-            value={formState.budget}
-            onChange={handleChange}
-            className="w-full px-4 py-3 rounded-[var(--radius-md)] border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-slate-900 bg-white"
-          >
-            <option value="">Select budget range...</option>
-            <option value="5k-15k">$5,000 – $15,000</option>
-            <option value="15k-30k">$15,000 – $30,000</option>
-            <option value="30k-60k">$30,000 – $60,000</option>
-            <option value="60k+">$60,000+</option>
-            <option value="undecided">Undecided / Scoping phase</option>
-          </select>
-        </div>
-
-        <div>
-          <label
-            htmlFor="timeline"
-            className="block text-xs font-semibold uppercase tracking-wider text-slate-800 mb-2"
-          >
-            Desired Launch Window
-          </label>
-          <select
-            id="timeline"
-            name="timeline"
-            value={formState.timeline}
-            onChange={handleChange}
-            className="w-full px-4 py-3 rounded-[var(--radius-md)] border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-slate-900 bg-white"
-          >
-            <option value="">Select timeline...</option>
-            <option value="urgent">Immediate (Under 1 month)</option>
-            <option value="standard">1 – 3 months</option>
-            <option value="flexible">3 – 6 months</option>
-            <option value="exploratory">Exploratory / Planning</option>
-          </select>
-        </div>
+      <div>
+        <label
+          htmlFor="service"
+          className="block text-xs font-semibold uppercase tracking-wider text-slate-800 mb-2"
+        >
+          Primary Interest / Service
+        </label>
+        <select
+          id="service"
+          name="service"
+          value={formState.service}
+          onChange={handleChange}
+          className="w-full px-4 py-3 rounded-[var(--radius-md)] border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-slate-900 bg-white"
+        >
+          <option value="">Select a service...</option>
+          {services.map((s) => (
+            <option key={s.slug} value={s.slug}>
+              {s.title}
+            </option>
+          ))}
+        </select>
       </div>
 
       <div>
@@ -241,7 +170,7 @@ export function ContactForm() {
         <textarea
           id="message"
           name="message"
-          rows={4}
+          rows={5}
           required
           value={formState.message}
           onChange={handleChange}

@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { caseStudies } from "@/content/data";
 import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
 import { CTASection } from "@/components/sections/CTASection";
 
 export const metadata: Metadata = {
-  title: "Case Studies & Architectural Work",
+  title: "Selected Work & Case Studies",
   description:
-    "Explore how Navaroha architects and builds enterprise SaaS platforms, headless web flagships, intelligent AI pipelines, and cross-platform apps.",
+    "Explore how Navaroha architects and builds enterprise SaaS platforms, luxury web flagships, interactive 3D experiences, and cross-platform apps.",
 };
 
 export default function WorkPage() {
@@ -53,8 +52,32 @@ export default function WorkPage() {
                   </span>
                 </div>
 
-                <h2 className="text-2xl font-bold font-heading text-slate-900 group-hover:text-[var(--color-primary)] transition-colors mb-2">
-                  <Link href={`/work/${study.slug}`}>{study.title}</Link>
+                <h2 className="text-2xl font-bold font-heading text-slate-900 mb-2">
+                  {study.liveUrl ? (
+                    <a
+                      href={study.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-[var(--color-primary)] transition-colors inline-flex items-center gap-2 group/title"
+                    >
+                      <span>{study.title}</span>
+                      <svg
+                        className="w-4 h-4 opacity-70 group-hover/title:opacity-100 transition-opacity"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                    </a>
+                  ) : (
+                    study.title
+                  )}
                 </h2>
 
                 <p className="text-sm font-medium text-slate-700 mb-4">
@@ -95,27 +118,33 @@ export default function WorkPage() {
                   ))}
                 </div>
 
-                <div className="pt-2">
-                  <Link
-                    href={`/work/${study.slug}`}
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)] group-hover:gap-3 transition-all"
-                  >
-                    Read Technical Breakdown
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
+                {study.liveUrl && (
+                  <div className="pt-4 flex items-center justify-between gap-3 border-t border-slate-100 mt-auto">
+                    <a
+                      href={study.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)] hover:underline group-hover:gap-2.5 transition-all"
+                      aria-label={`Visit live site for ${study.title}`}
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M14 5l7 7m0 0l-7 7m7-7H3"
-                      />
-                    </svg>
-                  </Link>
-                </div>
+                      <span>Visit Live Website</span>
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                    </a>
+                    <span className="text-xs font-mono text-slate-400">Live ↗</span>
+                  </div>
+                )}
               </div>
             ))}
           </div>
