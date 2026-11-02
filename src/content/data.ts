@@ -586,6 +586,44 @@ export const caseStudies: CaseStudy[] = [
     liveUrl: "https://nilendrapatel1317.github.io/KMBCH-Bottle/",
   },
   {
+    slug: "thermal-energy-international",
+    title: "Thermal Energy International — Heavy Industrial Engineering & BTG Spares Portal",
+    category: "Industrial Engineering & B2B Web Flagship",
+    tagline: "Next.js enterprise digital portal featuring a 23-category product catalogue, automated RFQ workflows, and agent-readable LLM indexing.",
+    overview:
+      "Architected and engineered a comprehensive digital engineering portal and product catalogue for M/s. Thermal Energy International (TEI), a premier industrial supplier of Boiler & Turbine Auxiliaries, BTG Spares, and Fuel Oil Skids. Built with Next.js App Router, Tailwind CSS, Schema.org OfferCatalog structured data, agentic search optimization (llms.txt), and rapid RFQ quotation dispatch funnels.",
+    challenge:
+      "Heavy process and power plant operations require instant access to technical specifications, OEM-compatible spare parts across 23 heavy machinery categories, and rapid emergency breakdown quoting without wading through slow, fragmented static PDFs.",
+    solution:
+      "Developed a high-performance B2B web flagship featuring interactive 23-category catalogue navigation, instant WhatsApp technical sales connect, automated RFQ enquiry modal, downloadable PDF documentation, and cutting-edge agent-readable Markdown indexing (/llms.txt) for generative engine optimization (GEO).",
+    architectureHighlights: [
+      "Next.js App Router with server-side rendering for instant page transitions and high Core Web Vitals",
+      "Comprehensive 23-category industrial equipment catalogue and technical spec matrix",
+      "Dual-channel quote dispatch integrating interactive RFQ modals with WhatsApp sales links",
+      "Generative Engine Optimization (GEO) with agent-readable /llms.txt and /llms-full.txt endpoints",
+      "Exhaustive Schema.org LocalBusiness, ProfessionalService, and OfferCatalog JSON-LD structured data",
+      "High-contrast industrial design system with dark slate tones and high-visibility safety orange tokens",
+    ],
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Schema.org JSON-LD",
+      "LLMs.txt (GEO)",
+      "B2B Catalogue",
+      "Technical SEO",
+    ],
+    deliverables: [
+      "Production Next.js enterprise engineering portal deployed on Vercel",
+      "23-category industrial equipment and BTG spares catalogue directory",
+      "Automated Request for Quote (RFQ) modal and technical enquiry pipelines",
+      "Agent-readable llms.txt knowledge database for AI search engines",
+      "Mobile-first responsive architecture optimized for industrial engineers and procurement teams",
+    ],
+    liveUrl: "https://thermal-energy-international.vercel.app/",
+  },
+  {
     slug: "ai-photography",
     title: "AI Underwater Photography Platform",
     category: "Mobile & Hardware Integration",
