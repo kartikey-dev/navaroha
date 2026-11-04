@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { caseStudies } from "@/content/data";
 import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
 import { CTASection } from "@/components/sections/CTASection";
@@ -52,6 +53,18 @@ export default function WorkPage() {
                   </span>
                 </div>
 
+                {study.image && (
+                  <div className="relative h-60 sm:h-72 w-full rounded-2xl overflow-hidden mb-6 bg-slate-900 border border-slate-100">
+                    <Image
+                      src={study.image}
+                      alt={study.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                )}
+
                 <h2 className="text-2xl font-bold font-heading text-slate-900 mb-2">
                   {study.liveUrl ? (
                     <a
@@ -87,6 +100,24 @@ export default function WorkPage() {
                 <p className="text-sm text-slate-600 leading-relaxed mb-6 flex-1">
                   {study.overview}
                 </p>
+
+                {study.problem && (
+                  <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 mb-4 text-xs">
+                    <div className="font-bold uppercase tracking-wider text-slate-500 mb-1">
+                      Problem Addressed:
+                    </div>
+                    <div className="text-slate-700">{study.problem}</div>
+                  </div>
+                )}
+
+                {study.measurableResults && (
+                  <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200/80 mb-4 text-xs">
+                    <div className="font-bold uppercase tracking-wider text-emerald-800 mb-1">
+                      Measurable Results:
+                    </div>
+                    <div className="text-emerald-950 font-semibold">{study.measurableResults[0]}</div>
+                  </div>
+                )}
 
                 <div className="space-y-3 mb-6 pt-4 border-t border-slate-100">
                   <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-800">

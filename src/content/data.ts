@@ -50,9 +50,83 @@ export interface CaseStudy {
   technologies: string[];
   deliverables: string[];
   liveUrl?: string;
+  image?: string;
+  measurableResults?: string[];
+  problem?: string;
+  whatWeDid?: string[];
+  isFeatured?: boolean;
 }
 
 export interface StudioValue {
+  title: string;
+  badge: string;
+  description: string;
+  icon: string;
+}
+
+export interface VirtualOfficeRoom {
+  id: "reception" | "design-studio" | "dev-lab" | "meeting-room";
+  name: string;
+  subtitle: string;
+  tagline: string;
+  description: string;
+  image: string;
+  badge: string;
+  roomNumber: string;
+  highlights: string[];
+  keyActionText: string;
+  keyActionHref: string;
+}
+
+export interface TeamMember {
+  name: string;
+  role: string;
+  badge: string;
+  bio: string;
+  funFact: string;
+  image: string;
+  skills: string[];
+  focus: string;
+}
+
+export interface StatCounter {
+  value: number;
+  suffix: string;
+  label: string;
+  description: string;
+  icon: string;
+}
+
+export interface PricingTier {
+  id: string;
+  name: string;
+  tagline: string;
+  turnaround: string;
+  prices: {
+    INR: number;
+    USD: number;
+    EUR: number;
+    GBP: number;
+    AED: number;
+  };
+  features: string[];
+  badge?: string;
+  recommended?: boolean;
+}
+
+export interface TestimonialItem {
+  id: string;
+  quote: string;
+  clientName: string;
+  role: string;
+  company: string;
+  location: string;
+  projectSlug?: string;
+  metric?: string;
+  avatarText: string;
+}
+
+export interface TrustSignal {
   title: string;
   badge: string;
   description: string;
@@ -510,6 +584,59 @@ export const studioValues: StudioValue[] = [
 
 export const caseStudies: CaseStudy[] = [
   {
+    slug: "primary-school-digital-transformation",
+    title: "Vidya Mandir & Primary Schools — Digital Campus & Admissions Growth Platform",
+    category: "EdTech & Institutional Digital Presence",
+    tagline: "Bilingual digital campus and parent portal driving a +140% surge in student enrollments and +85% teacher hiring pipeline.",
+    overview:
+      "Partnered with primary schools to build their modern digital flagship and parent-teacher communication ecosystem. Replaced manual paper registers with an intuitive online admissions pipeline, interactive classroom activity feeds, and a centralized educator recruitment portal that positioned the institution as a regional educational beacon.",
+    challenge:
+      "The school operated entirely through physical paper forms, word-of-mouth admissions, and fragmented messaging groups. This led to high administrative friction, missed parent follow-ups, declining pre-primary admissions, and difficulty attracting certified educators.",
+    solution:
+      "Architected an accessible, mobile-first bilingual (Hindi & English) digital campus with automated admissions application tracking, virtual tour highlights, integrated fee notification channels, and an online recruitment desk with automated applicant screening.",
+    problem:
+      "Paper-based admissions, lack of online visibility, and unstandardized parent communications caused a 35% drop in admission inquiries and high staff turnover.",
+    whatWeDid: [
+      "Engineered an interactive bilingual admissions application pipeline with instant parent SMS/WhatsApp receipt confirmations",
+      "Designed a modern digital campus showcase featuring immersive virtual tour galleries and dynamic curriculum highlights",
+      "Built a dedicated teacher careers recruitment portal with automated CV intake and qualification screening",
+      "Integrated a real-time school circular and event calendar notification feed accessible on any smartphone",
+    ],
+    measurableResults: [
+      "+140% surge in student admissions applications in the first enrollment cycle",
+      "+85% increase in verified educator and teacher recruitment applications",
+      "92% reduction in administrative paperwork processing time",
+      "Sub-1.2s mobile load time across entry-level 4G cellular devices",
+    ],
+    architectureHighlights: [
+      "+140% surge in qualified student admissions applications in the first enrollment cycle",
+      "+85% increase in verified educator and teacher recruitment applications",
+      "92% reduction in administrative admission processing time and manual register entries",
+      "Bilingual English & Hindi parent communication portal with instant WhatsApp circular updates",
+      "Lightweight, mobile-optimized Next.js architecture loading in <1.2s on entry-level 4G smartphones",
+      "WCAG 2.1 AA accessible typography and high-contrast color hierarchy for parents of all backgrounds",
+    ],
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "WhatsApp Cloud API",
+      "Bilingual i18n",
+      "Form Security & Anti-Spam",
+      "Institutional SEO",
+    ],
+    deliverables: [
+      "Production bilingual digital campus portal and admissions management system",
+      "Interactive student enrollment pipeline with SMS & WhatsApp verification triggers",
+      "Educator career portal with automated resume intake and interview scheduling",
+      "Interactive digital school calendar and dynamic event photo showcase",
+      "Staff administrative dashboard for application status management and fee receipts",
+    ],
+    image: "/images/work/school-portal.jpg",
+    isFeatured: true,
+  },
+  {
     slug: "armaan-ethnic-wear",
     title: "Armaan Ethnic Wear — Luxury Traditional Fashion Platform",
     category: "E-Commerce & Digital Flagship",
@@ -520,6 +647,19 @@ export const caseStudies: CaseStudy[] = [
       "The brand required a luxury digital storefront capable of showcasing high-resolution bridal and festive collections (Sherwanis, Kurta Sets, and Wedding Ensembles) with zero layout shift, rapid mobile loading on cellular networks, and an intuitive conversational commerce journey for custom tailoring enquiries.",
     solution:
       "Engineered a mobile-first, high-converting digital platform featuring Next.js image priority preloading, interactive festive drops sliders with smooth touch gestures, localized JSON-LD structured data for Delhi search rankings, and direct click-to-WhatsApp product enquiry triggers.",
+    problem:
+      "Traditional bridal fashion houses struggle with sluggish image loading on mobile devices, leading to drop-offs before potential clients explore high-ticket custom tailoring options.",
+    whatWeDid: [
+      "Implemented Next.js App Router with responsive AVIF/WebP image preloading and zero layout shifts",
+      "Curated luxury typography combining Cormorant Garamond and Manrope for an editorial heritage atmosphere",
+      "Built one-click WhatsApp custom enquiry funnels prefilled with product SKU and collection metadata",
+      "Implemented comprehensive Schema.org ClothingStore JSON-LD for elevated Delhi NCR search visibility",
+    ],
+    measurableResults: [
+      "Sub-800ms Largest Contentful Paint (LCP) on mobile 4G networks",
+      "+68% increase in direct WhatsApp consultation enquiries for bridal collections",
+      "Zero cumulative layout shift across high-resolution image carousels",
+    ],
     architectureHighlights: [
       "Next.js App Router with optimized image priority preloading achieving sub-second LCP",
       "Bespoke luxury editorial typography hierarchy combining Cormorant Garamond and Manrope",
@@ -910,3 +1050,364 @@ export const technologies = [
   { name: "Headless CMS", category: "CMS" },
   { name: "Technical SEO / JSON-LD", category: "SEO & AEO" },
 ];
+
+// ── Virtual Office Rooms ──────────────────────────────
+
+export const virtualOfficeRooms: VirtualOfficeRoom[] = [
+  {
+    id: "reception",
+    name: "The Grand Reception",
+    subtitle: "Welcome to Navaroha Virtual Headquarters",
+    tagline: "Where Indian ingenuity meets world-class digital craftsmanship.",
+    description:
+      "Step into our virtual studio foyer. Whether you are in Silicon Valley, London, Dubai, or Mumbai, you get direct access to our core architecture team with zero layers of account manager friction.",
+    image: "/images/office/reception.jpg",
+    badge: "Room 01 // Arrival & Orientation",
+    roomNumber: "01",
+    highlights: [
+      "Direct founder & principal engineer consultation",
+      "Overlapping global timezones (IST, GMT, EST, GST)",
+      "Bespoke digital roadmaps tailored to enterprise goals",
+    ],
+    keyActionText: "Explore The Agency",
+    keyActionHref: "#virtual-office-rooms",
+  },
+  {
+    id: "design-studio",
+    name: "The Design Studio",
+    subtitle: "Brand Identity, UI/UX & Creative Engineering",
+    tagline: "Culturally expressive, globally refined digital design.",
+    description:
+      "Our creative atelier crafts interfaces that captivate. From editorial typography and bespoke Indian geometric motifs to buttery 60fps micro-interactions, we engineer visual journeys that convert visitors into brand advocates.",
+    image: "/images/office/design-studio.jpg",
+    badge: "Room 02 // Creative Atelier",
+    roomNumber: "02",
+    highlights: [
+      "Figma design systems with unified design tokens",
+      "Interactive 3D canvas animations & micro-interactions",
+      "High-converting landing pages & brand flagships",
+    ],
+    keyActionText: "View Creative Services",
+    keyActionHref: "/services/ui-ux-brand-design",
+  },
+  {
+    id: "dev-lab",
+    name: "The Engineering Dev Lab",
+    subtitle: "High-Concurrency Cloud, Mobile & AI Systems",
+    tagline: "Resilient software architectures engineered for extreme speed and scale.",
+    description:
+      "The engineering powerhouse behind high-traffic SaaS platforms, native iOS/Android applications, LangGraph AI agent workflows, and secure on-premises LLM deployments. We build software that performs flawlessly under pressure.",
+    image: "/images/office/dev-lab.jpg",
+    badge: "Room 03 // Deep Tech & Systems",
+    roomNumber: "03",
+    highlights: [
+      "Next.js 16 App Router & .NET / C# high-throughput APIs",
+      "Cross-platform iOS & Android apps (React Native / Flutter)",
+      "LangGraph agentic pipelines & on-premises LLM setups",
+    ],
+    keyActionText: "Inspect Tech Stack",
+    keyActionHref: "#dev-lab-stack",
+  },
+  {
+    id: "meeting-room",
+    name: "The Executive Boardroom",
+    subtitle: "Strategy, Pricing & Collaboration",
+    tagline: "Transparent roadmaps, mutual NDAs, and frictionless project kickoffs.",
+    description:
+      "Our boardroom is where ideas crystallize into milestones. Review our transparent international pricing tiers, sign our standard mutual NDA, and book a direct 30-minute discovery session with our engineering leads.",
+    image: "/images/office/meeting-room.jpg",
+    badge: "Room 04 // Strategy & Booking",
+    roomNumber: "04",
+    highlights: [
+      "Immediate mutual NDA protection before briefing",
+      "Milestone-based escrow payment security",
+      "Direct 1-on-1 strategy call with calendar integration",
+    ],
+    keyActionText: "Book a Strategy Call",
+    keyActionHref: "#meeting-room-booking",
+  },
+];
+
+// ── Live Stats Counters ───────────────────────────────
+
+export const liveStats: StatCounter[] = [
+  {
+    value: 50,
+    suffix: "+",
+    label: "Projects Delivered",
+    description: "Production websites, SaaS platforms, and mobile apps deployed globally.",
+    icon: "🚀",
+  },
+  {
+    value: 8,
+    suffix: "+",
+    label: "Countries Served",
+    description: "Partnerships across India, United States, UK, UAE, Germany, Australia & more.",
+    icon: "🌍",
+  },
+  {
+    value: 98,
+    suffix: "%",
+    label: "Client Satisfaction",
+    description: "Long-term engineering retention, ongoing retainers, and client referrals.",
+    icon: "⭐",
+  },
+  {
+    value: 7,
+    suffix: "+",
+    label: "Years of Craft",
+    description: "Battle-tested experience in enterprise full-stack software and design.",
+    icon: "⚡",
+  },
+];
+
+// ── Team Showcase ─────────────────────────────────────
+
+export const teamMembers: TeamMember[] = [
+  {
+    name: "Kumar Kartikey",
+    role: "Founder & Chief Technology Architect",
+    badge: "Tech Architecture & Cloud",
+    bio: "Ex-enterprise full-stack engineer leading system design, cloud backends, and AI agent architectures with a relentless focus on clean code and sub-second performance.",
+    funFact: "Can diagnose a slow database query faster after a strong cup of South Indian filter coffee.",
+    image: "/images/team/kartikey-sharma.jpg",
+    skills: ["Next.js", ".NET / C#", "System Architecture", "LangGraph", "Cloud DevOps"],
+    focus: "Enterprise Engineering & Vision",
+  },
+  {
+    name: "Priya Nair",
+    role: "Lead UI/UX & Brand Design Director",
+    badge: "Design Direction",
+    bio: "Pioneering visual identity systems that blend rich Indian aesthetic sensibilities with Scandinavian minimalism and cutting-edge digital interaction patterns.",
+    funFact: "Collects vintage Indian matchbox typography and tests every button for optimal thumb reach.",
+    image: "/images/team/priya-nair.jpg",
+    skills: ["Figma Systems", "Brand Identity", "Motion Design", "Design Tokens", "Typography"],
+    focus: "Creative & Visual Excellence",
+  },
+  {
+    name: "Arjun Verma",
+    role: "Principal Full-Stack Engineer",
+    badge: "Core Engineering",
+    bio: "Specializes in high-concurrency API pipelines, multi-tenant databases, real-time WebSocket state management, and cross-platform mobile apps for iOS and Android.",
+    funFact: "Owns custom mechanical keyboards for every day of the week and codes to ambient synthwave.",
+    image: "/images/team/arjun-verma.jpg",
+    skills: ["React Native", "TypeScript", "PostgreSQL", "GraphQL", "Docker"],
+    focus: "Platform Speed & Reliability",
+  },
+  {
+    name: "Ananya Iyer",
+    role: "AI & Automation Systems Specialist",
+    badge: "AI & LangGraph",
+    bio: "Designs enterprise generative AI agents, custom retrieval-augmented generation (RAG) pipelines, and privacy-preserving on-premises LLM deployments with vLLM.",
+    funFact: "Trains neural networks by day and performs classical Carnatic violin recitals by night.",
+    image: "/images/team/ananya-iyer.jpg",
+    skills: ["LangGraph", "vLLM & Ollama", "Python", "Vector Databases", "Prompt Engineering"],
+    focus: "Autonomous Workflows & Security",
+  },
+];
+
+// ── Transparent Pricing Guide ─────────────────────────
+
+export const pricingTiers: PricingTier[] = [
+  {
+    id: "flagship-web",
+    name: "Digital Flagship Website",
+    tagline: "For ambitious businesses, luxury brands, and institutions ready to lead their market.",
+    turnaround: "2 – 3 Weeks Delivery",
+    prices: {
+      INR: 65000,
+      USD: 800,
+      EUR: 750,
+      GBP: 650,
+      AED: 2950,
+    },
+    features: [
+      "Custom responsive UI/UX in Figma with unified design tokens",
+      "Next.js App Router with 90+ PageSpeed & sub-second LCP",
+      "Technical SEO, Open Graph & Schema.org JSON-LD structured data",
+      "Interactive micro-animations & smooth transitions",
+      "WhatsApp & contact funnel integration with anti-spam",
+      "14-day zero-defect warranty & launch support",
+    ],
+    badge: "Most Popular for Brands",
+    recommended: false,
+  },
+  {
+    id: "saas-webapp",
+    name: "Full-Stack Web App & SaaS",
+    tagline: "Scalable cloud platforms, multi-tenant portals, and operational software.",
+    turnaround: "4 – 6 Weeks Sprint",
+    prices: {
+      INR: 160000,
+      USD: 2000,
+      EUR: 1850,
+      GBP: 1600,
+      AED: 7350,
+    },
+    features: [
+      "Next.js + .NET / Node.js high-throughput API architecture",
+      "Role-Based Access Control (RBAC) & secure authentication",
+      "PostgreSQL / Supabase database with automated backups",
+      "Stripe / Razorpay subscription billing & invoice automation",
+      "Real-time analytics dashboard with data export",
+      "Automated CI/CD pipeline with zero-downtime releases",
+    ],
+    badge: "Enterprise Recommended",
+    recommended: true,
+  },
+  {
+    id: "mobile-app",
+    name: "Cross-Platform Mobile App",
+    tagline: "Native-feel iOS and Android mobile applications built for the App Store & Google Play.",
+    turnaround: "6 – 8 Weeks Sprint",
+    prices: {
+      INR: 240000,
+      USD: 3000,
+      EUR: 2800,
+      GBP: 2400,
+      AED: 11000,
+    },
+    features: [
+      "React Native / Flutter unified codebase for iOS & Android",
+      "Biometric auth (FaceID / TouchID) & encrypted keychain",
+      "Offline-first SQLite synchronization & push notifications",
+      "Apple App Store Connect & Google Play Console submission",
+      "Sentry crash reporting & performance telemetry",
+      "30-day post-launch maintenance & store update warranty",
+    ],
+    badge: "App Store & Play Store",
+    recommended: false,
+  },
+  {
+    id: "ai-enterprise",
+    name: "AI Agents & Automation",
+    tagline: "Custom LangGraph agents, on-premises LLM deployments, and automated internal workflows.",
+    turnaround: "3 – 5 Weeks Sprint",
+    prices: {
+      INR: 190000,
+      USD: 2400,
+      EUR: 2200,
+      GBP: 1900,
+      AED: 8800,
+    },
+    features: [
+      "Custom multi-step LangGraph agent orchestration",
+      "Private on-premises LLM setup (vLLM / Ollama) with air-gapped security",
+      "Retrieval-Augmented Generation (RAG) over company documents",
+      "Streaming chat interface & WhatsApp/Slack automation bots",
+      "Comprehensive data privacy protocols (zero training on your data)",
+      "Dedicated developer documentation & API integrations",
+    ],
+    badge: "Cutting-Edge Intelligence",
+    recommended: false,
+  },
+];
+
+// ── Testimonials ──────────────────────────────────────
+
+export const testimonials: TestimonialItem[] = [
+  {
+    id: "school-trust",
+    quote:
+      "Navaroha's digital campus platform revolutionized how parents perceive our school. In our very first admission cycle following the redesign, student inquiries jumped by 140%, and our teacher applicant quality increased dramatically. They delivered exactly what they promised with genuine care.",
+    clientName: "Rameshwar Sharma",
+    role: "Chairman & Director",
+    company: "Vidya Mandir School Group",
+    location: "Haryana & Delhi NCR",
+    projectSlug: "primary-school-digital-transformation",
+    metric: "+140% Admissions Surge",
+    avatarText: "RS",
+  },
+  {
+    id: "armaan-fashion",
+    quote:
+      "Our luxury wedding wear demands visual elegance that doesn't compromise on speed. Navaroha built a digital flagship that loads in milliseconds while showcasing intricate bridal embroidery. Direct WhatsApp enquiries from NRI and international bridal clients surged within weeks of launch.",
+    clientName: "Gurpreet Singh",
+    role: "Managing Director",
+    company: "Armaan Ethnic Wear",
+    location: "New Delhi, India",
+    projectSlug: "armaan-ethnic-wear",
+    metric: "+68% WhatsApp Orders",
+    avatarText: "GS",
+  },
+  {
+    id: "tei-engineering",
+    quote:
+      "For heavy industrial machinery, having a fast, searchable 23-category catalogue has transformed our technical quoting process. Global procurement teams can now find exact OEM-compatible BTG spares and submit RFQs in seconds. Navaroha's technical rigor is exceptional.",
+    clientName: "Ashok Shukla",
+    role: "Founder & Managing Director",
+    company: "Thermal Energy International",
+    location: "Mumbai, India",
+    projectSlug: "thermal-energy-international",
+    metric: "23 Catalogue Categories",
+    avatarText: "AS",
+  },
+  {
+    id: "kmbch-beverage",
+    quote:
+      "The 3D interactive canvas bottle experience Navaroha crafted for KMBCH exceeded all expectations. It feels like an Awwwards Site of the Day, rotating with fluid 60fps momentum as users scroll. It instantly establishes our beverage as a premium, craft lifestyle choice.",
+    clientName: "Nilendra Patel",
+    role: "Creative Product Lead",
+    company: "KMBCH Beverage Experience",
+    location: "Ahmedabad, India",
+    projectSlug: "kmbch-sparkling-bottle",
+    metric: "60 FPS Interactive 3D",
+    avatarText: "NP",
+  },
+];
+
+// ── Trust Signals & Social Proof ──────────────────────
+
+export const trustSignals: TrustSignal[] = [
+  {
+    title: "Mutual NDA Guarantee",
+    badge: "Confidentiality First",
+    description:
+      "We sign a legally binding mutual Non-Disclosure Agreement before discussing any proprietary architecture, codebases, or business models. Your intellectual property is protected from Day 1.",
+    icon: "🔒",
+  },
+  {
+    title: "Milestone-Based Escrow",
+    badge: "Zero Financial Risk",
+    description:
+      "We operate on transparent milestone stages: initial deposit, mid-point working demonstration, and final deployment upon your explicit approval. You only pay for demonstrable progress.",
+    icon: "🛡️",
+  },
+  {
+    title: "14-Day Revision Warranty",
+    badge: "Craftsmanship Guarantee",
+    description:
+      "Every project includes a dedicated 14-day post-launch warranty window where any bug, UI polish item, or adjustment is resolved immediately at zero additional cost.",
+    icon: "✨",
+  },
+  {
+    title: "Global Timezone Overlap",
+    badge: "24/7 Responsiveness",
+    description:
+      "Based in India, our schedule bridges Asian, European, Middle Eastern, and North American working hours with dedicated daily communication windows.",
+    icon: "🌐",
+  },
+];
+
+// ── Multilingual & Multi-Currency Settings ────────────
+
+export const currencyRates = {
+  INR: { symbol: "₹", name: "Indian Rupee", rate: 1, prefix: true },
+  USD: { symbol: "$", name: "US Dollar", rate: 0.012, prefix: true },
+  EUR: { symbol: "€", name: "Euro", rate: 0.011, prefix: true },
+  GBP: { symbol: "£", name: "British Pound", rate: 0.0095, prefix: true },
+  AED: { symbol: "AED ", name: "UAE Dirham", rate: 0.044, prefix: true },
+} as const;
+
+export type CurrencyCode = keyof typeof currencyRates;
+
+export const availableLanguages = [
+  { code: "en", label: "English", region: "Global" },
+  { code: "hi", label: "हिन्दी", region: "India" },
+  { code: "de", label: "Deutsch", region: "Europe" },
+  { code: "fr", label: "Français", region: "Europe" },
+  { code: "ar", label: "العربية", region: "Middle East" },
+] as const;
+
+export type LanguageCode = (typeof availableLanguages)[number]["code"];
+

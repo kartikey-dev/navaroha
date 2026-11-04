@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
+import { CurrencyLanguageBar } from "@/components/layout/CurrencyLanguageBar";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -57,6 +58,7 @@ export function Header() {
           : "none",
       }}
     >
+      <CurrencyLanguageBar />
       <div className="container-main">
         <nav
           className="flex items-center justify-between"

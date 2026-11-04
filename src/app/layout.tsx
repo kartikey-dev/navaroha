@@ -3,6 +3,8 @@ import Script from "next/script";
 import { Inter, Space_Grotesk } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { FloatingLeadWidget } from "@/components/ui/FloatingLeadWidget";
+import { LocalizationProvider } from "@/context/LocalizationContext";
 import { siteConfig } from "@/lib/site-config";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
@@ -93,9 +95,12 @@ export default function RootLayout({
             gtag('config', 'G-HPLSPPKJ0R');
           `}
         </Script>
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <LocalizationProvider>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <FloatingLeadWidget />
+        </LocalizationProvider>
         <Analytics />
       </body>
     </html>
