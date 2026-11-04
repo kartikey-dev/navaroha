@@ -9,69 +9,71 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "About Navaroha — Technology & Digital Products Studio",
   description:
-    "Learn about Navaroha's mission, values, engineering philosophy, and commitment to building truthful, high-impact digital experiences.",
+    "Learn about Navaroha's mission, values, engineering philosophy, and commitment to building truthful, high-impact digital experiences from our virtual office headquarters.",
 };
 
 export default function AboutPage() {
   return (
-    <>
+    <div className="bg-[#070A12] text-slate-100 min-h-screen">
       {/* Hero */}
       <section
-        className="relative pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(59, 130, 246, 0.08), transparent 60%)",
-        }}
+        className="relative pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden jali-pattern-dark border-b border-white/10"
       >
-        <div className="container-main text-center">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 pointer-events-none opacity-40"
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(59, 130, 246, 0.2), transparent 70%)",
+          }}
+        />
+        <div className="container-main text-center relative z-10">
           <RevealOnScroll>
-            <p className="text-eyebrow mb-4">About Navaroha</p>
-            <h1 className="text-h1 max-w-3xl mx-auto mb-6">
-              Engineering with conviction, transparency, and care
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-white/10 text-xs font-semibold text-[var(--color-cyan)] mb-4">
+              <span>🏛️ Navaroha Virtual Headquarters</span>
+              <span>•</span>
+              <span>Indian Creativity · Global Scale</span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold font-heading text-white max-w-4xl mx-auto mb-6 tracking-tight">
+              Engineering with Conviction,{" "}
+              <span className="text-gradient">Transparency, and Craft</span>
             </h1>
-            <p className="text-body-lg max-w-2xl mx-auto text-[var(--color-text-secondary)]">
-              {siteConfig.supportingMessage}
+            <p className="text-body-lg max-w-3xl mx-auto text-slate-300 leading-relaxed">
+              {siteConfig.supportingMessage} We bridge deep Indian technical discipline with internationally competitive design aesthetics to build durable digital products for worldwide founders.
             </p>
           </RevealOnScroll>
         </div>
       </section>
 
       {/* Story & Ethos */}
-      <section className="py-20 border-t border-[var(--color-border)]">
+      <section className="py-20 border-b border-white/10">
         <div className="container-main">
           <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-14">
             <div className="shrink-0 flex justify-center">
               <Image
                 src="/brand/navaroha-card.png"
                 alt="Navaroha Brand Emblem"
-                width={223}
-                height={154}
-                className="rounded-2xl shadow-xl border border-slate-800 w-52 md:w-60 h-auto"
+                width={240}
+                height={165}
+                className="rounded-2xl shadow-[0_0_40px_rgba(59,130,246,0.3)] border border-slate-700 w-56 md:w-64 h-auto"
               />
             </div>
             <div className="flex-1">
-              <h2 className="text-2xl md:text-3xl font-bold font-heading text-[var(--color-midnight)] mb-6">
+              <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-cyan)] mb-2 block">
+                Our Genesis
+              </span>
+              <h2 className="text-2xl md:text-3xl font-bold font-heading text-white mb-6">
                 A studio built on principles, not templates
               </h2>
-              <div className="space-y-4 text-base md:text-lg text-slate-700 leading-relaxed font-sans">
+              <div className="space-y-4 text-base text-slate-300 leading-relaxed font-sans">
                 <p>
-                  Navaroha was founded with a straightforward perspective:
-                  businesses don&apos;t just need more code—they need thoughtful,
-                  durable digital products that solve real problems.
+                  Navaroha was founded with a straightforward perspective: businesses do not just need more lines of code—they need thoughtful, durable digital products that solve real operational bottlenecks.
                 </p>
                 <p>
-                  Too many development agencies operate like assembly lines,
-                  handing off fragile code built on bloated templates with no
-                  regard for long-term maintainability or real business impact.
-                  When the contract ends, clients are left with technical debt and
-                  inscrutable systems.
+                  Too many agencies operate like assembly lines, handing off fragile code built on bloated WordPress themes or cookie-cutter templates with no regard for long-term maintainability or real business impact. When the handover is complete, clients are left with technical debt and inscrutable systems.
                 </p>
                 <p>
-                  We do things differently. We operate as an extension of your
-                  founding or leadership team. We take the time to understand your
-                  operational constraints, design interfaces that real humans enjoy
-                  using, and write strict, tested code that your future engineers
-                  will thank you for.
+                  We operate as your high-calibre technical wing. We take the time to understand your commercial objectives, design interfaces that captivate real humans, and write strict, tested code that scales effortlessly to millions.
                 </p>
               </div>
             </div>
@@ -80,11 +82,13 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values */}
-      <section className="py-20 bg-slate-50 border-y border-[var(--color-border)]">
+      <section className="py-20 bg-[#0B0F1A] border-b border-white/10">
         <div className="container-main">
           <div className="text-center mb-16">
-            <p className="text-eyebrow mb-3">Our Foundation</p>
-            <h2 className="text-3xl font-bold font-heading text-slate-900">
+            <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-cyan)]">
+              Our Operating System
+            </span>
+            <h2 className="text-3xl font-bold font-heading text-white mt-1">
               The values that guide every line of code
             </h2>
           </div>
@@ -93,18 +97,18 @@ export default function AboutPage() {
             {studioValues.map((value) => (
               <div
                 key={value.title}
-                className="p-8 rounded-[var(--radius-2xl)] bg-white border border-[var(--color-border)] shadow-sm"
+                className="p-8 rounded-3xl bg-slate-900/60 backdrop-blur-xl border border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.5)] hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] transition-all duration-300"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-3xl">{value.icon}</span>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)] bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
+                  <span className="text-3xl drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">{value.icon}</span>
+                  <span className="text-xs font-mono uppercase tracking-wider text-blue-400 bg-blue-950/60 px-3 py-1 rounded-full border border-blue-800/80">
                     {value.badge}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3 font-heading">
+                <h3 className="text-xl font-bold text-white mb-3 font-heading">
                   {value.title}
                 </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
+                <p className="text-sm text-slate-300 leading-relaxed">
                   {value.description}
                 </p>
               </div>
@@ -116,26 +120,23 @@ export default function AboutPage() {
       {/* Honest Commitment */}
       <section className="py-20">
         <div className="container-main">
-          <div className="max-w-3xl mx-auto rounded-[var(--radius-2xl)] p-8 md:p-12 border border-[var(--color-border)] bg-[var(--color-midnight)] text-white text-center">
-            <p className="text-xs font-semibold uppercase tracking-wider text-[var(--color-cyan)] mb-3">
+          <div className="max-w-3xl mx-auto rounded-3xl p-8 md:p-12 border border-white/15 bg-slate-900/80 backdrop-blur-xl shadow-[0_0_50px_rgba(59,130,246,0.2)] text-white text-center">
+            <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-cyan)] mb-3 inline-block">
               Our Truthful Commitment
-            </p>
+            </span>
             <h2 className="text-2xl md:text-3xl font-bold font-heading mb-4">
-              Real engineering. No smoke and mirrors.
+              Real engineering. Absolute ethics. No smoke and mirrors.
             </h2>
             <p className="text-sm md:text-base text-slate-300 leading-relaxed mb-8">
-              We never fabricate client logos, fake metrics, or exaggerate
-              certifications. Every project we commit to receives direct attention
-              from experienced engineers and designers who care about the outcome
-              as much as you do.
+              We never fabricate client logos, fake metrics, or exaggerate certifications. Every project we commit to receives direct attention from senior architects and designers who care about the commercial outcome as much as you do.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/contact" className="btn-primary">
+              <Link href="/contact" className="btn btn-primary shadow-[0_0_20px_rgba(59,130,246,0.4)]">
                 Start a Conversation
               </Link>
               <Link
                 href="/services"
-                className="btn-secondary !text-white !border-slate-700 hover:!border-slate-500"
+                className="btn btn-secondary text-slate-200 hover:text-white"
               >
                 Explore Capabilities
               </Link>
@@ -145,6 +146,6 @@ export default function AboutPage() {
       </section>
 
       <CTASection />
-    </>
+    </div>
   );
 }

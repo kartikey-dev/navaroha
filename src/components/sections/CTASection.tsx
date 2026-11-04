@@ -7,18 +7,20 @@ export function CTASection() {
     <section
       id="cta"
       aria-labelledby="cta-heading"
-      className="section-padding"
+      className="section-padding bg-[#070A12] relative overflow-hidden"
     >
       <div className="container-main">
         <RevealOnScroll>
           <div
+            className="border border-white/15 shadow-[0_0_60px_-15px_rgba(59,130,246,0.25)]"
             style={{
               position: "relative",
               overflow: "hidden",
               borderRadius: "var(--radius-2xl)",
-              padding: "4rem 2rem",
+              padding: "4.5rem 2rem",
               textAlign: "center",
-              background: "var(--color-midnight)",
+              background: "rgba(11, 15, 26, 0.95)",
+              backdropFilter: "blur(20px)",
             }}
           >
             {/* Gradient orbs */}

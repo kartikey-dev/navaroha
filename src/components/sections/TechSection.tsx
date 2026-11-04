@@ -6,27 +6,25 @@ export function TechSection() {
     <section
       id="technologies"
       aria-labelledby="tech-heading"
-      className="section-padding"
+      className="section-padding bg-[#070A12] border-y border-white/10 relative overflow-hidden jali-pattern-dark"
     >
-      <div className="container-main">
+      <div className="container-main relative z-10">
         <RevealOnScroll>
           <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <p className="text-eyebrow" style={{ marginBottom: "0.75rem" }}>
-              Technology
-            </p>
-            <h2 className="text-h2" id="tech-heading">
-              Modern tools, proven results
+            <span className="text-eyebrow mb-2 block !text-[var(--color-cyan)]">
+              Dev Lab Tech Matrix
+            </span>
+            <h2 className="text-h2 text-white" id="tech-heading">
+              Modern Tools, Proven Resilience
             </h2>
             <p
-              className="text-body-lg"
+              className="text-body-lg text-slate-300"
               style={{
-                color: "var(--color-text-secondary)",
                 maxWidth: "540px",
                 margin: "1rem auto 0",
               }}
             >
-              We choose the right tools for each project — never the other way
-              around.
+              We choose battle-tested technologies with strong ecosystems — never risky abstractions.
             </p>
           </div>
         </RevealOnScroll>
@@ -35,14 +33,14 @@ export function TechSection() {
           <div
             className="flex flex-wrap justify-center gap-3"
             style={{
-              maxWidth: "700px",
+              maxWidth: "800px",
               margin: "0 auto",
             }}
           >
             {technologies.map((tech) => (
               <span
                 key={tech.name}
-                className="px-5 py-2.5 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] text-sm font-medium text-[var(--color-text-secondary)] transition-all duration-200 cursor-default hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] hover:bg-blue-50/50"
+                className="px-5 py-2.5 rounded-full border border-white/10 bg-slate-900/80 backdrop-blur-md text-sm font-medium text-slate-300 transition-all duration-200 cursor-default hover:border-blue-500/60 hover:text-white hover:bg-blue-500/15 hover:shadow-[0_0_20px_rgba(59,130,246,0.25)] hover:-translate-y-0.5"
               >
                 {tech.name}
               </span>

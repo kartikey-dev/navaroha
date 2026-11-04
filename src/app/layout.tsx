@@ -75,11 +75,11 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${inter.variable} ${spaceGrotesk.variable} h-full antialiased scroll-smooth`}
+      className={`${inter.variable} ${spaceGrotesk.variable} h-full antialiased scroll-smooth bg-[#070A12] text-slate-100`}
       suppressHydrationWarning
     >
       <body
-        className="min-h-full flex flex-col text-[var(--color-text)] bg-[var(--color-background)] font-sans"
+        className="min-h-full flex flex-col text-slate-100 bg-[#070A12] font-sans selection:bg-blue-500/30 selection:text-white"
         suppressHydrationWarning
       >
         <Script

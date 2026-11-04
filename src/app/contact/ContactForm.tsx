@@ -56,17 +56,15 @@ export function ContactForm() {
 
   if (isSubmitted) {
     return (
-      <div className="p-8 md:p-12 rounded-[var(--radius-2xl)] bg-emerald-50 border border-emerald-200 text-center">
-        <div className="w-16 h-16 rounded-full bg-emerald-500 text-white flex items-center justify-center mx-auto mb-4 text-2xl">
+      <div className="p-8 md:p-12 rounded-3xl bg-emerald-950/40 border border-emerald-800/60 backdrop-blur-xl text-center shadow-[0_0_40px_rgba(16,185,129,0.2)]">
+        <div className="w-16 h-16 rounded-full bg-emerald-500 text-white flex items-center justify-center mx-auto mb-4 text-2xl shadow-lg">
           ✓
         </div>
-        <h3 className="text-2xl font-bold font-heading text-emerald-950 mb-2">
-          Thank you for reaching out!
+        <h3 className="text-2xl font-bold font-heading text-white mb-2">
+          Enquiry Received Under Mutual NDA
         </h3>
-        <p className="text-emerald-800 text-sm md:text-base max-w-md mx-auto mb-6 leading-relaxed">
-          We have received your enquiry. An engineer from Navaroha will review
-          your details and reach out within 24 business hours to arrange an initial
-          discovery call.
+        <p className="text-emerald-200 text-sm md:text-base max-w-md mx-auto mb-6 leading-relaxed">
+          Thank you, <strong className="text-white">{formState.name}</strong>. An engineering lead from Navaroha will review your specification and reply within 24 business hours to coordinate an architecture scoping session.
         </p>
         <button
           onClick={() => {
@@ -78,7 +76,7 @@ export function ContactForm() {
               message: "",
             });
           }}
-          className="btn-secondary !bg-white text-xs"
+          className="btn btn-secondary text-xs text-white"
         >
           Send Another Message
         </button>
@@ -89,132 +87,119 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="p-8 md:p-10 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-white shadow-[var(--shadow-sm)] space-y-6"
+      className="p-8 md:p-10 rounded-3xl border border-white/10 bg-slate-900/70 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] space-y-6"
     >
+      <div className="flex items-center justify-between border-b border-white/10 pb-4">
+        <div>
+          <h2 className="text-xl font-bold font-heading text-white">
+            Direct Project Enquiry
+          </h2>
+          <p className="text-xs text-slate-400 mt-0.5">
+            Handled directly by lead engineers. No spam, ever.
+          </p>
+        </div>
+        <span className="text-[11px] font-mono font-bold uppercase text-[var(--color-cyan)] bg-cyan-950/60 border border-cyan-800/80 px-2.5 py-1 rounded-full">
+          Mutual NDA Protected
+        </span>
+      </div>
+
       {errorMessage && (
-        <div className="p-4 rounded-[var(--radius-md)] bg-rose-50 border border-rose-200 text-xs text-rose-700">
+        <div className="p-4 rounded-xl bg-rose-950/50 border border-rose-800/60 text-xs text-rose-300">
           {errorMessage}
         </div>
       )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
-          <label
-            htmlFor="name"
-            className="block text-xs font-semibold uppercase tracking-wider text-slate-800 mb-2"
-          >
-            Your Name <span className="text-rose-500">*</span>
+          <label htmlFor="name" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+            Your Name <span className="text-rose-400">*</span>
           </label>
           <input
+            type="text"
             id="name"
             name="name"
-            type="text"
             required
             value={formState.name}
             onChange={handleChange}
-            placeholder="Ada Lovelace"
-            className="w-full px-4 py-3 rounded-[var(--radius-md)] border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-slate-900 bg-white"
+            placeholder="e.g. Michael Scott"
+            className="w-full px-4 py-3 rounded-xl bg-slate-950/80 border border-white/15 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
           />
         </div>
 
         <div>
-          <label
-            htmlFor="email"
-            className="block text-xs font-semibold uppercase tracking-wider text-slate-800 mb-2"
-          >
-            Email Address <span className="text-rose-500">*</span>
+          <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+            Work Email Address <span className="text-rose-400">*</span>
           </label>
           <input
+            type="email"
             id="email"
             name="email"
-            type="email"
             required
             value={formState.email}
             onChange={handleChange}
-            placeholder="ada@example.com"
-            className="w-full px-4 py-3 rounded-[var(--radius-md)] border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-slate-900 bg-white"
+            placeholder="name@company.com"
+            className="w-full px-4 py-3 rounded-xl bg-slate-950/80 border border-white/15 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
           />
         </div>
       </div>
 
       <div>
-        <label
-          htmlFor="service"
-          className="block text-xs font-semibold uppercase tracking-wider text-slate-800 mb-2"
-        >
-          Primary Interest / Service
+        <label htmlFor="service" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+          Primary Service / Technical Need
         </label>
         <select
           id="service"
           name="service"
           value={formState.service}
           onChange={handleChange}
-          className="w-full px-4 py-3 rounded-[var(--radius-md)] border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-slate-900 bg-white"
+          className="w-full px-4 py-3 rounded-xl bg-slate-950/80 border border-white/15 text-white text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
         >
-          <option value="">Select a service...</option>
-          {services.map((s) => (
-            <option key={s.slug} value={s.slug}>
-              {s.title}
+          <option value="" className="bg-slate-900 text-slate-400">Select a capability (optional)</option>
+          {services.map((srv) => (
+            <option key={srv.slug} value={srv.slug} className="bg-slate-900 text-white">
+              {srv.title}
             </option>
           ))}
+          <option value="other" className="bg-slate-900 text-white">Other / Multiple Capabilities</option>
         </select>
       </div>
 
       <div>
-        <label
-          htmlFor="message"
-          className="block text-xs font-semibold uppercase tracking-wider text-slate-800 mb-2"
-        >
-          Project Overview <span className="text-rose-500">*</span>
+        <label htmlFor="message" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+          Project Overview & Timeline <span className="text-rose-400">*</span>
         </label>
         <textarea
           id="message"
           name="message"
-          rows={5}
           required
+          rows={5}
           value={formState.message}
           onChange={handleChange}
-          placeholder="Tell us about what you want to build, current challenges, and desired outcomes..."
-          className="w-full px-4 py-3 rounded-[var(--radius-md)] border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-slate-900 bg-white resize-y"
+          placeholder="Briefly describe what you're building, key goals, target audience, and any existing tech stack..."
+          className="w-full px-4 py-3 rounded-xl bg-slate-950/80 border border-white/15 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all resize-y"
         />
       </div>
 
-      <div className="pt-2">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+        <p className="text-[11px] text-slate-400">
+          🔒 Strict NDA guaranteed. We never disclose client inquiries.
+        </p>
+
         <button
           type="submit"
           disabled={isSubmitting}
-          className="btn-primary w-full py-3.5 text-center flex items-center justify-center gap-2"
+          className="btn btn-primary w-full sm:w-auto px-8 py-3.5 shadow-[0_0_25px_rgba(59,130,246,0.4)]"
         >
           {isSubmitting ? (
-            <>
-              <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-              Transmitting enquiry...
-            </>
+            <span className="flex items-center gap-2">
+              <span className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              Transmitting...
+            </span>
           ) : (
-            <>
-              Submit Project Enquiry
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
-            </>
+            <span>Submit Project Enquiry →</span>
           )}
         </button>
       </div>
-
-      <p className="text-xs text-slate-500 text-center">
-        We respect your privacy. No spam. You will communicate directly with
-        technical partners.
-      </p>
     </form>
   );
 }

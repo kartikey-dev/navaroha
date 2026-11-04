@@ -51,10 +51,14 @@ export function Header() {
       role="banner"
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-200"
       style={{
-        backgroundColor: "#FFFFFF",
-        borderBottom: "1px solid var(--color-border)",
+        backgroundColor: isScrolled
+          ? "rgba(7, 10, 18, 0.92)"
+          : "rgba(7, 10, 18, 0.8)",
+        backdropFilter: "blur(16px)",
+        WebkitBackdropFilter: "blur(16px)",
+        borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
         boxShadow: isScrolled
-          ? "0 4px 20px -2px rgba(15, 23, 42, 0.06)"
+          ? "0 8px 32px -4px rgba(0, 0, 0, 0.5)"
           : "none",
       }}
     >
@@ -65,7 +69,7 @@ export function Header() {
           style={{ height: isScrolled ? "64px" : "80px", transition: "height var(--duration-base) var(--ease-out)" }}
           aria-label="Main navigation"
         >
-          {/* Official Brand Logo */}
+          {/* Official Brand Logo — Dark theme with glowing emblem */}
           <Link
             href="/"
             className="relative z-50 flex items-center no-underline group"
@@ -73,7 +77,7 @@ export function Header() {
             onClick={closeMenu}
           >
             <Image
-              src="/brand/navaroha-logo-light.png"
+              src="/brand/navaroha-logo-dark.png"
               alt={`${siteConfig.name} — ${siteConfig.tagline}`}
               width={180}
               height={43}
@@ -88,12 +92,12 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium no-underline text-[var(--color-text-secondary)] hover:text-[var(--color-text)] transition-colors"
+                className="text-sm font-medium no-underline text-slate-300 hover:text-white hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.6)] transition-all"
               >
                 {item.label}
               </Link>
             ))}
-            <Link href={siteConfig.navigation.cta.href} className="btn btn-primary btn-sm">
+            <Link href={siteConfig.navigation.cta.href} className="btn btn-primary btn-sm shadow-[0_0_20px_rgba(59,130,246,0.4)]">
               {siteConfig.navigation.cta.label}
             </Link>
           </div>
@@ -113,7 +117,7 @@ export function Header() {
                 style={{
                   display: "block",
                   height: "2px",
-                  background: "var(--color-text)",
+                  background: "#F8FAFC",
                   borderRadius: "1px",
                   transition: "all var(--duration-base) var(--ease-out)",
                   transform: isMenuOpen
@@ -125,7 +129,7 @@ export function Header() {
                 style={{
                   display: "block",
                   height: "2px",
-                  background: "var(--color-text)",
+                  background: "#F8FAFC",
                   borderRadius: "1px",
                   transition: "all var(--duration-base) var(--ease-out)",
                   opacity: isMenuOpen ? 0 : 1,
@@ -135,7 +139,7 @@ export function Header() {
                 style={{
                   display: "block",
                   height: "2px",
-                  background: "var(--color-text)",
+                  background: "#F8FAFC",
                   borderRadius: "1px",
                   transition: "all var(--duration-base) var(--ease-out)",
                   transform: isMenuOpen
@@ -159,7 +163,9 @@ export function Header() {
           position: "fixed",
           inset: 0,
           zIndex: 40,
-          background: "#FFFFFF",
+          background: "rgba(7, 10, 18, 0.98)",
+          backdropFilter: "blur(24px)",
+          WebkitBackdropFilter: "blur(24px)",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
@@ -176,10 +182,9 @@ export function Header() {
             key={item.href}
             href={item.href}
             onClick={closeMenu}
-            className="text-h3 font-semibold no-underline"
+            className="text-h3 font-semibold no-underline text-slate-100 hover:text-blue-400 transition-colors"
             style={{
               fontFamily: "var(--font-heading)",
-              color: "var(--color-text)",
             }}
           >
             {item.label}
@@ -188,7 +193,7 @@ export function Header() {
         <Link
           href={siteConfig.navigation.cta.href}
           onClick={closeMenu}
-          className="btn btn-primary btn-lg"
+          className="btn btn-primary btn-lg shadow-[0_0_25px_rgba(59,130,246,0.5)]"
           style={{ marginTop: "1rem" }}
         >
           {siteConfig.navigation.cta.label}

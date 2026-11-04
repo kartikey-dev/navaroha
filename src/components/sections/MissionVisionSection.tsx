@@ -43,7 +43,35 @@ export function MissionVisionSection() {
         "Continuous 24/7 responsiveness bridging worldwide timezones",
         "Empower clients with complete intellectual property ownership",
       ],
-      accentColor: "border-amber-500/30 bg-amber-50/50",
+      accentColor: "border-blue-500/30 bg-blue-500/10",
+    },
+    {
+      category: "Vision",
+      title: "Where We're Headed",
+      tagline: "Establish India as the epicenter of premium digital architecture.",
+      description:
+        "To redefine global expectations of Indian software studios — moving beyond legacy outsourcing into world-class product invention, bespoke creative direction, and generational technology infrastructure that scales to millions.",
+      icon: "🔭",
+      points: [
+        "Bridge deep cultural creativity with international modernism",
+        "Pioneer agentic AI automation architectures for everyday enterprises",
+        "Build long-term technology partnerships built on demonstrable ROI",
+      ],
+      accentColor: "border-violet-500/30 bg-violet-500/10",
+    },
+    {
+      category: "Goals",
+      title: "What Drives Us",
+      tagline: "Tangible business impact, radical transparency, lasting partnerships.",
+      description:
+        "Every line of code and user interface decision is guided by measurable client outcomes: higher conversion rates, reduced server compute costs, streamlined operations, and joyful human interactions.",
+      icon: "⚡",
+      points: [
+        "100% on-time milestone delivery with transparent sprint tracking",
+        "Continuous 24/7 responsiveness bridging worldwide timezones",
+        "Empower clients with complete intellectual property ownership",
+      ],
+      accentColor: "border-amber-500/30 bg-amber-500/10",
     },
   ];
 
@@ -51,17 +79,17 @@ export function MissionVisionSection() {
     <section
       id="about-mission"
       aria-labelledby="mission-heading"
-      className="section-padding bg-white relative overflow-hidden"
+      className="section-padding bg-[#0B0F1A] border-y border-white/10 relative overflow-hidden"
     >
       <div className="container-main relative z-10">
         <RevealOnScroll>
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-eyebrow mb-3 block">Identity & Purpose</span>
-            <h2 id="mission-heading" className="text-h2 text-slate-900 mb-4">
+            <span className="text-eyebrow mb-3 block !text-[var(--color-cyan)]">Identity & Purpose</span>
+            <h2 id="mission-heading" className="text-h2 text-white mb-4">
               Engineered with purpose.{" "}
               <span className="text-gradient">Driven by ambition.</span>
             </h2>
-            <p className="text-body-lg text-slate-600">
+            <p className="text-body-lg text-slate-300">
               Navaroha was founded on a simple truth: global businesses do not need another bloated agency with
               salespeople. They need dedicated product engineers who treat their vision with the same care they would
               their own.
@@ -73,34 +101,34 @@ export function MissionVisionSection() {
           {pillars.map((pillar, idx) => (
             <div
               key={idx}
-              className={`rounded-3xl border ${pillar.accentColor} p-8 flex flex-col justify-between shadow-sm hover:shadow-lg transition-all duration-300 group hover:-translate-y-1 bg-white`}
+              className={`rounded-3xl border ${pillar.accentColor} p-8 flex flex-col justify-between shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-xl hover:border-blue-500/50 hover:shadow-[0_0_35px_rgba(59,130,246,0.2)] transition-all duration-300 group hover:-translate-y-1`}
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-3xl">{pillar.icon}</span>
-                  <span className="text-xs font-bold uppercase tracking-widest text-slate-500 font-mono">
+                  <span className="text-3xl drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">{pillar.icon}</span>
+                  <span className="text-xs font-bold uppercase tracking-widest text-slate-400 font-mono">
                     {pillar.category}
                   </span>
                 </div>
-                <h3 className="text-2xl font-bold font-heading text-slate-900 mb-1">
+                <h3 className="text-2xl font-bold font-heading text-white mb-1">
                   {pillar.title}
                 </h3>
-                <p className="text-xs font-semibold text-[var(--color-primary)] mb-4">
+                <p className="text-xs font-semibold text-[var(--color-cyan)] mb-4">
                   {pillar.tagline}
                 </p>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
                   {pillar.description}
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-slate-100">
+              <div className="pt-4 border-t border-white/10">
                 <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">
                   Key Principles:
                 </div>
                 <ul className="space-y-2">
                   {pillar.points.map((pt, pIdx) => (
-                    <li key={pIdx} className="text-xs text-slate-700 flex items-start gap-2">
-                      <span className="text-emerald-500 font-bold">✓</span>
+                    <li key={pIdx} className="text-xs text-slate-300 flex items-start gap-2">
+                      <span className="text-emerald-400 font-bold">✓</span>
                       <span>{pt}</span>
                     </li>
                   ))}

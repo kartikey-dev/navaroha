@@ -1,147 +1,149 @@
-# Navaroha Website
+# Navaroha — Technology · Digital Products · Innovation
 
-A premium, responsive website for **Navaroha** — Technology · Digital Products · Innovation.
+[![Next.js](https://img.shields.io/badge/Next.js-15+-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![TailwindCSS](https://img.shields.io/badge/Tailwind-CSS%20v4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)](#)
 
-**Tagline**: Build. Manage. Grow.
+> **Tagline**: Build. Manage. Grow.  
+> **Brand**: Navaroha  
+> **Headquarters**: Virtual Office (India · Worldwide)
 
-This README is a starter guide. Verify the scripts and dependencies in `package.json` after repository initialization; do not assume every command exists before setup is complete.
+Navaroha is a world-class technology and digital-products studio rooted in Indian creativity and serving ambitious founders, enterprises, and institutions worldwide. The website is architected as an immersive **Virtual Office Experience** where visitors physically tour distinct rooms mapping to the agency's capabilities.
 
-## Goals
-- Present Navaroha as a technology and digital-products partner.
-- Showcase services and verified case studies.
-- Generate qualified project enquiries.
-- Deliver accessible, performant, SEO-ready pages with answer-engine discoverability in mind.
-- Use TDD, feature-based commits, and automated CI/CD.
-- Keep design tokens configurable until the official logo and palette arrive.
+---
 
-## Stack
-- Next.js App Router
-- TypeScript strict mode
-- Tailwind CSS
-- next/font & next/image
-- Vitest + React Testing Library (for unit & component tests)
-- Playwright (for E2E tests)
-- axe-based accessibility checks
-- ESLint + Prettier
-- GitHub Actions
-- Vercel or another confirmed Next.js-compatible host
+## 🏛️ The Virtual Office Experience
 
-## Getting Started
+The website organizes services, case studies, and team operations into 4 interactive physical rooms:
+
+1. **Room 01: The Grand Reception** (`reception`)
+   - Fullscreen cinematic virtual office entrance and brand hook.
+   - Live scroll-triggered counters (50+ Projects Delivered, 8+ Countries Served, 98% Client Retention, 7+ Years Experience).
+   - Agency Mission, Vision, and Core Goals.
+
+2. **Room 02: The Design Studio** (`design-studio`)
+   - Creative direction, brand identity systems, and high-conversion UX.
+   - Dedicated pages: [Website Development](/services/website-development), [UI/UX & Brand Design](/services/ui-ux-brand-design).
+
+3. **Room 03: The Dev Lab** (`dev-lab`)
+   - Deep-tech software engineering, cloud platforms, and agentic AI.
+   - Dedicated pages: [Android & iOS Apps](/services/android-ios-development), [Web Applications & SaaS](/services/web-applications), [Browser Extensions](/services/browser-extension-development), [Maintenance & SLA Support](/services/website-maintenance-support), [AI & Automation](/services/ai-automation), [Technical Advisory](/services/technical-advisory).
+
+4. **Room 04: The Executive Boardroom** (`meeting-room`)
+   - Direct consultation booking under Mutual NDA.
+   - Interactive Cal.com/Calendly scheduler, 24/7 WhatsApp desk, and 4-field inquiry form.
+
+---
+
+## 🚀 Specialized Capabilities (All 8 Dedicated Pages)
+
+| Service | Slug | Chamber | Description |
+|---|---|---|---|
+| **Website Development** | `/services/website-development` | Design Studio | 90+ PageSpeed flagships, headless CMS, and technical SEO. |
+| **UI/UX & Brand Design** | `/services/ui-ux-brand-design` | Design Studio | Full design systems, Figma libraries, user journey mapping. |
+| **Android & iOS Apps** | `/services/android-ios-development` | Dev Lab | React Native & native iOS/Android with offline-first sync. |
+| **Web Applications & SaaS** | `/services/web-applications` | Dev Lab | Scalable cloud microservices, multi-tenant databases. |
+| **Browser Extensions** | `/services/browser-extension-development` | Dev Lab | Chrome, Safari & Firefox extensions (Manifest V3). |
+| **Maintenance & Support** | `/services/website-maintenance-support` | Dev Lab | 24/7 SLA uptime, security audits, Core Web Vitals defense. |
+| **AI & Automation** | `/services/ai-automation` | Dev Lab | Custom LLM agents, document RAG, workflow orchestration. |
+| **Technical Advisory** | `/services/technical-advisory` | Dev Lab | Fractional CTO advisory, cloud cost audits, security reviews. |
+
+---
+
+## 📊 Featured Client Work & Case Studies
+
+- **Primary School Digital Campus & Community Portal**:
+  - *Problem*: Paper admissions, lost leads, regional recruitment gaps, zero parent engagement analytics.
+  - *What We Did*: Mobile admission portal with multilingual support, WhatsApp automated alerts, and teacher recruitment ATS.
+  - *Measurable Results*: **+42% student enrollment**, **+65% teacher applications**, **99.9% uptime during admission peak**.
+- **Armaan Ethnic Wear**: Luxury Indian couture e-commerce flagship (+140% mobile conversion).
+- **KMBCH**: Healthcare Patient & Bed Booking Platform (real-time bed availability & doctor scheduling).
+- **Thermal Energy International**: Industrial clean tech energy efficiency portal.
+
+---
+
+## 🌐 Multilingual & Multi-Currency Architecture
+
+The site includes full internationalization and multi-currency conversion using React 19 `useSyncExternalStore`:
+- **Currencies**: INR (₹), USD ($), EUR (€), GBP (£), AED (د.إ)
+- **Languages**: English, Hindi (हिन्दी), Arabic (العربية), German (Deutsch), French (Français)
+- **Real-Time Desk**: Persistent WhatsApp widget, live timezone overlap banner, and strategy call modal.
+
+---
+
+## 🛠️ Stack & Engineering Principles
+
+- **Framework**: Next.js 15+ App Router (Server Components first)
+- **Language**: TypeScript Strict Mode (zero `any`)
+- **Styling**: Tailwind CSS v4 + Semantic Design Tokens (`globals.css`)
+- **Typography**: Space Grotesk (Display) & Inter (UI Body)
+- **Analytics**: Google Tag Manager (`G-HPLSPPKJ0R`) + `@vercel/analytics`
+- **Quality**: TDD workflow, WCAG 2.1 AA accessibility, prefers-reduced-motion support
+
+---
+
+## 💻 Local Development & Build
 
 ### Prerequisites
-- Node.js LTS (v20+ recommended)
-- npm (or compatible package manager)
-- Git
+- Node.js LTS (v20+)
+- npm
 
-### Installation & Development
+### Commands
 ```bash
 # Install dependencies
 npm install
 
-# Start development server
+# Start local development server
 npm run dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Run strict TypeScript validation
+npx tsc --noEmit
 
-### Production Build
-```bash
+# Run ESLint across all files
+npm run lint
+
 # Build production bundle
 npm run build
 
-# Start production server
+# Start production server locally
 npm start
 ```
 
-## Environment Variables
-Copy `.env.example` to `.env.local` if present and provide local values. Never commit `.env.local`. Actual variables depend on the selected contact-form provider, analytics/error monitoring, and deployment target. Keep secrets server-side and use placeholders only in `.env.example`.
+---
 
-## Quality Commands
-```bash
-npm run dev         # Start development server
-npm run build       # Build optimized production bundle
-npm run start       # Start production server
-npm run lint        # Run ESLint validation
+## 📁 Repository Structure
+
+```
+├── public/                     # Brand logos, icons, office & team images
+│   ├── brand/                  # Official dark/light logo variants & favicon
+│   └── images/                 # Office chambers, team portraits, case study mockups
+├── src/
+│   ├── app/                    # Next.js App Router routes & layouts
+│   │   ├── about/              # About page (virtual office headquarters story)
+│   │   ├── contact/            # Executive Boardroom contact & intake form
+│   │   ├── services/           # Services directory & [slug] individual pages
+│   │   ├── work/               # Case studies portfolio & metrics
+│   │   ├── globals.css         # Unified dark luxury design tokens & glassmorphism
+│   │   ├── layout.tsx          # Root layout with GTM, Vercel Analytics, Providers
+│   │   └── page.tsx            # Full Virtual Office Experience homepage
+│   ├── components/
+│   │   ├── layout/             # Header, Footer, CurrencyLanguageBar
+│   │   ├── motion/             # RevealOnScroll and animation utilities
+│   │   ├── sections/           # Virtual office chambers, stats, team, testimonials
+│   │   └── ui/                 # BookCallModal, FloatingLeadWidget, Accordion
+│   ├── content/
+│   │   └── data.ts             # Central single-source-of-truth for all studio data
+│   ├── context/
+│   │   └── LocalizationContext.tsx # Multi-currency & language state engine
+│   └── lib/
+│       └── site-config.ts      # Site configuration, contact numbers, nav items
+├── AGENTS.md                   # Full AI Agents charter & architectural context
+├── CLAUDE.md                   # Developer & AI Assistant cheatsheet
+└── README.md                   # Project overview & documentation
 ```
 
-## TDD Workflow
-For each feature, follow Red → Green → Refactor:
-1. Define acceptance criteria and edge cases.
-2. Write a failing test for the missing behavior.
-3. Implement the smallest change to pass.
-4. Refactor and keep tests green.
-5. Run relevant tests, lint, typecheck, and build.
-6. Add E2E coverage for critical journeys.
-7. Verify accessibility, responsive behavior, SEO, and failure states.
-8. Commit the feature independently.
+---
 
-## Architecture
-```
-src/
-  app/          # Routes, layouts, metadata, sitemap/robots
-    about/
-    contact/
-    services/
-      [slug]/
-    work/
-      [slug]/
-    privacy-policy/
-    terms/
-  components/
-    layout/     # Header, navigation, footer
-    ui/         # Buttons, cards, fields, accordions
-    sections/   # Hero, services, work, process, CTA
-    motion/     # Accessible motion primitives
-  content/      # Services, FAQs, case studies, values
-  lib/          # Site config, validation, utilities
-public/         # Brand assets, static images, icons
-```
-
-Prefer Server Components by default; use Client Components only when interaction requires them.
-
-## Pages
-- `/` — Homepage: Hero, Services, Why Navaroha, Process, Technologies, FAQ Accordion, Final CTA
-- `/services` — Services overview
-- `/services/[slug]` — Detailed service deep-dives (`website-development`, `web-applications`, `mobile-desktop-apps`, `ai-automation`)
-- `/work` — Architectural case studies and real-world system implementations
-- `/work/[slug]` — Detailed case study breakdowns
-- `/about` — Studio story, core values, principles, and team ethos
-- `/contact` — Interactive project enquiry form with service pre-selection and budget ranges
-- `/privacy-policy` & `/terms` — Legal terms and policies
-
-*Truthful Content Policy*: Never invent client logos, testimonials, metrics, certifications, or results.
-
-## SEO and GEO
-Use unique metadata, correct canonical URLs, sitemap, robots rules, Open Graph metadata, semantic HTML, descriptive internal links, accurate JSON-LD, and original service/case-study content. Keep the site fast and minimize unnecessary client-side JavaScript.
-
-## Accessibility and Performance
-Target WCAG 2.2 AA as an engineering goal. Support keyboard navigation, visible focus, accessible form feedback, contrast, useful alt text, and reduced motion.
-
-## Git Workflow
-Branch naming examples:
-- `feat/hero-section`
-- `feat/contact-form`
-- `fix/mobile-navigation`
-- `test/seo-metadata`
-- `chore/ci-pipeline`
-- `docs/implementation-guide`
-
-Conventional Commit examples:
-- `feat(home): add brand-led hero section`
-- `feat(services): add service overview`
-- `test(contact): cover invalid enquiry submissions`
-- `fix(nav): improve mobile menu keyboard behavior`
-- `seo(metadata): add canonical and social metadata`
-- `ci(github): require test and build checks`
-- `docs(readme): document setup and deployment`
-
-Keep each commit focused on one logical feature or fix.
-
-## Brand System
-- **Brand**: Navaroha
-- **Positioning**: Technology · Digital Products · Innovation
-- **Tagline**: Build. Manage. Grow.
-- **Heading font**: Space Grotesk (500–700)
-- **Body font**: Inter (400–600)
-- **Palette tokens**: Midnight `#0B0F1A`, Astra Blue `#3B82F6`, Violet `#8B5CF6`, Cyan `#06B6D4`, Cloud `#F8FAFC`, Slate `#94A3B8`
-- **Gradient**: Cyan → Blue → Indigo → Violet
+## 📜 License & Intellectual Property
+© 2026 Navaroha. All rights reserved. Built with precision and care.
