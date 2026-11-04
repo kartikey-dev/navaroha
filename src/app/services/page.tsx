@@ -28,9 +28,9 @@ export default function ServicesPage() {
               Engineering digital products that scale with your ambition
             </h1>
             <p className="text-body-lg max-w-2xl mx-auto text-[var(--color-text-secondary)]">
-              We combine design precision with resilient software engineering.
-              From high-conversion websites to complex cloud platforms, we
-              build technology that drives real business outcomes.
+              We combine design precision with resilient software engineering. From high-conversion
+              websites to complex cloud platforms, we build technology that drives real business
+              outcomes.
             </p>
           </RevealOnScroll>
         </div>
@@ -120,10 +120,7 @@ export default function ServicesPage() {
                           />
                         </svg>
                       </Link>
-                      <Link
-                        href={`/contact?service=${service.slug}`}
-                        className="btn-secondary"
-                      >
+                      <Link href={`/contact?service=${service.slug}`} className="btn-secondary">
                         Discuss a Project
                       </Link>
                     </div>

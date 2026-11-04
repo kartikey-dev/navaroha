@@ -11,7 +11,9 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 # AGENTS.md — Navaroha Website
 
 ## Mission and Brand
+
 Build Navaroha's website as a premium, approachable technology and digital-products brand.
+
 - **Brand**: Navaroha
 - **Positioning**: Technology · Digital Products · Innovation
 - **Tagline**: Build. Manage. Grow.
@@ -22,6 +24,7 @@ Build Navaroha's website as a premium, approachable technology and digital-produ
 Never invent customer names, testimonials, results, certifications, statistics, or claims. Ask for evidence or omit unsupported claims.
 
 ## Engineering Principles
+
 1. Use TDD: Red → Green → Refactor.
 2. Prefer simple, maintainable code over speculative abstractions.
 3. Use strict TypeScript; avoid `any`, documenting any unavoidable escape hatch.
@@ -34,6 +37,7 @@ Never invent customer names, testimonials, results, certifications, statistics, 
 10. Never claim a check passed unless it was actually run.
 
 ## Workflow for Every Feature
+
 1. Read relevant files and follow existing repository conventions.
 2. Define acceptance criteria, edge cases, loading/error/empty states, and responsive behavior.
 3. Write a failing test first.
@@ -49,15 +53,31 @@ Never invent customer names, testimonials, results, certifications, statistics, 
 Do not add superficial tests only after implementation. Do not weaken/delete tests just to make CI pass.
 
 ## Scripts
-`package.json` is the source of truth. Configure and document equivalents of:
-- `dev`, `build`, `start`
-- `lint`, `typecheck`, `format:check`
-- `test`, `test:coverage`
-- `test:e2e`, `test:a11y`, `test:seo`
 
-If a script is not configured, do not pretend it exists. Add tooling or document the missing prerequisite.
+`package.json` is the source of truth:
+
+- `npm run dev`: Launch local Turbopack development server.
+- `npm run build`: Production Next.js build.
+- `npm run start`: Serve production build locally.
+- `npm run lint`: Run ESLint analysis.
+- `npm run typecheck`: Run TypeScript strict check (`tsc --noEmit`).
+- `npm run test`: Run Vitest test suite.
+- `npm run test:coverage`: Run tests and enforce coverage thresholds (Statements >= 80%, Branches >= 75%).
+- `npm run test:e2e`: Run Playwright E2E tests.
+- `npm run test:e2e:ci`: Run Playwright Chromium tests in CI.
+- `npm run format:check`: Verify Prettier formatting.
+- `npm run format:write`: Format code with Prettier.
+- `npm run lighthouse`: Run Lighthouse CI audit.
+
+## Quality Gates & Thresholds
+
+- **Unit/Component Test Coverage**: Minimum 80% Statements, 80% Lines, 80% Functions, 75% Branches. Critical business logic target >= 90%. Current: 95.69% Statements, 92.85% Branches.
+- **Accessibility**: Minimum WCAG 2.0 / 2.2 AA compliance across all routes and interactive widgets.
+- **CI/CD**: 11 mandatory stages codified in `.github/workflows/ci.yml`.
+- **Global Brand**: Navaroha is a global creative technology studio. Never restrict positioning geographically.
 
 ## Testing
+
 - **Unit**: pure utilities, validation schemas, metadata helpers.
 - **Component**: observable behavior of navigation, forms, accordions, buttons, feedback states.
 - **Integration**: server actions/routes, validation, error handling, rate limiting.
@@ -70,6 +90,7 @@ If a script is not configured, do not pretend it exists. Add tooling or document
 Test behavior, not private implementation details. Avoid brittle snapshots as the primary proof.
 
 ## UI, Motion, and Media
+
 - Use tokens for colors, spacing, typography, radius, shadows, and motion.
 - Use `next/image` and `next/font` appropriately.
 - Provide image dimensions/aspect ratios to reduce layout shift.
@@ -80,6 +101,7 @@ Test behavior, not private implementation details. Avoid brittle snapshots as th
 - Use licensed and truthful imagery.
 
 ## SEO and GEO
+
 - Unique metadata for indexable routes and one canonical production domain.
 - Sitemap contains canonical, indexable URLs only; preview deployments must not become canonical.
 - Correct robots directives; never accidentally block production content.
@@ -89,6 +111,7 @@ Test behavior, not private implementation details. Avoid brittle snapshots as th
 - Do not treat `llms.txt`, keyword stuffing, or schema alone as a GEO strategy.
 
 ## Security and Privacy
+
 - Never commit `.env` files, credentials, private keys, tokens, or customer personal data.
 - Keep secrets server-side and use environment variables.
 - Validate untrusted input on the server, even if client validation exists.
@@ -97,10 +120,12 @@ Test behavior, not private implementation details. Avoid brittle snapshots as th
 - `.env.example` contains variable names and safe placeholders only.
 
 ## Git and PRs
+
 Branch examples:
 `feat/hero-section`, `feat/contact-form`, `fix/mobile-navigation`, `test/seo-metadata`, `chore/ci-pipeline`, `docs/implementation-guide`.
 
 Conventional Commit examples:
+
 - `feat(home): add brand-led hero section`
 - `test(contact): cover invalid enquiry submissions`
 - `fix(nav): improve mobile menu keyboard behavior`
@@ -111,13 +136,17 @@ Conventional Commit examples:
 One logical feature/fix per commit. Do not commit generated build output, secrets, or failing tests. PRs must explain intent, visible changes, tests run, and known limitations. Require green checks before merge; deploy production only from protected main/release.
 
 ## Documentation
+
 Keep README setup, scripts, environment variables, architecture, tests, deployment, and rollback instructions current. Update docs when those change.
 
 ## Final Implementation Report
+
 Report files changed, checks actually run and results, checks not run and why, owner-supplied configuration/secrets, and remaining risks/decisions.
 
 ## Brand and Typography Tokens
+
 Follow the current brand system:
+
 - **Heading/display font**: Space Grotesk (500–700)
 - **Body/UI font**: Inter (400–600)
 - **Fallbacks**: Arial, sans-serif

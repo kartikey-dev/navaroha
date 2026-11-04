@@ -4,11 +4,7 @@ import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
 
 export function CTASection() {
   return (
-    <section
-      id="cta"
-      aria-labelledby="cta-heading"
-      className="section-padding"
-    >
+    <section id="cta" aria-labelledby="cta-heading" className="section-padding">
       <div className="container-main">
         <RevealOnScroll>
           <div
@@ -42,8 +38,7 @@ export function CTASection() {
                   marginBottom: "1rem",
                 }}
               >
-                Ready to build something{" "}
-                <span className="text-gradient">great</span>?
+                Ready to build something <span className="text-gradient">great</span>?
               </h2>
               <p
                 className="text-body-lg"
@@ -53,8 +48,8 @@ export function CTASection() {
                   margin: "0 auto 2rem",
                 }}
               >
-                Tell us about your project. We&apos;ll get back to you with
-                ideas, not a sales pitch.
+                Tell us about your project. We&apos;ll get back to you with ideas, not a sales
+                pitch.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link href="/contact" className="btn btn-gradient btn-lg">

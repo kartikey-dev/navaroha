@@ -55,23 +55,21 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-base md:text-lg text-slate-700 leading-relaxed font-sans">
                 <p>
-                  Navaroha was founded with a straightforward perspective:
-                  businesses don&apos;t just need more code—they need thoughtful,
-                  durable digital products that solve real problems.
+                  Navaroha was founded with a straightforward perspective: businesses don&apos;t
+                  just need more code—they need thoughtful, durable digital products that solve real
+                  problems.
                 </p>
                 <p>
-                  Too many development agencies operate like assembly lines,
-                  handing off fragile code built on bloated templates with no
-                  regard for long-term maintainability or real business impact.
-                  When the contract ends, clients are left with technical debt and
-                  inscrutable systems.
+                  Too many development agencies operate like assembly lines, handing off fragile
+                  code built on bloated templates with no regard for long-term maintainability or
+                  real business impact. When the contract ends, clients are left with technical debt
+                  and inscrutable systems.
                 </p>
                 <p>
-                  We do things differently. We operate as an extension of your
-                  founding or leadership team. We take the time to understand your
-                  operational constraints, design interfaces that real humans enjoy
-                  using, and write strict, tested code that your future engineers
-                  will thank you for.
+                  We do things differently. We operate as an extension of your founding or
+                  leadership team. We take the time to understand your operational constraints,
+                  design interfaces that real humans enjoy using, and write strict, tested code that
+                  your future engineers will thank you for.
                 </p>
               </div>
             </div>
@@ -104,9 +102,7 @@ export default function AboutPage() {
                 <h3 className="text-xl font-bold text-slate-900 mb-3 font-heading">
                   {value.title}
                 </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  {value.description}
-                </p>
+                <p className="text-sm text-slate-600 leading-relaxed">{value.description}</p>
               </div>
             ))}
           </div>
@@ -124,10 +120,9 @@ export default function AboutPage() {
               Real engineering. No smoke and mirrors.
             </h2>
             <p className="text-sm md:text-base text-slate-300 leading-relaxed mb-8">
-              We never fabricate client logos, fake metrics, or exaggerate
-              certifications. Every project we commit to receives direct attention
-              from experienced engineers and designers who care about the outcome
-              as much as you do.
+              We never fabricate client logos, fake metrics, or exaggerate certifications. Every
+              project we commit to receives direct attention from experienced engineers and
+              designers who care about the outcome as much as you do.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact" className="btn-primary">

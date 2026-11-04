@@ -29,8 +29,8 @@ export function WhySection() {
                 margin: "1rem auto 0",
               }}
             >
-              We believe great digital products come from honest collaboration,
-              thoughtful design, and engineering that lasts.
+              We believe great digital products come from honest collaboration, thoughtful design,
+              and engineering that lasts.
             </p>
           </div>
         </RevealOnScroll>

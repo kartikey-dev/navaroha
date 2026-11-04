@@ -12,8 +12,7 @@ export const siteConfig = {
   description:
     "Navaroha is a technology and digital products studio that builds websites, web applications, mobile apps, and AI-powered solutions to help businesses grow.",
   url: "https://navaroha.com", // Replace with confirmed production domain
-  supportingMessage:
-    "Ideas into impact. Build digital experiences that help businesses grow.",
+  supportingMessage: "Ideas into impact. Build digital experiences that help businesses grow.",
 
   brand: {
     logoAlt: "Navaroha",

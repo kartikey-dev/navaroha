@@ -55,20 +55,13 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/brand/navaroha-icon.png", type: "image/png" },
-    ],
+    icon: [{ url: "/favicon.ico" }, { url: "/brand/navaroha-icon.png", type: "image/png" }],
     shortcut: "/favicon.ico",
     apple: "/brand/navaroha-icon.png",
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"

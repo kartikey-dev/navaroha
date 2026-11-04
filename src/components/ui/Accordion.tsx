@@ -59,9 +59,7 @@ function AccordionItem({ item, isOpen, onToggle, id }: AccordionItemProps) {
               width: "28px",
               height: "28px",
               borderRadius: "var(--radius-full)",
-              background: isOpen
-                ? "rgba(59, 130, 246, 0.1)"
-                : "rgba(148, 163, 184, 0.1)",
+              background: isOpen ? "rgba(59, 130, 246, 0.1)" : "rgba(148, 163, 184, 0.1)",
               color: isOpen ? "var(--color-primary)" : "var(--color-muted)",
               fontSize: "1.25rem",
               lineHeight: 1,

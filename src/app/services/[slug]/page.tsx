@@ -76,10 +76,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <Link
-                href={`/contact?service=${service.slug}`}
-                className="btn-primary"
-              >
+              <Link href={`/contact?service=${service.slug}`} className="btn-primary">
                 Start a {service.shortTitle} Project
               </Link>
               <Link href="/work" className="btn-secondary">
@@ -110,9 +107,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                       <div className="w-6 h-6 rounded-full bg-blue-50 text-[var(--color-primary)] flex items-center justify-center text-xs font-bold mb-3">
                         {idx + 1}
                       </div>
-                      <p className="text-sm font-medium text-slate-800 leading-snug">
-                        {feature}
-                      </p>
+                      <p className="text-sm font-medium text-slate-800 leading-snug">{feature}</p>
                     </div>
                   ))}
                 </div>
@@ -155,10 +150,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                 </h3>
                 <ul className="space-y-3">
                   {service.deliverables.map((item, idx) => (
-                    <li
-                      key={idx}
-                      className="flex items-start gap-2.5 text-sm text-slate-600"
-                    >
+                    <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-600">
                       <svg
                         className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0"
                         fill="none"
@@ -166,11 +158,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                         stroke="currentColor"
                         strokeWidth={2.5}
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M5 13l4 4L19 7"
-                        />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                       <span>{item}</span>
                     </li>
@@ -238,9 +226,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                     {other.title}
                   </h3>
                 </div>
-                <p className="text-xs text-slate-600 line-clamp-3">
-                  {other.description}
-                </p>
+                <p className="text-xs text-slate-600 line-clamp-3">{other.description}</p>
               </Link>
             ))}
           </div>

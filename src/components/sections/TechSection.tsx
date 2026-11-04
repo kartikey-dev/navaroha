@@ -3,11 +3,7 @@ import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
 
 export function TechSection() {
   return (
-    <section
-      id="technologies"
-      aria-labelledby="tech-heading"
-      className="section-padding"
-    >
+    <section id="technologies" aria-labelledby="tech-heading" className="section-padding">
       <div className="container-main">
         <RevealOnScroll>
           <div style={{ textAlign: "center", marginBottom: "3rem" }}>
@@ -25,8 +21,7 @@ export function TechSection() {
                 margin: "1rem auto 0",
               }}
             >
-              We choose the right tools for each project — never the other way
-              around.
+              We choose the right tools for each project — never the other way around.
             </p>
           </div>
         </RevealOnScroll>

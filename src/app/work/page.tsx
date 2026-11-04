@@ -27,8 +27,8 @@ export default function WorkPage() {
               Selected projects and engineering case studies
             </h1>
             <p className="text-body-lg max-w-2xl mx-auto text-[var(--color-text-secondary)]">
-              We focus on substance over hype. Here are real-world systems we
-              have designed, architected, and engineered with rigor.
+              We focus on substance over hype. Here are real-world systems we have designed,
+              architected, and engineered with rigor.
             </p>
           </RevealOnScroll>
         </div>
@@ -47,9 +47,7 @@ export default function WorkPage() {
                   <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)] bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
                     {study.category}
                   </span>
-                  <span className="font-mono text-xs text-slate-400">
-                    0{index + 1}
-                  </span>
+                  <span className="font-mono text-xs text-slate-400">0{index + 1}</span>
                 </div>
 
                 <h2 className="text-2xl font-bold font-heading text-slate-900 mb-2">
@@ -80,9 +78,7 @@ export default function WorkPage() {
                   )}
                 </h2>
 
-                <p className="text-sm font-medium text-slate-700 mb-4">
-                  {study.tagline}
-                </p>
+                <p className="text-sm font-medium text-slate-700 mb-4">{study.tagline}</p>
 
                 <p className="text-sm text-slate-600 leading-relaxed mb-6 flex-1">
                   {study.overview}
@@ -94,13 +90,8 @@ export default function WorkPage() {
                   </h3>
                   <ul className="space-y-1.5">
                     {study.architectureHighlights.slice(0, 3).map((hl, idx) => (
-                      <li
-                        key={idx}
-                        className="text-xs text-slate-600 flex items-start gap-2"
-                      >
-                        <span className="text-[var(--color-primary)] font-bold">
-                          •
-                        </span>
+                      <li key={idx} className="text-xs text-slate-600 flex items-start gap-2">
+                        <span className="text-[var(--color-primary)] font-bold">•</span>
                         <span>{hl}</span>
                       </li>
                     ))}

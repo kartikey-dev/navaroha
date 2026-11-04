@@ -3,52 +3,65 @@
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { services } from "@/content/data";
+import { validateContactForm } from "@/lib/validation";
 
 export function ContactForm() {
   const searchParams = useSearchParams();
-  const initialService = searchParams.get("service") || "";
+  const initialService = searchParams?.get("service") || "";
+  const initialEstimate = searchParams?.get("estimate") || "";
+  const initialType = searchParams?.get("type") || "";
+  const initialScope = searchParams?.get("scope") || "";
 
   const [formState, setFormState] = useState({
     name: "",
     email: "",
+    phone: "",
     service: initialService,
-    message: "",
+    message: initialEstimate
+      ? `Estimated Scope: ${initialType} (${initialScope}) with target budget ${initialEstimate}.\n\nProject details: `
+      : "",
   });
 
-  const [prevInitialService, setPrevInitialService] = useState(initialService);
-  if (prevInitialService !== initialService) {
-    setPrevInitialService(initialService);
-    if (initialService) {
-      setFormState((prev) => ({ ...prev, service: initialService }));
-    }
-  }
-
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormState((prev) => ({ ...prev, [name]: value }));
+    if (fieldErrors[name]) {
+      setFieldErrors((prev) => {
+        const copy = { ...prev };
+        delete copy[name];
+        return copy;
+      });
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setErrorMessage("");
 
-    if (!formState.name.trim() || !formState.email.trim() || !formState.message.trim()) {
-      setErrorMessage("Please fill in your name, email address, and project overview.");
+    const validation = validateContactForm({
+      name: formState.name,
+      email: formState.email,
+      phone: formState.phone,
+      service: formState.service || "Web Applications & SaaS",
+      message: formState.message,
+      budget: initialEstimate || undefined,
+    });
+
+    if (!validation.isValid) {
+      setFieldErrors(validation.errors);
       return;
     }
 
+    setFieldErrors({});
     setIsSubmitting(true);
 
-    // Simulate async submission with validation
-    await new Promise((resolve) => setTimeout(resolve, 800));
+    // Simulate async submission with network delay
+    await new Promise((resolve) => setTimeout(resolve, 600));
 
     setIsSubmitting(false);
     setIsSubmitted(true);
@@ -57,28 +70,29 @@ export function ContactForm() {
   if (isSubmitted) {
     return (
       <div className="p-8 md:p-12 rounded-[var(--radius-2xl)] bg-emerald-50 border border-emerald-200 text-center">
-        <div className="w-16 h-16 rounded-full bg-emerald-500 text-white flex items-center justify-center mx-auto mb-4 text-2xl">
+        <div className="w-16 h-16 rounded-full bg-emerald-500 text-white flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
           ✓
         </div>
         <h3 className="text-2xl font-bold font-heading text-emerald-950 mb-2">
           Thank you for reaching out!
         </h3>
         <p className="text-emerald-800 text-sm md:text-base max-w-md mx-auto mb-6 leading-relaxed">
-          We have received your enquiry. An engineer from Navaroha will review
-          your details and reach out within 24 business hours to arrange an initial
-          discovery call.
+          We have received your enquiry. An engineer from Navaroha will review your details and
+          reach out within 24 business hours to arrange an initial discovery call.
         </p>
         <button
+          type="button"
           onClick={() => {
             setIsSubmitted(false);
             setFormState({
               name: "",
               email: "",
+              phone: "",
               service: "",
               message: "",
             });
           }}
-          className="btn-secondary !bg-white text-xs"
+          className="btn-secondary !bg-white text-xs px-5 py-2.5 rounded-xl border border-emerald-300 font-semibold text-emerald-900 cursor-pointer"
         >
           Send Another Message
         </button>
@@ -89,11 +103,15 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
+      noValidate
       className="p-8 md:p-10 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-white shadow-[var(--shadow-sm)] space-y-6"
     >
-      {errorMessage && (
-        <div className="p-4 rounded-[var(--radius-md)] bg-rose-50 border border-rose-200 text-xs text-rose-700">
-          {errorMessage}
+      {initialEstimate && (
+        <div className="p-3.5 rounded-xl bg-blue-50 border border-blue-200 text-xs text-blue-900 flex items-center justify-between">
+          <span>
+            Configured Scope: <strong>{initialType}</strong> ({initialScope})
+          </span>
+          <span className="font-mono font-bold text-blue-700">{initialEstimate}</span>
         </div>
       )}
 
@@ -110,11 +128,21 @@ export function ContactForm() {
             name="name"
             type="text"
             required
+            aria-required="true"
+            aria-invalid={!!fieldErrors.name}
+            aria-describedby={fieldErrors.name ? "name-error" : undefined}
             value={formState.name}
             onChange={handleChange}
             placeholder="Ada Lovelace"
-            className="w-full px-4 py-3 rounded-[var(--radius-md)] border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-slate-900 bg-white"
+            className={`w-full px-4 py-3 rounded-[var(--radius-md)] border text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-slate-900 bg-white ${
+              fieldErrors.name ? "border-rose-500 bg-rose-50/20" : "border-slate-300"
+            }`}
           />
+          {fieldErrors.name && (
+            <p id="name-error" className="text-xs text-rose-600 mt-1.5 font-medium">
+              {fieldErrors.name}
+            </p>
+          )}
         </div>
 
         <div>
@@ -129,35 +157,74 @@ export function ContactForm() {
             name="email"
             type="email"
             required
+            aria-required="true"
+            aria-invalid={!!fieldErrors.email}
+            aria-describedby={fieldErrors.email ? "email-error" : undefined}
             value={formState.email}
             onChange={handleChange}
             placeholder="ada@example.com"
-            className="w-full px-4 py-3 rounded-[var(--radius-md)] border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-slate-900 bg-white"
+            className={`w-full px-4 py-3 rounded-[var(--radius-md)] border text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-slate-900 bg-white ${
+              fieldErrors.email ? "border-rose-500 bg-rose-50/20" : "border-slate-300"
+            }`}
           />
+          {fieldErrors.email && (
+            <p id="email-error" className="text-xs text-rose-600 mt-1.5 font-medium">
+              {fieldErrors.email}
+            </p>
+          )}
         </div>
       </div>
 
-      <div>
-        <label
-          htmlFor="service"
-          className="block text-xs font-semibold uppercase tracking-wider text-slate-800 mb-2"
-        >
-          Primary Interest / Service
-        </label>
-        <select
-          id="service"
-          name="service"
-          value={formState.service}
-          onChange={handleChange}
-          className="w-full px-4 py-3 rounded-[var(--radius-md)] border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-slate-900 bg-white"
-        >
-          <option value="">Select a service...</option>
-          {services.map((s) => (
-            <option key={s.slug} value={s.slug}>
-              {s.title}
-            </option>
-          ))}
-        </select>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+          <label
+            htmlFor="phone"
+            className="block text-xs font-semibold uppercase tracking-wider text-slate-800 mb-2"
+          >
+            Phone / WhatsApp <span className="text-slate-400 font-normal">(Optional)</span>
+          </label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            aria-invalid={!!fieldErrors.phone}
+            aria-describedby={fieldErrors.phone ? "phone-error" : undefined}
+            value={formState.phone}
+            onChange={handleChange}
+            placeholder="+1 555-0199 or +91 70155 20736"
+            className={`w-full px-4 py-3 rounded-[var(--radius-md)] border text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-slate-900 bg-white ${
+              fieldErrors.phone ? "border-rose-500 bg-rose-50/20" : "border-slate-300"
+            }`}
+          />
+          {fieldErrors.phone && (
+            <p id="phone-error" className="text-xs text-rose-600 mt-1.5 font-medium">
+              {fieldErrors.phone}
+            </p>
+          )}
+        </div>
+
+        <div>
+          <label
+            htmlFor="service"
+            className="block text-xs font-semibold uppercase tracking-wider text-slate-800 mb-2"
+          >
+            Primary Interest / Service
+          </label>
+          <select
+            id="service"
+            name="service"
+            value={formState.service}
+            onChange={handleChange}
+            className="w-full px-4 py-3 rounded-[var(--radius-md)] border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-slate-900 bg-white"
+          >
+            <option value="">Select a service...</option>
+            {services.map((s) => (
+              <option key={s.slug} value={s.slug}>
+                {s.title}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
       <div>
@@ -172,18 +239,28 @@ export function ContactForm() {
           name="message"
           rows={5}
           required
+          aria-required="true"
+          aria-invalid={!!fieldErrors.message}
+          aria-describedby={fieldErrors.message ? "message-error" : undefined}
           value={formState.message}
           onChange={handleChange}
           placeholder="Tell us about what you want to build, current challenges, and desired outcomes..."
-          className="w-full px-4 py-3 rounded-[var(--radius-md)] border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-slate-900 bg-white resize-y"
+          className={`w-full px-4 py-3 rounded-[var(--radius-md)] border text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-slate-900 bg-white resize-y ${
+            fieldErrors.message ? "border-rose-500 bg-rose-50/20" : "border-slate-300"
+          }`}
         />
+        {fieldErrors.message && (
+          <p id="message-error" className="text-xs text-rose-600 mt-1.5 font-medium">
+            {fieldErrors.message}
+          </p>
+        )}
       </div>
 
       <div className="pt-2">
         <button
           type="submit"
           disabled={isSubmitting}
-          className="btn-primary w-full py-3.5 text-center flex items-center justify-center gap-2"
+          className="btn-primary w-full py-3.5 text-center flex items-center justify-center gap-2 font-semibold cursor-pointer"
         >
           {isSubmitting ? (
             <>
@@ -200,11 +277,7 @@ export function ContactForm() {
                 stroke="currentColor"
                 strokeWidth={2}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </>
           )}
@@ -212,8 +285,7 @@ export function ContactForm() {
       </div>
 
       <p className="text-xs text-slate-500 text-center">
-        We respect your privacy. No spam. You will communicate directly with
-        technical partners.
+        We respect your privacy. No spam. You will communicate directly with technical partners.
       </p>
     </form>
   );

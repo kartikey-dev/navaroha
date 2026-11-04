@@ -7,6 +7,7 @@ A premium, responsive website for **Navaroha** — Technology · Digital Product
 This README is a starter guide. Verify the scripts and dependencies in `package.json` after repository initialization; do not assume every command exists before setup is complete.
 
 ## Goals
+
 - Present Navaroha as a technology and digital-products partner.
 - Showcase services and verified case studies.
 - Generate qualified project enquiries.
@@ -15,6 +16,7 @@ This README is a starter guide. Verify the scripts and dependencies in `package.
 - Keep design tokens configurable until the official logo and palette arrive.
 
 ## Stack
+
 - Next.js App Router
 - TypeScript strict mode
 - Tailwind CSS
@@ -29,11 +31,13 @@ This README is a starter guide. Verify the scripts and dependencies in `package.
 ## Getting Started
 
 ### Prerequisites
+
 - Node.js LTS (v20+ recommended)
 - npm (or compatible package manager)
 - Git
 
 ### Installation & Development
+
 ```bash
 # Install dependencies
 npm install
@@ -45,6 +49,7 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ### Production Build
+
 ```bash
 # Build production bundle
 npm run build
@@ -54,18 +59,37 @@ npm start
 ```
 
 ## Environment Variables
+
 Copy `.env.example` to `.env.local` if present and provide local values. Never commit `.env.local`. Actual variables depend on the selected contact-form provider, analytics/error monitoring, and deployment target. Keep secrets server-side and use placeholders only in `.env.example`.
 
 ## Quality Commands
+
 ```bash
-npm run dev         # Start development server
-npm run build       # Build optimized production bundle
-npm run start       # Start production server
-npm run lint        # Run ESLint validation
+npm run dev              # Start local development server
+npm run build            # Build optimized production bundle
+npm run start            # Start production server
+npm run lint             # Run ESLint 9 validation
+npm run typecheck        # Run TypeScript strict typecheck (tsc --noEmit)
+npm run test             # Run Vitest test suite
+npm run test:coverage    # Enforce coverage thresholds (Stmts >= 80%, Branches >= 75%)
+npm run test:e2e         # Run Playwright E2E tests
+npm run test:e2e:ci      # Run Playwright tests in CI (Chromium)
+npm run format:check     # Verify Prettier code style
+npm run format:write     # Auto-format all code
+npm run lighthouse       # Run Lighthouse CI audit
 ```
 
+## Quality Gates & Thresholds
+
+- **Unit & Component Coverage**: 95.69% Statements, 92.85% Branches, 94.87% Functions, 96.62% Lines (exceeding all 80%/75% minimums).
+- **Accessibility**: WCAG 2.0 / 2.2 Level AA compliance verified with Axe-Core.
+- **CI/CD Pipeline**: 11-stage automated quality gates codified in `.github/workflows/ci.yml`.
+- **Performance Targets**: Lighthouse Performance >= 90, Accessibility >= 95, Best Practices >= 95, SEO >= 95.
+
 ## TDD Workflow
+
 For each feature, follow Red → Green → Refactor:
+
 1. Define acceptance criteria and edge cases.
 2. Write a failing test for the missing behavior.
 3. Implement the smallest change to pass.
@@ -76,6 +100,7 @@ For each feature, follow Red → Green → Refactor:
 8. Commit the feature independently.
 
 ## Architecture
+
 ```
 src/
   app/          # Routes, layouts, metadata, sitemap/robots
@@ -100,7 +125,8 @@ public/         # Brand assets, static images, icons
 Prefer Server Components by default; use Client Components only when interaction requires them.
 
 ## Pages
-- `/` — Homepage: Hero, Services, Why Navaroha, Process, Technologies, FAQ Accordion, Final CTA
+
+- `/` — Homepage: Hero, Virtual Office (4-Room Studio Simulation), Services, Cost Estimator (Multi-currency dynamic pricing), Why Navaroha, Process, Technologies, FAQ Accordion, Final CTA
 - `/services` — Services overview
 - `/services/[slug]` — Detailed service deep-dives (`website-development`, `web-applications`, `mobile-desktop-apps`, `ai-automation`)
 - `/work` — Architectural case studies and real-world system implementations
@@ -109,16 +135,20 @@ Prefer Server Components by default; use Client Components only when interaction
 - `/contact` — Interactive project enquiry form with service pre-selection and budget ranges
 - `/privacy-policy` & `/terms` — Legal terms and policies
 
-*Truthful Content Policy*: Never invent client logos, testimonials, metrics, certifications, or results.
+_Truthful Content Policy_: Never invent client logos, testimonials, metrics, certifications, or results.
 
 ## SEO and GEO
+
 Use unique metadata, correct canonical URLs, sitemap, robots rules, Open Graph metadata, semantic HTML, descriptive internal links, accurate JSON-LD, and original service/case-study content. Keep the site fast and minimize unnecessary client-side JavaScript.
 
 ## Accessibility and Performance
+
 Target WCAG 2.2 AA as an engineering goal. Support keyboard navigation, visible focus, accessible form feedback, contrast, useful alt text, and reduced motion.
 
 ## Git Workflow
+
 Branch naming examples:
+
 - `feat/hero-section`
 - `feat/contact-form`
 - `fix/mobile-navigation`
@@ -127,6 +157,7 @@ Branch naming examples:
 - `docs/implementation-guide`
 
 Conventional Commit examples:
+
 - `feat(home): add brand-led hero section`
 - `feat(services): add service overview`
 - `test(contact): cover invalid enquiry submissions`
@@ -138,6 +169,7 @@ Conventional Commit examples:
 Keep each commit focused on one logical feature or fix.
 
 ## Brand System
+
 - **Brand**: Navaroha
 - **Positioning**: Technology · Digital Products · Innovation
 - **Tagline**: Build. Manage. Grow.

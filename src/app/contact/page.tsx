@@ -29,9 +29,8 @@ export default function ContactPage() {
               Let&apos;s build something exceptional together
             </h1>
             <p className="text-body-lg max-w-2xl mx-auto text-[var(--color-text-secondary)]">
-              Whether you have a fully scoped specification or an early concept,
-              we&apos;ll help you clarify requirements and chart the right technical
-              path forward.
+              Whether you have a fully scoped specification or an early concept, we&apos;ll help you
+              clarify requirements and chart the right technical path forward.
             </p>
           </RevealOnScroll>
         </div>
@@ -90,7 +89,8 @@ export default function ContactPage() {
                         href={`tel:${siteConfig.contact.phoneRaw}`}
                         className="text-base font-semibold text-slate-900 hover:text-[var(--color-primary)] transition-colors inline-flex items-center gap-2"
                       >
-                        <span>📞</span> {siteConfig.contact.phoneDisplay}, {siteConfig.contact.alternatePhoneDisplay}
+                        <span>📞</span> {siteConfig.contact.phoneDisplay},{" "}
+                        {siteConfig.contact.alternatePhoneDisplay}
                       </a>
                     </div>
                   </div>
@@ -144,8 +144,8 @@ export default function ContactPage() {
                     Response Commitment
                   </h3>
                   <p className="text-sm text-slate-600 leading-relaxed">
-                    We respond to all qualified enquiries within 24 business
-                    hours with an initial assessment and calendar link.
+                    We respond to all qualified enquiries within 24 business hours with an initial
+                    assessment and calendar link.
                   </p>
                 </div>
 
@@ -155,16 +155,16 @@ export default function ContactPage() {
                   </h3>
                   <ol className="space-y-3 text-xs text-slate-600 list-decimal list-inside">
                     <li>
-                      <strong className="text-slate-800">Initial Discovery:</strong>{" "}
-                      A 30-minute introductory call to understand requirements.
+                      <strong className="text-slate-800">Initial Discovery:</strong> A 30-minute
+                      introductory call to understand requirements.
                     </li>
                     <li>
-                      <strong className="text-slate-800">Architecture Scope:</strong>{" "}
-                      We draft a transparent milestone plan and budget options.
+                      <strong className="text-slate-800">Architecture Scope:</strong> We draft a
+                      transparent milestone plan and budget options.
                     </li>
                     <li>
-                      <strong className="text-slate-800">Sprint Kickoff:</strong>{" "}
-                      Design and engineering begin with live weekly preview links.
+                      <strong className="text-slate-800">Sprint Kickoff:</strong> Design and
+                      engineering begin with live weekly preview links.
                     </li>
                   </ol>
                 </div>

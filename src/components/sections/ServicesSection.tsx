@@ -4,11 +4,7 @@ import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
 
 export function ServicesSection() {
   return (
-    <section
-      id="services"
-      aria-labelledby="services-heading"
-      className="section-padding"
-    >
+    <section id="services" aria-labelledby="services-heading" className="section-padding">
       <div className="container-main">
         <RevealOnScroll>
           <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
@@ -26,8 +22,7 @@ export function ServicesSection() {
                 margin: "1rem auto 0",
               }}
             >
-              From concept to launch and beyond — we cover the full product
-              lifecycle.
+              From concept to launch and beyond — we cover the full product lifecycle.
             </p>
           </div>
         </RevealOnScroll>

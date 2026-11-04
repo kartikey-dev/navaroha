@@ -20,11 +20,7 @@ export function ProcessSection() {
             >
               Our Process
             </p>
-            <h2
-              className="text-h2"
-              id="process-heading"
-              style={{ color: "#F1F5F9" }}
-            >
+            <h2 className="text-h2" id="process-heading" style={{ color: "#F1F5F9" }}>
               From idea to impact
             </h2>
             <p
@@ -35,8 +31,7 @@ export function ProcessSection() {
                 margin: "1rem auto 0",
               }}
             >
-              A structured, transparent process that keeps you in control at
-              every stage.
+              A structured, transparent process that keeps you in control at every stage.
             </p>
           </div>
         </RevealOnScroll>

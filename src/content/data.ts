@@ -107,7 +107,8 @@ export const services: Service[] = [
     slug: "ui-ux-brand-design",
     title: "UI/UX & Brand Design",
     shortTitle: "UI/UX & Branding",
-    tagline: "Conversion-focused user interfaces, memorable brand identities, and cohesive design systems.",
+    tagline:
+      "Conversion-focused user interfaces, memorable brand identities, and cohesive design systems.",
     description:
       "End-to-end digital product design and visual branding that connects with users and drives conversions. From crafting vector logo marks, typography systems, and comprehensive brand books to architecting interactive Figma prototypes, responsive user flows, and modular design systems.",
     icon: "🎨",
@@ -148,7 +149,8 @@ export const services: Service[] = [
     slug: "android-ios-development",
     title: "Android & iOS App Development",
     shortTitle: "Android & iOS Apps",
-    tagline: "Native and cross-platform mobile apps engineered for fluid 60fps performance and store dominance.",
+    tagline:
+      "Native and cross-platform mobile apps engineered for fluid 60fps performance and store dominance.",
     description:
       "Full-lifecycle mobile app development for Android and iOS. Using React Native, Flutter, Swift, and Kotlin, we build beautiful, responsive applications with offline persistence, hardware sensor integrations, push notifications, and seamless App Store and Google Play publishing.",
     icon: "📱",
@@ -232,7 +234,8 @@ export const services: Service[] = [
     slug: "browser-extension-development",
     title: "Browser Extension Development",
     shortTitle: "Browser Extensions",
-    tagline: "Cross-browser Manifest V3 extensions that automate workflows, streamline tasks, and empower users.",
+    tagline:
+      "Cross-browser Manifest V3 extensions that automate workflows, streamline tasks, and empower users.",
     description:
       "High-performance browser extensions engineered for Chrome, Edge, Firefox, and Safari. Built on modern Manifest V3 standards with service workers, secure DOM automation, cloud API sync, and intuitive popup interfaces that integrate smoothly into everyday browsing.",
     icon: "🧩",
@@ -272,7 +275,8 @@ export const services: Service[] = [
     slug: "website-maintenance-support",
     title: "Website Maintenance & Support",
     shortTitle: "Maintenance & Support",
-    tagline: "24/7 uptime monitoring, security patching, Core Web Vitals optimization, and continuous updates.",
+    tagline:
+      "24/7 uptime monitoring, security patching, Core Web Vitals optimization, and continuous updates.",
     description:
       "Dependable ongoing website care to ensure your digital flagship stays secure, lightning-fast, and operating without disruption. We handle framework and CMS updates, vulnerability scans, regular cloud backups, bug fixes, and on-demand content enhancements.",
     icon: "🛡️",
@@ -312,7 +316,8 @@ export const services: Service[] = [
     slug: "ai-automation",
     title: "AI & Workflow Automation",
     shortTitle: "AI & Automation",
-    tagline: "Context-aware LLM integrations, on-premises private model deployment, and autonomous agentic workflows.",
+    tagline:
+      "Context-aware LLM integrations, on-premises private model deployment, and autonomous agentic workflows.",
     description:
       "Intelligent automation, LLM integrations, and secure on-premises model deployments that eliminate operational friction. From private, air-gapped open-weight LLMs (Llama, Mistral, DeepSeek) hosted on your internal infrastructure to context-aware conversational copilots and multi-agent reasoning graphs.",
     icon: "🤖",
@@ -513,7 +518,8 @@ export const caseStudies: CaseStudy[] = [
     slug: "armaan-ethnic-wear",
     title: "Armaan Ethnic Wear — Luxury Traditional Fashion Platform",
     category: "E-Commerce & Digital Flagship",
-    tagline: "Next.js luxury digital flagship with festive showcase carousels, sub-second LCP, and WhatsApp commerce integration.",
+    tagline:
+      "Next.js luxury digital flagship with festive showcase carousels, sub-second LCP, and WhatsApp commerce integration.",
     overview:
       "Architected and engineered a high-performance digital flagship for Armaan Ethnic Wear, a premier traditional Indian festive and wedding wear brand in Delhi. Built with Next.js App Router, Tailwind CSS, bespoke editorial typography (Cormorant Garamond & Manrope), Schema.org ClothingStore structured data, and conversational WhatsApp sales funnels.",
     challenge:
@@ -589,7 +595,8 @@ export const caseStudies: CaseStudy[] = [
     slug: "thermal-energy-international",
     title: "Thermal Energy International — Heavy Industrial Engineering & BTG Spares Portal",
     category: "Industrial Engineering & B2B Web Flagship",
-    tagline: "Next.js enterprise digital portal featuring a 23-category product catalogue, automated RFQ workflows, and agent-readable LLM indexing.",
+    tagline:
+      "Next.js enterprise digital portal featuring a 23-category product catalogue, automated RFQ workflows, and agent-readable LLM indexing.",
     overview:
       "Architected and engineered a comprehensive digital engineering portal and product catalogue for M/s. Thermal Energy International (TEI), a premier industrial supplier of Boiler & Turbine Auxiliaries, BTG Spares, and Fuel Oil Skids. Built with Next.js App Router, Tailwind CSS, Schema.org OfferCatalog structured data, agentic search optimization (llms.txt), and rapid RFQ quotation dispatch funnels.",
     challenge:
@@ -627,7 +634,8 @@ export const caseStudies: CaseStudy[] = [
     slug: "ai-photography",
     title: "AI Underwater Photography Platform",
     category: "Mobile & Hardware Integration",
-    tagline: "Native iOS (SwiftUI) & React Native app with real-time AI image enhancement and hardware communication.",
+    tagline:
+      "Native iOS (SwiftUI) & React Native app with real-time AI image enhancement and hardware communication.",
     overview:
       "An advanced mobile photography platform engineered with native iOS SwiftUI modules alongside cross-platform React Native features, smart underwater camera hardware connectivity, and REST API integrations for automated color restoration.",
     challenge:
@@ -659,7 +667,8 @@ export const caseStudies: CaseStudy[] = [
     slug: "insurance",
     title: "Enterprise Insurance & Claims Suite",
     category: "Enterprise Mobile & Policy Workflows",
-    tagline: "Cross-platform claims inspection, policy management, and secure enterprise workflows.",
+    tagline:
+      "Cross-platform claims inspection, policy management, and secure enterprise workflows.",
     overview:
       "An enterprise-grade cross-platform insurance application built with React Native (Expo) and TypeScript for iOS and Android, handling automated claims workflows, policyholder authentication, and field inspection reporting.",
     challenge:
@@ -672,14 +681,7 @@ export const caseStudies: CaseStudy[] = [
       "Secure token-based authentication and role-gated policy access",
       "Optimized photo upload queues with background retry mechanisms",
     ],
-    technologies: [
-      "React Native",
-      "Expo",
-      "TypeScript",
-      "Redux Toolkit",
-      "REST APIs",
-      "Mobile UX",
-    ],
+    technologies: ["React Native", "Expo", "TypeScript", "Redux Toolkit", "REST APIs", "Mobile UX"],
     deliverables: [
       "Enterprise iOS and Android application binaries",
       "Claims processing and policyholder dashboard",
@@ -691,7 +693,8 @@ export const caseStudies: CaseStudy[] = [
     slug: "hipaa-ai-healthcare",
     title: "HIPAA-Compliant AI Telehealth & Clinical Records",
     category: "Healthcare & AI Engineering",
-    tagline: "Cross-platform healthcare suite with 5-role RBAC, EHR integration, and real-time AI NLP patient risk classification.",
+    tagline:
+      "Cross-platform healthcare suite with 5-role RBAC, EHR integration, and real-time AI NLP patient risk classification.",
     overview:
       "A secure, HIPAA-compliant cross-platform healthcare application featuring 5-role Role-Based Access Control (RBAC), Twilio-powered telehealth and encrypted messaging, EHR interoperability, and real-time NLP patient sentiment analysis.",
     challenge:
@@ -724,7 +727,8 @@ export const caseStudies: CaseStudy[] = [
     slug: "digital-portfolio-ecosystem",
     title: "High-Performance Multi-Site Digital Ecosystem & SEO Engine",
     category: "Website Development & Technical SEO",
-    tagline: "Next.js multi-brand platform achieving 90+ PageSpeed scores, sub-second LCP, and structured JSON-LD schema.",
+    tagline:
+      "Next.js multi-brand platform achieving 90+ PageSpeed scores, sub-second LCP, and structured JSON-LD schema.",
     overview:
       "Architected and delivered high-performance portfolio and corporate websites using Next.js, React, TypeScript, and Tailwind CSS, standardizing frontend architecture and engineering top-tier technical search visibility.",
     challenge:
@@ -790,7 +794,8 @@ export const caseStudies: CaseStudy[] = [
     slug: "headless-ecommerce-rewards",
     title: "Custom E-Commerce & Loyalty Rewards Platform",
     category: "E-Commerce & Mobile App",
-    tagline: "Headless e-commerce platform with real-time product personalizer and mobile loyalty point redemption.",
+    tagline:
+      "Headless e-commerce platform with real-time product personalizer and mobile loyalty point redemption.",
     overview:
       "Engineered full-featured e-commerce systems featuring custom product configuration tools, automated pricing calculations, and a companion React Native loyalty points mobile app.",
     challenge:

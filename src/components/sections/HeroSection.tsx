@@ -70,12 +70,8 @@ export function HeroSection() {
           </RevealOnScroll>
 
           <RevealOnScroll delay={100}>
-            <h1
-              className="text-hero"
-              style={{ marginBottom: "1.5rem" }}
-            >
-              Ideas into{" "}
-              <span className="text-gradient">impact</span>
+            <h1 className="text-hero" style={{ marginBottom: "1.5rem" }}>
+              Ideas into <span className="text-gradient">impact</span>
             </h1>
           </RevealOnScroll>
 
@@ -88,9 +84,8 @@ export function HeroSection() {
                 margin: "0 auto 2.5rem",
               }}
             >
-              We build digital experiences that help businesses grow.
-              Websites, applications, and AI solutions — crafted with
-              care, built for results.
+              We build digital experiences that help businesses grow. Websites, applications, and AI
+              solutions — crafted with care, built for results.
             </p>
           </RevealOnScroll>
 
@@ -134,8 +129,7 @@ export function HeroSection() {
           left: 0,
           right: 0,
           height: "120px",
-          background:
-            "linear-gradient(transparent, var(--color-background))",
+          background: "linear-gradient(transparent, var(--color-background))",
           pointerEvents: "none",
         }}
       />

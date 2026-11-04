@@ -52,15 +52,16 @@ export function Header() {
       style={{
         backgroundColor: "#FFFFFF",
         borderBottom: "1px solid var(--color-border)",
-        boxShadow: isScrolled
-          ? "0 4px 20px -2px rgba(15, 23, 42, 0.06)"
-          : "none",
+        boxShadow: isScrolled ? "0 4px 20px -2px rgba(15, 23, 42, 0.06)" : "none",
       }}
     >
       <div className="container-main">
         <nav
           className="flex items-center justify-between"
-          style={{ height: isScrolled ? "64px" : "80px", transition: "height var(--duration-base) var(--ease-out)" }}
+          style={{
+            height: isScrolled ? "64px" : "80px",
+            transition: "height var(--duration-base) var(--ease-out)",
+          }}
           aria-label="Main navigation"
         >
           {/* Official Brand Logo */}
@@ -114,9 +115,7 @@ export function Header() {
                   background: "var(--color-text)",
                   borderRadius: "1px",
                   transition: "all var(--duration-base) var(--ease-out)",
-                  transform: isMenuOpen
-                    ? "rotate(45deg) translateY(5px)"
-                    : "none",
+                  transform: isMenuOpen ? "rotate(45deg) translateY(5px)" : "none",
                 }}
               />
               <span
@@ -136,9 +135,7 @@ export function Header() {
                   background: "var(--color-text)",
                   borderRadius: "1px",
                   transition: "all var(--duration-base) var(--ease-out)",
-                  transform: isMenuOpen
-                    ? "rotate(-45deg) translateY(-5px)"
-                    : "none",
+                  transform: isMenuOpen ? "rotate(-45deg) translateY(-5px)" : "none",
                 }}
               />
             </div>
