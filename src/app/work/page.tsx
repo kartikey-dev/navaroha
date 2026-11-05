@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { caseStudies } from "@/content/data";
 import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
-import { CTASection } from "@/components/sections/CTASection";
+import { ClientLogos } from "@/components/sections/ClientLogos";
 import { CaseStudiesGallery } from "@/components/sections/CaseStudiesGallery";
+import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
+import { CTASection } from "@/components/sections/CTASection";
 
 export const metadata: Metadata = {
   title: "Selected Work & Case Studies",
@@ -35,12 +37,18 @@ export default function WorkPage() {
         </div>
       </section>
 
+      {/* Client Logos & Trust Badges */}
+      <ClientLogos />
+
       {/* Case Studies Gallery with Category Filtering */}
       <section className="py-16 md:py-24">
         <div className="container-main">
           <CaseStudiesGallery studies={caseStudies} />
         </div>
       </section>
+
+      {/* Verified Client Testimonials */}
+      <TestimonialsSection />
 
       <CTASection />
     </>

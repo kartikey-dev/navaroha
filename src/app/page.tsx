@@ -2,6 +2,7 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { ClientLogos } from "@/components/sections/ClientLogos";
 import { LiveStatsSection } from "@/components/sections/LiveStatsSection";
 import { VirtualOffice } from "@/components/studio/VirtualOffice";
+import { FeaturedWorkSection } from "@/components/sections/FeaturedWorkSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { CostEstimator } from "@/components/interactive/CostEstimator";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
@@ -19,6 +20,7 @@ export default function Home() {
       <ClientLogos />
       <LiveStatsSection />
       <VirtualOffice />
+      <FeaturedWorkSection />
       <ServicesSection />
       <CostEstimator />
       <TestimonialsSection />

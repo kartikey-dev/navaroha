@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { services } from "@/content/data";
 import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
+import { CostEstimator } from "@/components/interactive/CostEstimator";
+import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { CTASection } from "@/components/sections/CTASection";
 
 export const metadata: Metadata = {
@@ -61,28 +63,28 @@ export default function ServicesPage() {
                       </span>
                     </div>
 
-                    <h2 className="text-2xl md:text-3xl font-bold font-heading mb-3 text-[var(--color-midnight)]">
+                    <h2 className="text-2xl md:text-3xl font-bold font-heading mb-3 text-white">
                       {service.title}
                     </h2>
-                    <p className="text-base text-[var(--color-primary)] font-medium mb-4">
+                    <p className="text-base text-blue-400 font-medium mb-4">
                       {service.tagline}
                     </p>
-                    <p className="text-[var(--color-text-secondary)] leading-relaxed mb-6">
+                    <p className="text-slate-300 leading-relaxed mb-6">
                       {service.description}
                     </p>
 
                     <div className="mb-6">
-                      <h3 className="text-sm font-semibold uppercase tracking-wider text-[var(--color-midnight)] mb-3">
+                      <h3 className="text-sm font-semibold uppercase tracking-wider text-white mb-3">
                         Key Features & Architecture
                       </h3>
                       <ul className="space-y-2">
                         {service.features.map((feature, idx) => (
                           <li
                             key={idx}
-                            className="flex items-start gap-2.5 text-sm text-[var(--color-text-secondary)]"
+                            className="flex items-start gap-2.5 text-sm text-slate-300"
                           >
                             <svg
-                              className="w-4 h-4 text-[var(--color-primary)] mt-0.5 shrink-0"
+                              className="w-4 h-4 text-blue-400 mt-0.5 shrink-0"
                               fill="none"
                               viewBox="0 0 24 24"
                               stroke="currentColor"
@@ -127,33 +129,33 @@ export default function ServicesPage() {
                   </div>
 
                   {/* Right Column: Deliverables & Tech Card */}
-                  <div className="w-full lg:w-[420px] bg-slate-50 border border-[var(--color-border)] rounded-[var(--radius-xl)] p-6 md:p-8 space-y-6">
+                  <div className="w-full lg:w-[420px] bg-slate-900/90 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-6 text-white shadow-xl">
                     <div>
-                      <h4 className="text-xs font-semibold uppercase tracking-wider text-[var(--color-midnight)] mb-3">
+                      <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-300 mb-3">
                         What We Deliver
                       </h4>
                       <ul className="space-y-2">
                         {service.deliverables.map((item, idx) => (
                           <li
                             key={idx}
-                            className="flex items-start gap-2 text-xs text-[var(--color-text-secondary)]"
+                            className="flex items-start gap-2 text-xs text-slate-300"
                           >
-                            <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] mt-1.5 shrink-0" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 mt-1.5 shrink-0" />
                             <span>{item}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
 
-                    <div className="pt-4 border-t border-[var(--color-border)]">
-                      <h4 className="text-xs font-semibold uppercase tracking-wider text-[var(--color-midnight)] mb-2">
+                    <div className="pt-4 border-t border-slate-800">
+                      <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
                         Ideal For
                       </h4>
                       <ul className="space-y-1.5">
                         {service.idealFor.map((item, idx) => (
                           <li
                             key={idx}
-                            className="text-xs text-[var(--color-text-secondary)] italic"
+                            className="text-xs text-slate-400 italic"
                           >
                             &ldquo;{item}&rdquo;
                           </li>
@@ -161,15 +163,15 @@ export default function ServicesPage() {
                       </ul>
                     </div>
 
-                    <div className="pt-4 border-t border-[var(--color-border)]">
-                      <h4 className="text-xs font-semibold uppercase tracking-wider text-[var(--color-midnight)] mb-2">
+                    <div className="pt-4 border-t border-slate-800">
+                      <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
                         Technology Stack
                       </h4>
                       <div className="flex flex-wrap gap-1.5">
                         {service.technologies.map((tech) => (
                           <span
                             key={tech}
-                            className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-white border border-[var(--color-border)] text-slate-700"
+                            className="text-[11px] font-mono px-2.5 py-1 rounded-md bg-slate-800/80 border border-slate-700/60 text-slate-300"
                           >
                             {tech}
                           </span>
@@ -183,6 +185,12 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      {/* Transparent Pricing Guide: Interactive Project Cost Estimator */}
+      <CostEstimator />
+
+      {/* Verified Client Outcomes & Social Proof */}
+      <TestimonialsSection />
 
       <CTASection />
     </>

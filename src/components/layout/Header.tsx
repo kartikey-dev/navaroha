@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
 import { CurrencyCode, CURRENCIES } from "@/lib/currency";
+import { openBookingModal } from "@/components/interactive/BookingModal";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -140,6 +141,14 @@ export function Header() {
               </span>
             </div>
 
+            <button
+              type="button"
+              onClick={() => openBookingModal("Header Strategy Session")}
+              className="btn btn-secondary btn-sm !text-slate-200 !border-slate-700 hover:!border-blue-400 hover:!text-white cursor-pointer hidden lg:inline-flex"
+            >
+              Book a Call
+            </button>
+
             <Link href={siteConfig.navigation.cta.href} className="btn btn-primary btn-sm">
               {siteConfig.navigation.cta.label}
             </Link>
@@ -270,14 +279,26 @@ export function Header() {
           </div>
         </div>
 
-        <Link
-          href={siteConfig.navigation.cta.href}
-          onClick={closeMenu}
-          className="btn btn-primary btn-lg"
-          style={{ marginTop: "1rem" }}
-        >
-          {siteConfig.navigation.cta.label}
-        </Link>
+        <div className="flex flex-col gap-3 pt-3">
+          <button
+            type="button"
+            onClick={() => {
+              closeMenu();
+              openBookingModal("Mobile Drawer Strategy Session");
+            }}
+            className="btn btn-secondary btn-lg !text-white !border-slate-700 hover:!border-blue-500 cursor-pointer w-full text-center"
+          >
+            Book a Strategy Call
+          </button>
+
+          <Link
+            href={siteConfig.navigation.cta.href}
+            onClick={closeMenu}
+            className="btn btn-primary btn-lg w-full text-center"
+          >
+            {siteConfig.navigation.cta.label}
+          </Link>
+        </div>
       </div>
     </header>
   );

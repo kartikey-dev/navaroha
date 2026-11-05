@@ -89,36 +89,31 @@ export function CostEstimator() {
     <section
       id="cost-estimator"
       aria-labelledby="estimator-title"
-      className="py-16 md:py-24 relative overflow-hidden"
-      style={{
-        backgroundColor: "var(--color-surface)",
-        borderTop: "1px solid var(--color-border)",
-        borderBottom: "1px solid var(--color-border)",
-      }}
+      className="py-16 md:py-24 relative overflow-hidden bg-[#070C18] text-white border-y border-slate-800"
     >
-      <div className="container-main">
+      <div className="container-main relative z-10">
         {/* Section Heading */}
         <div className="max-w-3xl mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase mb-4 border border-blue-500/20 bg-blue-50 text-blue-700">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase mb-4 border border-blue-500/30 bg-blue-500/10 text-blue-400">
             Transparent Pricing
           </div>
           <h2
             id="estimator-title"
-            className="text-3xl md:text-5xl font-bold tracking-tight mb-4"
-            style={{ fontFamily: "var(--font-heading)", color: "var(--color-text)" }}
+            className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-white"
+            style={{ fontFamily: "var(--font-heading)" }}
           >
             Project Cost & Timeline Estimator
           </h2>
-          <p className="text-base md:text-lg text-slate-600 leading-relaxed">
+          <p className="text-base md:text-lg text-slate-400 leading-relaxed">
             Configure your project parameters for an instant, real-time estimate. We believe in
             complete transparency with predictable timelines and milestone-driven delivery.
           </p>
         </div>
 
         {/* Currency Switcher Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200 mb-10">
-          <span className="text-sm font-semibold text-slate-700">Display Currency:</span>
-          <div className="inline-flex p-1 rounded-xl bg-white border border-slate-200 shadow-sm">
+        <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-slate-900/90 border border-slate-800 mb-10">
+          <span className="text-sm font-semibold text-slate-300">Display Currency:</span>
+          <div className="inline-flex p-1 rounded-xl bg-slate-950 border border-slate-800 shadow-sm">
             {CURRENCY_LIST.map((code) => {
               const meta = CURRENCIES[code];
               const isSelected = currency === code;
@@ -128,10 +123,10 @@ export function CostEstimator() {
                   type="button"
                   onClick={() => setCurrency(code)}
                   aria-pressed={isSelected}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
                     isSelected
                       ? "bg-blue-600 text-white shadow-sm"
-                      : "text-slate-600 hover:text-slate-900"
+                      : "text-slate-400 hover:text-white"
                   }`}
                 >
                   {code} ({meta.symbol})
@@ -146,7 +141,7 @@ export function CostEstimator() {
           <div className="lg:col-span-8 space-y-8">
             {/* 1. Project Type */}
             <div>
-              <label className="block text-sm font-bold uppercase tracking-wider text-slate-700 mb-3">
+              <label className="block text-sm font-bold uppercase tracking-wider text-slate-300 mb-3">
                 1. Select Solution Type
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
@@ -159,12 +154,12 @@ export function CostEstimator() {
                       onClick={() => setProjectType(item.id)}
                       className={`p-4 rounded-xl border text-left transition-all cursor-pointer ${
                         isSelected
-                          ? "border-blue-600 bg-blue-50/60 ring-2 ring-blue-500/20"
-                          : "border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50/50"
+                          ? "border-blue-500 bg-blue-950/40 text-white ring-2 ring-blue-500/30"
+                          : "border-slate-800 bg-slate-900/80 hover:border-slate-700 hover:bg-slate-850 text-slate-300"
                       }`}
                     >
-                      <div className="font-semibold text-sm text-slate-900 mb-1">{item.label}</div>
-                      <div className="text-xs text-slate-500 leading-snug">{item.desc}</div>
+                      <div className="font-semibold text-sm text-white mb-1">{item.label}</div>
+                      <div className="text-xs text-slate-400 leading-snug">{item.desc}</div>
                     </button>
                   );
                 })}
@@ -173,7 +168,7 @@ export function CostEstimator() {
 
             {/* 2. Project Scope */}
             <div>
-              <label className="block text-sm font-bold uppercase tracking-wider text-slate-700 mb-3">
+              <label className="block text-sm font-bold uppercase tracking-wider text-slate-300 mb-3">
                 2. Project Scope & Architecture Scale
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -186,12 +181,12 @@ export function CostEstimator() {
                       onClick={() => setScope(item.id)}
                       className={`p-4 rounded-xl border text-left transition-all cursor-pointer ${
                         isSelected
-                          ? "border-blue-600 bg-blue-50/60 ring-2 ring-blue-500/20"
-                          : "border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50/50"
+                          ? "border-blue-500 bg-blue-950/40 text-white ring-2 ring-blue-500/30"
+                          : "border-slate-800 bg-slate-900/80 hover:border-slate-700 hover:bg-slate-850 text-slate-300"
                       }`}
                     >
-                      <div className="font-semibold text-sm text-slate-900 mb-1">{item.label}</div>
-                      <div className="text-xs text-slate-500 leading-snug">{item.desc}</div>
+                      <div className="font-semibold text-sm text-white mb-1">{item.label}</div>
+                      <div className="text-xs text-slate-400 leading-snug">{item.desc}</div>
                     </button>
                   );
                 })}
@@ -200,7 +195,7 @@ export function CostEstimator() {
 
             {/* 3. Delivery Pace */}
             <div>
-              <label className="block text-sm font-bold uppercase tracking-wider text-slate-700 mb-3">
+              <label className="block text-sm font-bold uppercase tracking-wider text-slate-300 mb-3">
                 3. Delivery Timeline & Velocity
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -213,12 +208,12 @@ export function CostEstimator() {
                       onClick={() => setTimeline(item.id)}
                       className={`p-4 rounded-xl border text-left transition-all cursor-pointer ${
                         isSelected
-                          ? "border-blue-600 bg-blue-50/60 ring-2 ring-blue-500/20"
-                          : "border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50/50"
+                          ? "border-blue-500 bg-blue-950/40 text-white ring-2 ring-blue-500/30"
+                          : "border-slate-800 bg-slate-900/80 hover:border-slate-700 hover:bg-slate-850 text-slate-300"
                       }`}
                     >
-                      <div className="font-semibold text-sm text-slate-900 mb-1">{item.label}</div>
-                      <div className="text-xs text-slate-500 leading-snug">{item.desc}</div>
+                      <div className="font-semibold text-sm text-white mb-1">{item.label}</div>
+                      <div className="text-xs text-slate-400 leading-snug">{item.desc}</div>
                     </button>
                   );
                 })}
@@ -227,7 +222,7 @@ export function CostEstimator() {
 
             {/* 4. Strategic Addons */}
             <div>
-              <label className="block text-sm font-bold uppercase tracking-wider text-slate-700 mb-3">
+              <label className="block text-sm font-bold uppercase tracking-wider text-slate-300 mb-3">
                 4. Strategic Add-ons & Engineering Enhancements
               </label>
               <div className="space-y-2.5">
@@ -239,27 +234,27 @@ export function CostEstimator() {
                       key={key}
                       className={`flex items-start gap-3 p-3.5 rounded-xl border transition-all cursor-pointer ${
                         isChecked
-                          ? "border-blue-600 bg-blue-50/40"
-                          : "border-slate-200 bg-white hover:bg-slate-50/50"
+                          ? "border-blue-500 bg-blue-950/30 text-white"
+                          : "border-slate-800 bg-slate-900/80 hover:bg-slate-850 text-slate-300"
                       }`}
                     >
                       <input
                         type="checkbox"
                         checked={isChecked}
                         onChange={() => toggleAddon(key)}
-                        className="mt-1 w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300"
+                        className="mt-1 w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-700 bg-slate-950"
                         aria-label={addon.label}
                       />
                       <div className="flex-1">
                         <div className="flex items-center justify-between">
-                          <span className="text-sm font-semibold text-slate-900">
+                          <span className="text-sm font-semibold text-white">
                             {addon.label}
                           </span>
-                          <span className="text-xs font-mono font-medium text-slate-500">
+                          <span className="text-xs font-mono font-medium text-blue-400">
                             +${addon.priceUSD} USD
                           </span>
                         </div>
-                        <p className="text-xs text-slate-500 mt-0.5">{addon.description}</p>
+                        <p className="text-xs text-slate-400 mt-0.5">{addon.description}</p>
                       </div>
                     </label>
                   );

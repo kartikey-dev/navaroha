@@ -3,6 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { studioValues } from "@/content/data";
 import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
+import { TeamSection } from "@/components/sections/TeamSection";
+import { LiveStatsSection } from "@/components/sections/LiveStatsSection";
+import { ClientLogos } from "@/components/sections/ClientLogos";
 import { CTASection } from "@/components/sections/CTASection";
 import { siteConfig } from "@/lib/site-config";
 
@@ -37,7 +40,7 @@ export default function AboutPage() {
       </section>
 
       {/* Story & Ethos */}
-      <section className="py-20 border-t border-[var(--color-border)]">
+      <section className="py-20 border-t border-slate-800 bg-[#070C18] text-white">
         <div className="container-main">
           <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-14">
             <div className="shrink-0 flex justify-center">
@@ -50,10 +53,10 @@ export default function AboutPage() {
               />
             </div>
             <div className="flex-1">
-              <h2 className="text-2xl md:text-3xl font-bold font-heading text-[var(--color-midnight)] mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold font-heading text-white mb-6">
                 A studio built on principles, not templates
               </h2>
-              <div className="space-y-4 text-base md:text-lg text-slate-700 leading-relaxed font-sans">
+              <div className="space-y-4 text-base md:text-lg text-slate-300 leading-relaxed font-sans">
                 <p>
                   Navaroha was founded with a straightforward perspective: businesses don&apos;t
                   just need more code—they need thoughtful, durable digital products that solve real
@@ -78,11 +81,11 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values */}
-      <section className="py-20 bg-slate-50 border-y border-[var(--color-border)]">
+      <section className="py-20 bg-slate-950 border-y border-slate-800 text-white">
         <div className="container-main">
           <div className="text-center mb-16">
             <p className="text-eyebrow mb-3">Our Foundation</p>
-            <h2 className="text-3xl font-bold font-heading text-slate-900">
+            <h2 className="text-3xl font-bold font-heading text-white">
               The values that guide every line of code
             </h2>
           </div>
@@ -91,18 +94,18 @@ export default function AboutPage() {
             {studioValues.map((value) => (
               <div
                 key={value.title}
-                className="p-8 rounded-[var(--radius-2xl)] bg-white border border-[var(--color-border)] shadow-sm"
+                className="p-8 rounded-3xl bg-slate-900/90 border border-slate-800 shadow-xl"
               >
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-3xl">{value.icon}</span>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)] bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">
                     {value.badge}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3 font-heading">
+                <h3 className="text-xl font-bold text-white mb-3 font-heading">
                   {value.title}
                 </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">{value.description}</p>
+                <p className="text-sm text-slate-300 leading-relaxed">{value.description}</p>
               </div>
             ))}
           </div>
@@ -110,67 +113,67 @@ export default function AboutPage() {
       </section>
 
       {/* How We Work: 4-Stage Studio Engineering Cycle */}
-      <section className="py-20 border-b border-[var(--color-border)]">
+      <section className="py-20 border-b border-slate-800 bg-[#070C18] text-white">
         <div className="container-main">
           <div className="text-center mb-16 max-w-2xl mx-auto">
             <p className="text-eyebrow mb-3">Our Methodology</p>
-            <h2 className="text-3xl font-bold font-heading text-slate-900">
+            <h2 className="text-3xl font-bold font-heading text-white">
               How we work: Predictable, transparent sprints
             </h2>
-            <p className="text-slate-600 text-sm mt-3">
+            <p className="text-slate-400 text-sm mt-3">
               We eliminate guesswork with a disciplined 4-stage engineering cycle, keeping you in
               control at every milestone.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
-              <span className="font-mono text-xs font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md mb-3 inline-block">
+            <div className="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-lg">
+              <span className="font-mono text-xs font-bold text-blue-400 bg-blue-500/10 px-2.5 py-1 rounded-md mb-3 inline-block border border-blue-500/20">
                 Stage 01
               </span>
-              <h3 className="text-lg font-bold text-slate-900 mb-2 font-heading">
+              <h3 className="text-lg font-bold text-white mb-2 font-heading">
                 Discovery & Scoping
               </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <p className="text-xs text-slate-300 leading-relaxed">
                 We analyze your business objectives, review technical constraints, and define a
                 clear scope with fixed milestone deliverables.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
-              <span className="font-mono text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-md mb-3 inline-block">
+            <div className="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-lg">
+              <span className="font-mono text-xs font-bold text-indigo-400 bg-indigo-500/10 px-2.5 py-1 rounded-md mb-3 inline-block border border-indigo-500/20">
                 Stage 02
               </span>
-              <h3 className="text-lg font-bold text-slate-900 mb-2 font-heading">
+              <h3 className="text-lg font-bold text-white mb-2 font-heading">
                 System Design & Tokens
               </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <p className="text-xs text-slate-300 leading-relaxed">
                 Crafting interactive Figma prototypes, modular design tokens, and validating user
                 flows with WCAG 2.2 AA accessibility standards.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
-              <span className="font-mono text-xs font-bold text-purple-600 bg-purple-50 px-2.5 py-1 rounded-md mb-3 inline-block">
+            <div className="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-lg">
+              <span className="font-mono text-xs font-bold text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-md mb-3 inline-block border border-purple-500/20">
                 Stage 03
               </span>
-              <h3 className="text-lg font-bold text-slate-900 mb-2 font-heading">
+              <h3 className="text-lg font-bold text-white mb-2 font-heading">
                 Agile Sprints & TDD
               </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <p className="text-xs text-slate-300 leading-relaxed">
                 Writing strict TypeScript, automated unit and component tests, with live weekly
                 staging previews to inspect working features.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
-              <span className="font-mono text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md mb-3 inline-block">
+            <div className="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-lg">
+              <span className="font-mono text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md mb-3 inline-block border border-emerald-500/20">
                 Stage 04
               </span>
-              <h3 className="text-lg font-bold text-slate-900 mb-2 font-heading">
+              <h3 className="text-lg font-bold text-white mb-2 font-heading">
                 Quality Gates & Launch
               </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <p className="text-xs text-slate-300 leading-relaxed">
                 Executing 11-stage CI/CD checks, performance optimization, domain switchover, and
                 post-launch warranty support.
               </p>
@@ -178,6 +181,15 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Human Collective: Team Section */}
+      <TeamSection />
+
+      {/* Telemetry: Live Stats Section */}
+      <LiveStatsSection />
+
+      {/* Trusted Client Partners */}
+      <ClientLogos />
 
       {/* Honest Commitment */}
       <section className="py-20">

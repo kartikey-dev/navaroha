@@ -52,6 +52,14 @@ const TEAM_MEMBERS: TeamMember[] = [
     avatarColor: "from-amber-600 to-orange-600",
     skills: ["Agile Architecture", "Sprint QA", "Client Strategy", "SLA"],
   },
+  {
+    name: "Specialist Network",
+    role: "QA & Security Specialists",
+    specialty: "OWASP Audits, Penetration Testing, Native Mobile & Accessibility",
+    funFact: "A vetted on-demand guild of senior specialists activated for enterprise audits.",
+    avatarColor: "from-teal-600 via-blue-600 to-indigo-600",
+    skills: ["OWASP Top 10", "Swift", "Kotlin", "WCAG 2.2"],
+  },
 ];
 
 export function TeamSection() {

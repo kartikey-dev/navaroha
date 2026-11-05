@@ -104,14 +104,14 @@ export function ContactForm() {
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="p-8 md:p-10 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-white shadow-[var(--shadow-sm)] space-y-6"
+      className="p-8 md:p-10 rounded-3xl border border-slate-800 bg-slate-900/90 shadow-xl space-y-6 text-white"
     >
       {initialEstimate && (
-        <div className="p-3.5 rounded-xl bg-blue-50 border border-blue-200 text-xs text-blue-900 flex items-center justify-between">
+        <div className="p-3.5 rounded-xl bg-blue-950/40 border border-blue-800/60 text-xs text-blue-300 flex items-center justify-between">
           <span>
-            Configured Scope: <strong>{initialType}</strong> ({initialScope})
+            Configured Scope: <strong className="text-white">{initialType}</strong> ({initialScope})
           </span>
-          <span className="font-mono font-bold text-blue-700">{initialEstimate}</span>
+          <span className="font-mono font-bold text-blue-400">{initialEstimate}</span>
         </div>
       )}
 
@@ -119,7 +119,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="name"
-            className="block text-xs font-semibold uppercase tracking-wider text-slate-800 mb-2"
+            className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2"
           >
             Your Name <span className="text-rose-500">*</span>
           </label>
@@ -134,12 +134,12 @@ export function ContactForm() {
             value={formState.name}
             onChange={handleChange}
             placeholder="Ada Lovelace"
-            className={`w-full px-4 py-3 rounded-[var(--radius-md)] border text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-slate-900 bg-white ${
-              fieldErrors.name ? "border-rose-500 bg-rose-50/20" : "border-slate-300"
+            className={`w-full px-4 py-3 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-white bg-slate-950 ${
+              fieldErrors.name ? "border-rose-500 bg-rose-950/20" : "border-slate-700"
             }`}
           />
           {fieldErrors.name && (
-            <p id="name-error" className="text-xs text-rose-600 mt-1.5 font-medium">
+            <p id="name-error" className="text-xs text-rose-400 mt-1.5 font-medium">
               {fieldErrors.name}
             </p>
           )}
@@ -148,7 +148,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="email"
-            className="block text-xs font-semibold uppercase tracking-wider text-slate-800 mb-2"
+            className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2"
           >
             Email Address <span className="text-rose-500">*</span>
           </label>
@@ -163,12 +163,12 @@ export function ContactForm() {
             value={formState.email}
             onChange={handleChange}
             placeholder="ada@example.com"
-            className={`w-full px-4 py-3 rounded-[var(--radius-md)] border text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-slate-900 bg-white ${
-              fieldErrors.email ? "border-rose-500 bg-rose-50/20" : "border-slate-300"
+            className={`w-full px-4 py-3 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-white bg-slate-950 ${
+              fieldErrors.email ? "border-rose-500 bg-rose-950/20" : "border-slate-700"
             }`}
           />
           {fieldErrors.email && (
-            <p id="email-error" className="text-xs text-rose-600 mt-1.5 font-medium">
+            <p id="email-error" className="text-xs text-rose-400 mt-1.5 font-medium">
               {fieldErrors.email}
             </p>
           )}
@@ -179,7 +179,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="phone"
-            className="block text-xs font-semibold uppercase tracking-wider text-slate-800 mb-2"
+            className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2"
           >
             Phone / WhatsApp <span className="text-slate-400 font-normal">(Optional)</span>
           </label>
@@ -192,12 +192,12 @@ export function ContactForm() {
             value={formState.phone}
             onChange={handleChange}
             placeholder="+1 555-0199 or +91 70155 20736"
-            className={`w-full px-4 py-3 rounded-[var(--radius-md)] border text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-slate-900 bg-white ${
-              fieldErrors.phone ? "border-rose-500 bg-rose-50/20" : "border-slate-300"
+            className={`w-full px-4 py-3 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-white bg-slate-950 ${
+              fieldErrors.phone ? "border-rose-500 bg-rose-950/20" : "border-slate-700"
             }`}
           />
           {fieldErrors.phone && (
-            <p id="phone-error" className="text-xs text-rose-600 mt-1.5 font-medium">
+            <p id="phone-error" className="text-xs text-rose-400 mt-1.5 font-medium">
               {fieldErrors.phone}
             </p>
           )}
@@ -206,7 +206,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="service"
-            className="block text-xs font-semibold uppercase tracking-wider text-slate-800 mb-2"
+            className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2"
           >
             Primary Interest / Service
           </label>
@@ -215,11 +215,11 @@ export function ContactForm() {
             name="service"
             value={formState.service}
             onChange={handleChange}
-            className="w-full px-4 py-3 rounded-[var(--radius-md)] border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-slate-900 bg-white"
+            className="w-full px-4 py-3 rounded-xl border border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-white bg-slate-950"
           >
-            <option value="">Select a service...</option>
+            <option value="" className="bg-slate-950 text-white">Select a service...</option>
             {services.map((s) => (
-              <option key={s.slug} value={s.slug}>
+              <option key={s.slug} value={s.slug} className="bg-slate-950 text-white">
                 {s.title}
               </option>
             ))}
@@ -230,7 +230,7 @@ export function ContactForm() {
       <div>
         <label
           htmlFor="message"
-          className="block text-xs font-semibold uppercase tracking-wider text-slate-800 mb-2"
+          className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2"
         >
           Project Overview <span className="text-rose-500">*</span>
         </label>
@@ -245,12 +245,12 @@ export function ContactForm() {
           value={formState.message}
           onChange={handleChange}
           placeholder="Tell us about what you want to build, current challenges, and desired outcomes..."
-          className={`w-full px-4 py-3 rounded-[var(--radius-md)] border text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-slate-900 bg-white resize-y ${
-            fieldErrors.message ? "border-rose-500 bg-rose-50/20" : "border-slate-300"
+          className={`w-full px-4 py-3 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-white bg-slate-950 resize-y ${
+            fieldErrors.message ? "border-rose-500 bg-rose-950/20" : "border-slate-700"
           }`}
         />
         {fieldErrors.message && (
-          <p id="message-error" className="text-xs text-rose-600 mt-1.5 font-medium">
+          <p id="message-error" className="text-xs text-rose-400 mt-1.5 font-medium">
             {fieldErrors.message}
           </p>
         )}
@@ -260,7 +260,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="btn-primary w-full py-3.5 text-center flex items-center justify-center gap-2 font-semibold cursor-pointer"
+          className="btn btn-primary btn-lg w-full py-3.5 text-center flex items-center justify-center gap-2 font-semibold cursor-pointer disabled:opacity-50"
         >
           {isSubmitting ? (
             <>

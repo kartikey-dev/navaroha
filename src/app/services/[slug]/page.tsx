@@ -62,16 +62,16 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                 {service.icon}
               </span>
               <div>
-                <h1 className="text-3xl md:text-5xl font-extrabold font-heading text-[var(--color-midnight)]">
+                <h1 className="text-3xl md:text-5xl font-extrabold font-heading text-white">
                   {service.title}
                 </h1>
-                <p className="text-lg md:text-xl text-[var(--color-primary)] font-medium mt-1">
+                <p className="text-lg md:text-xl text-[var(--color-cyan)] font-medium mt-1">
                   {service.tagline}
                 </p>
               </div>
             </div>
 
-            <p className="text-body-lg max-w-3xl text-[var(--color-text-secondary)] leading-relaxed mb-8">
+            <p className="text-body-lg max-w-3xl text-slate-300 leading-relaxed mb-8">
               {service.description}
             </p>
 
@@ -95,19 +95,19 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             <div className="lg:col-span-2 space-y-16">
               {/* Features & Architecture */}
               <div>
-                <h2 className="text-2xl font-bold font-heading mb-6 text-[var(--color-midnight)]">
+                <h2 className="text-2xl font-bold font-heading mb-6 text-white">
                   Architecture & Technical Capabilities
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {service.features.map((feature, idx) => (
                     <div
                       key={idx}
-                      className="p-5 rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-white shadow-[var(--shadow-sm)]"
+                      className="p-5 rounded-[var(--radius-xl)] border border-slate-800 bg-slate-900/90 backdrop-blur-sm shadow-[var(--shadow-sm)]"
                     >
-                      <div className="w-6 h-6 rounded-full bg-blue-50 text-[var(--color-primary)] flex items-center justify-center text-xs font-bold mb-3">
+                      <div className="w-6 h-6 rounded-full bg-blue-500/20 text-[var(--color-cyan)] flex items-center justify-center text-xs font-bold mb-3">
                         {idx + 1}
                       </div>
-                      <p className="text-sm font-medium text-slate-800 leading-snug">{feature}</p>
+                      <p className="text-sm font-medium text-slate-200 leading-snug">{feature}</p>
                     </div>
                   ))}
                 </div>
@@ -115,23 +115,23 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
               {/* Execution Process for this Service */}
               <div>
-                <h2 className="text-2xl font-bold font-heading mb-6 text-[var(--color-midnight)]">
+                <h2 className="text-2xl font-bold font-heading mb-6 text-white">
                   How We Deliver Your {service.shortTitle}
                 </h2>
                 <div className="space-y-4">
                   {processSteps.slice(0, 5).map((step) => (
                     <div
                       key={step.number}
-                      className="flex gap-4 p-5 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-slate-50/50"
+                      className="flex gap-4 p-5 rounded-[var(--radius-lg)] border border-slate-800 bg-slate-900/80 backdrop-blur-sm"
                     >
-                      <span className="font-mono text-sm font-bold text-[var(--color-primary)] shrink-0">
+                      <span className="font-mono text-sm font-bold text-[var(--color-cyan)] shrink-0">
                         {step.number}
                       </span>
                       <div>
-                        <h3 className="text-base font-semibold text-slate-900 mb-1">
+                        <h3 className="text-base font-semibold text-white mb-1">
                           {step.title}
                         </h3>
-                        <p className="text-sm text-slate-600 leading-relaxed">
+                        <p className="text-sm text-slate-400 leading-relaxed">
                           {step.details || step.description}
                         </p>
                       </div>
@@ -144,15 +144,15 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             {/* Sidebar (1 Col) */}
             <div className="space-y-8">
               {/* Deliverables Card */}
-              <div className="p-6 rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-white shadow-sm">
-                <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 mb-4">
+              <div className="p-6 rounded-[var(--radius-xl)] border border-slate-800 bg-slate-900/90 backdrop-blur-sm shadow-sm">
+                <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-4">
                   Tangible Deliverables
                 </h3>
                 <ul className="space-y-3">
                   {service.deliverables.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-600">
+                    <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-300">
                       <svg
-                        className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0"
+                        className="w-4 h-4 text-emerald-400 mt-0.5 shrink-0"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -167,15 +167,15 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               </div>
 
               {/* Technology Stack Card */}
-              <div className="p-6 rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-white shadow-sm">
-                <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 mb-4">
+              <div className="p-6 rounded-[var(--radius-xl)] border border-slate-800 bg-slate-900/90 backdrop-blur-sm shadow-sm">
+                <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-4">
                   Technologies Used
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {service.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="text-xs font-medium px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200"
+                      className="text-xs font-medium px-3 py-1.5 rounded-full bg-slate-800/90 text-slate-200 border border-slate-700"
                     >
                       {tech}
                     </span>
@@ -184,13 +184,13 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               </div>
 
               {/* Ideal Client Profile */}
-              <div className="p-6 rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-slate-50">
-                <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 mb-3">
+              <div className="p-6 rounded-[var(--radius-xl)] border border-slate-800 bg-slate-900/70 backdrop-blur-sm">
+                <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-3">
                   Best Suited For
                 </h3>
                 <ul className="space-y-2">
                   {service.idealFor.map((item, idx) => (
-                    <li key={idx} className="text-xs text-slate-600 italic">
+                    <li key={idx} className="text-xs text-slate-400 italic">
                       • {item}
                     </li>
                   ))}
@@ -202,13 +202,13 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       </section>
 
       {/* Explore Other Services */}
-      <section className="py-16 bg-slate-50 border-t border-[var(--color-border)]">
+      <section className="py-16 bg-[#070C18] border-t border-slate-800">
         <div className="container-main">
           <div className="text-center mb-12">
-            <h2 className="text-2xl font-bold font-heading text-slate-900">
+            <h2 className="text-2xl font-bold font-heading text-white">
               Other Specialized Capabilities
             </h2>
-            <p className="text-sm text-slate-600 mt-2">
+            <p className="text-sm text-slate-400 mt-2">
               Explore how we support the full digital product lifecycle.
             </p>
           </div>
@@ -218,15 +218,15 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               <Link
                 key={other.slug}
                 href={`/services/${other.slug}`}
-                className="card group no-underline block"
+                className="card group no-underline block bg-slate-900/80 hover:bg-slate-900 border-slate-800 hover:border-blue-500/50"
               >
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-2xl">{other.icon}</span>
-                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-[var(--color-primary)] transition-colors">
+                  <h3 className="text-lg font-bold text-white group-hover:text-[var(--color-cyan)] transition-colors">
                     {other.title}
                   </h3>
                 </div>
-                <p className="text-xs text-slate-600 line-clamp-3">{other.description}</p>
+                <p className="text-xs text-slate-400 line-clamp-3">{other.description}</p>
               </Link>
             ))}
           </div>

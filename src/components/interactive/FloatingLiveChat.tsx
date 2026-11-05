@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { siteConfig } from "@/lib/site-config";
+import { openBookingModal } from "@/components/interactive/BookingModal";
 
 export function FloatingLiveChat() {
   const [isOpen, setIsOpen] = useState(false);
@@ -71,10 +72,13 @@ export function FloatingLiveChat() {
             </a>
 
             {/* Direct Strategy Booking */}
-            <a
-              href="/contact#contact-form"
-              onClick={() => setIsOpen(false)}
-              className="flex items-center gap-3 p-3 rounded-xl bg-slate-800/80 border border-slate-700 hover:bg-slate-800 text-white transition-all group"
+            <button
+              type="button"
+              onClick={() => {
+                setIsOpen(false);
+                openBookingModal("Live Chat Strategy Consultation");
+              }}
+              className="w-full flex items-center gap-3 p-3 rounded-xl bg-slate-800/80 border border-slate-700 hover:bg-slate-800 text-white transition-all group cursor-pointer text-left"
             >
               <div className="w-9 h-9 rounded-lg bg-blue-600 flex items-center justify-center shrink-0">
                 <svg
@@ -100,7 +104,7 @@ export function FloatingLiveChat() {
               <span className="text-slate-400 group-hover:translate-x-0.5 transition-transform">
                 →
               </span>
-            </a>
+            </button>
           </div>
 
           <div className="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-400">

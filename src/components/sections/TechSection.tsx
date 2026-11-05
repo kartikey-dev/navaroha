@@ -37,7 +37,7 @@ export function TechSection() {
             {technologies.map((tech) => (
               <span
                 key={tech.name}
-                className="px-5 py-2.5 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] text-sm font-medium text-[var(--color-text-secondary)] transition-all duration-200 cursor-default hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] hover:bg-blue-50/50"
+                className="px-5 py-2.5 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] text-sm font-medium text-[var(--color-text-secondary)] transition-all duration-200 cursor-default hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] hover:bg-blue-500/10"
               >
                 {tech.name}
               </span>

@@ -9,21 +9,21 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <div className="pt-36 pb-24 md:pt-44 md:pb-32">
+    <div className="pt-36 pb-24 md:pt-44 md:pb-32 bg-[#040916] text-slate-300">
       <div className="container-narrow">
-        <h1 className="text-3xl md:text-4xl font-extrabold font-heading text-[var(--color-midnight)] mb-4">
+        <h1 className="text-3xl md:text-4xl font-extrabold font-heading text-white mb-4">
           Terms of Service
         </h1>
-        <p className="text-sm text-slate-500 mb-8">Last updated: October 2026</p>
+        <p className="text-sm text-slate-400 mb-8">Last updated: October 2026</p>
 
-        <div className="prose prose-slate max-w-none space-y-6 text-sm md:text-base text-slate-700 leading-relaxed font-sans">
+        <div className="prose prose-invert max-w-none space-y-6 text-sm md:text-base text-slate-300 leading-relaxed font-sans">
           <p>
             Welcome to {siteConfig.name}. By accessing our website ({siteConfig.url}) or engaging
             our engineering and design services, you agree to be bound by the terms described
             herein.
           </p>
 
-          <h2 className="text-xl font-bold font-heading text-slate-900 mt-8 mb-3">
+          <h2 className="text-xl font-bold font-heading text-white mt-8 mb-3">
             1. Services and Statements of Work
           </h2>
           <p>
@@ -33,7 +33,7 @@ export default function TermsPage() {
             of conflict.
           </p>
 
-          <h2 className="text-xl font-bold font-heading text-slate-900 mt-8 mb-3">
+          <h2 className="text-xl font-bold font-heading text-white mt-8 mb-3">
             2. Intellectual Property
           </h2>
           <p>
@@ -43,17 +43,17 @@ export default function TermsPage() {
             tools, and foundational framework utilities.
           </p>
 
-          <h2 className="text-xl font-bold font-heading text-slate-900 mt-8 mb-3">
+          <h2 className="text-xl font-bold font-heading text-white mt-8 mb-3">
             3. Accuracy of Website Information
           </h2>
           <p>
             While we strive for accurate, up-to-date descriptions of our capabilities, project
-            methodologies, and technical stack, material on this website is provided for
+            method methodologies, and technical stack, material on this website is provided for
             informational purposes and does not constitute a binding warranty of specific system
             performance.
           </p>
 
-          <h2 className="text-xl font-bold font-heading text-slate-900 mt-8 mb-3">
+          <h2 className="text-xl font-bold font-heading text-white mt-8 mb-3">
             4. Limitation of Liability
           </h2>
           <p>
@@ -62,12 +62,12 @@ export default function TermsPage() {
             or reliance on any content published herein.
           </p>
 
-          <h2 className="text-xl font-bold font-heading text-slate-900 mt-8 mb-3">5. Inquiries</h2>
+          <h2 className="text-xl font-bold font-heading text-white mt-8 mb-3">5. Inquiries</h2>
           <p>
             For questions regarding these terms, please contact us at:{" "}
             <a
               href={`mailto:${siteConfig.contact.email}`}
-              className="text-[var(--color-primary)] font-medium hover:underline"
+              className="text-[var(--color-cyan)] font-medium hover:underline"
             >
               {siteConfig.contact.email}
             </a>
@@ -75,7 +75,7 @@ export default function TermsPage() {
           </p>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-[var(--color-border)]">
+        <div className="mt-12 pt-8 border-t border-slate-800">
           <Link href="/" className="btn-secondary text-xs">
             ← Return to Homepage
           </Link>

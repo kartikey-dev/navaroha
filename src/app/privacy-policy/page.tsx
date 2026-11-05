@@ -9,21 +9,21 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <div className="pt-36 pb-24 md:pt-44 md:pb-32">
+    <div className="pt-36 pb-24 md:pt-44 md:pb-32 bg-[#040916] text-slate-300">
       <div className="container-narrow">
-        <h1 className="text-3xl md:text-4xl font-extrabold font-heading text-[var(--color-midnight)] mb-4">
+        <h1 className="text-3xl md:text-4xl font-extrabold font-heading text-white mb-4">
           Privacy Policy
         </h1>
-        <p className="text-sm text-slate-500 mb-8">Last updated: October 2026</p>
+        <p className="text-sm text-slate-400 mb-8">Last updated: October 2026</p>
 
-        <div className="prose prose-slate max-w-none space-y-6 text-sm md:text-base text-slate-700 leading-relaxed font-sans">
+        <div className="prose prose-invert max-w-none space-y-6 text-sm md:text-base text-slate-300 leading-relaxed font-sans">
           <p>
             At {siteConfig.name}, we are committed to safeguarding the privacy of our visitors,
             clients, and partners. This policy outlines how we handle personal information collected
             via our website ({siteConfig.url}) and client communications.
           </p>
 
-          <h2 className="text-xl font-bold font-heading text-slate-900 mt-8 mb-3">
+          <h2 className="text-xl font-bold font-heading text-white mt-8 mb-3">
             1. Information We Collect
           </h2>
           <p>
@@ -32,11 +32,11 @@ export default function PrivacyPolicyPage() {
             typically includes your name, work email, company name, and project scope details.
           </p>
 
-          <h2 className="text-xl font-bold font-heading text-slate-900 mt-8 mb-3">
+          <h2 className="text-xl font-bold font-heading text-white mt-8 mb-3">
             2. How We Use Your Information
           </h2>
           <p>We use the information we collect strictly to:</p>
-          <ul className="list-disc list-inside space-y-2">
+          <ul className="list-disc list-inside space-y-2 text-slate-300">
             <li>Evaluate project fit and deliver technical proposals</li>
             <li>Respond to direct enquiries and schedule discovery calls</li>
             <li>Execute agreed software engineering services</li>
@@ -47,7 +47,7 @@ export default function PrivacyPolicyPage() {
             data brokers.
           </p>
 
-          <h2 className="text-xl font-bold font-heading text-slate-900 mt-8 mb-3">
+          <h2 className="text-xl font-bold font-heading text-white mt-8 mb-3">
             3. Data Retention and Security
           </h2>
           <p>
@@ -56,13 +56,13 @@ export default function PrivacyPolicyPage() {
             necessary to support project delivery and maintain historical records.
           </p>
 
-          <h2 className="text-xl font-bold font-heading text-slate-900 mt-8 mb-3">4. Contact Us</h2>
+          <h2 className="text-xl font-bold font-heading text-white mt-8 mb-3">4. Contact Us</h2>
           <p>
             If you have questions about this privacy policy or wish to request the removal of your
             data, please contact us at:{" "}
             <a
               href={`mailto:${siteConfig.contact.email}`}
-              className="text-[var(--color-primary)] font-medium hover:underline"
+              className="text-[var(--color-cyan)] font-medium hover:underline"
             >
               {siteConfig.contact.email}
             </a>
@@ -70,7 +70,7 @@ export default function PrivacyPolicyPage() {
           </p>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-[var(--color-border)]">
+        <div className="mt-12 pt-8 border-t border-slate-800">
           <Link href="/" className="btn-secondary text-xs">
             ← Return to Homepage
           </Link>

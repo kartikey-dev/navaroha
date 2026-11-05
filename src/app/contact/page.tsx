@@ -53,8 +53,8 @@ export default function ContactPage() {
               </Suspense>
 
               {/* Quick FAQ */}
-              <div className="p-8 rounded-[var(--radius-2xl)] bg-white border border-[var(--color-border)] shadow-sm mt-6">
-                <h3 className="text-base font-bold text-slate-900 mb-4 font-heading">
+              <div className="p-8 rounded-3xl bg-slate-900/90 border border-slate-800 shadow-xl mt-6 text-white">
+                <h3 className="text-base font-bold text-white mb-4 font-heading">
                   Quick Questions
                 </h3>
                 <Accordion items={faqItems.slice(0, 3)} />
@@ -63,59 +63,59 @@ export default function ContactPage() {
 
             {/* Sidebar Contact Info (5 Cols) */}
             <div className="lg:col-span-5 space-y-8">
-              <div className="p-8 rounded-[var(--radius-2xl)] bg-slate-50 border border-[var(--color-border)] space-y-6">
+              <div className="p-8 rounded-3xl bg-slate-900/90 border border-slate-800 space-y-6 text-white shadow-xl">
                 <div>
-                  <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 mb-2">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
                     Direct Email
                   </h3>
                   <a
                     href={`mailto:${siteConfig.contact.email}`}
-                    className="text-base font-semibold text-[var(--color-primary)] hover:underline"
+                    className="text-base font-semibold text-blue-400 hover:text-blue-300 hover:underline"
                   >
                     {siteConfig.contact.email}
                   </a>
-                  <p className="text-xs text-slate-500 mt-0.5">
-                    Direct channel monitored by engineering leads.
+                  <p className="text-xs text-slate-400 mt-1">
+                    Direct channel monitored by senior engineering leads.
                   </p>
                 </div>
 
-                <div className="pt-6 border-t border-[var(--color-border)]">
-                  <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 mb-2">
+                <div className="pt-6 border-t border-slate-800">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
                     Phone & Direct Call Support
                   </h3>
                   <div className="space-y-1.5">
                     <div>
                       <a
                         href={`tel:${siteConfig.contact.phoneRaw}`}
-                        className="text-base font-semibold text-slate-900 hover:text-[var(--color-primary)] transition-colors inline-flex items-center gap-2"
+                        className="text-base font-semibold text-white hover:text-blue-400 transition-colors inline-flex items-center gap-2"
                       >
                         <span>📞</span> {siteConfig.contact.phoneDisplay}
                       </a>
                     </div>
                   </div>
-                  <p className="text-xs text-emerald-600 font-medium mt-2 flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                  <p className="text-xs text-emerald-400 font-medium mt-2 flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                     All-time available (24/7 direct response)
                   </p>
                 </div>
 
-                <div className="pt-6 border-t border-[var(--color-border)]">
-                  <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 mb-2">
+                <div className="pt-6 border-t border-slate-800">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
                     WhatsApp Quick Connect
                   </h3>
                   <a
                     href={siteConfig.contact.whatsapp}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-semibold hover:bg-emerald-100 transition-colors"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600/20 border border-emerald-500/40 text-emerald-300 text-sm font-semibold hover:bg-emerald-600/30 transition-colors"
                   >
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
                     Chat on WhatsApp ({siteConfig.contact.whatsappDisplay})
                   </a>
                 </div>
 
-                <div className="pt-6 border-t border-[var(--color-border)]">
-                  <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 mb-2">
+                <div className="pt-6 border-t border-slate-800">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
                     Official Social Channels
                   </h3>
                   <div className="flex flex-wrap gap-3">
@@ -123,7 +123,7 @@ export default function ContactPage() {
                       href={siteConfig.social.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-xs font-medium text-slate-700 hover:border-rose-400 hover:text-rose-600 transition-colors"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-700 bg-slate-800/80 text-xs font-medium text-slate-300 hover:border-rose-400 hover:text-rose-400 transition-colors"
                     >
                       <span>📸</span> Instagram
                     </a>
@@ -131,7 +131,7 @@ export default function ContactPage() {
                       href={siteConfig.social.facebook}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-xs font-medium text-slate-700 hover:border-blue-400 hover:text-blue-600 transition-colors"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-700 bg-slate-800/80 text-xs font-medium text-slate-300 hover:border-blue-400 hover:text-blue-400 transition-colors"
                     >
                       <span>👥</span> Facebook
                     </a>

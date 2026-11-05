@@ -16,21 +16,21 @@
   --color-slate: #94a3b8;
   --color-amber: #f59e0b;
 
-  /* Semantic Tokens */
-  --color-background: var(--color-cloud);
-  --color-surface: #ffffff;
-  --color-surface-elevated: #ffffff;
-  --color-text: #0f172a;
-  --color-text-secondary: #475569;
-  --color-muted: var(--color-slate);
-  --color-primary: var(--color-astra-blue);
-  --color-primary-hover: #2563eb;
-  --color-accent: var(--color-violet);
-  --color-accent-hover: #7c3aed;
-  --color-highlight: var(--color-cyan);
-  --color-border: #e2e8f0;
-  --color-border-hover: #cbd5e1;
-  --color-focus: var(--color-astra-blue);
+  /* Semantic Tokens — Signature Dark Studio Theme */
+  --color-background: #040916;
+  --color-surface: #0b0f1a;
+  --color-surface-elevated: #111827;
+  --color-text: #f8fafc;
+  --color-text-secondary: #94a3b8;
+  --color-muted: #64748b;
+  --color-primary: #3b82f6;
+  --color-primary-hover: #60a5fa;
+  --color-accent: #8b5cf6;
+  --color-accent-hover: #a78bfa;
+  --color-highlight: #06b6d4;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-hover: rgba(59, 130, 246, 0.4);
+  --color-focus: #3b82f6;
   --color-success: #10b981;
   --color-error: #ef4444;
   --color-warning: #f59e0b;
@@ -317,15 +317,15 @@ h6 {
 }
 
 .btn-secondary {
-  background: transparent;
-  color: var(--color-text);
-  border: 1.5px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.04);
+  color: #f8fafc;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
 }
 
 .btn-secondary:hover {
   border-color: var(--color-primary);
-  color: var(--color-primary);
-  background: rgba(59, 130, 246, 0.04);
+  color: #ffffff;
+  background: rgba(59, 130, 246, 0.12);
 }
 
 .btn-gradient {

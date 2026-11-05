@@ -50,10 +50,16 @@ export function RevealOnScroll({
       return;
     }
 
+    // Safety fallback: if IntersectionObserver delays or is off-screen, auto-reveal after 400ms
+    const safetyTimer = setTimeout(() => {
+      setIsVisible(true);
+    }, 400);
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          clearTimeout(safetyTimer);
           if (once && ref.current) {
             observer.unobserve(ref.current);
           }
@@ -62,8 +68,8 @@ export function RevealOnScroll({
         }
       },
       {
-        threshold: 0.1,
-        rootMargin: "0px 0px -40px 0px",
+        threshold: 0.01,
+        rootMargin: "0px 0px 80px 0px",
       }
     );
 
@@ -71,7 +77,10 @@ export function RevealOnScroll({
       observer.observe(ref.current);
     }
 
-    return () => observer.disconnect();
+    return () => {
+      clearTimeout(safetyTimer);
+      observer.disconnect();
+    };
   }, [once, prefersReduced]);
 
   const transforms: Record<string, string> = {

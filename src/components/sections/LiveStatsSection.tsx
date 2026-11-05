@@ -43,20 +43,28 @@ export function LiveStatsSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const safetyTimer = setTimeout(() => {
+      setHasStarted(true);
+    }, 600);
+
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && !hasStarted) {
           setHasStarted(true);
+          clearTimeout(safetyTimer);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.05, rootMargin: "0px 0px 50px 0px" }
     );
 
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
 
-    return () => observer.disconnect();
+    return () => {
+      clearTimeout(safetyTimer);
+      observer.disconnect();
+    };
   }, [hasStarted]);
 
   useEffect(() => {

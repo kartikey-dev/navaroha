@@ -1,21 +1,75 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 
-interface BookingModalProps {
-  isOpen: boolean;
-  onClose: () => void;
+export interface BookingModalProps {
+  isOpen?: boolean;
+  onClose?: () => void;
   defaultScope?: string;
 }
 
 const AVAILABLE_SLOTS = ["10:00 AM UTC", "02:00 PM UTC", "05:30 PM UTC", "08:00 PM UTC"];
 
-export function BookingModal({ isOpen, onClose, defaultScope }: BookingModalProps) {
+/**
+ * Global helper to trigger the booking scheduler from any button across the app.
+ */
+export function openBookingModal(scope?: string) {
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(
+      new CustomEvent("navaroha-open-booking", {
+        detail: { scope },
+      })
+    );
+  }
+}
+
+export function BookingModal({
+  isOpen: propsIsOpen,
+  onClose: propsOnClose,
+  defaultScope = "Website / Web Application Project",
+}: BookingModalProps = {}) {
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
   const [selectedSlot, setSelectedSlot] = useState<string>(AVAILABLE_SLOTS[0]);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [scope, setScope] = useState(defaultScope || "Website / Web Application Project");
+  const [scope, setScope] = useState(defaultScope);
   const [isConfirmed, setIsConfirmed] = useState(false);
+
+  const isControlled = propsIsOpen !== undefined;
+  const isOpen = isControlled ? propsIsOpen : internalIsOpen;
+
+  const handleClose = useCallback(() => {
+    if (propsOnClose) {
+      propsOnClose();
+    } else {
+      setInternalIsOpen(false);
+    }
+  }, [propsOnClose]);
+
+  // Listen for global open events
+  useEffect(() => {
+    const handleGlobalOpen = (e: Event) => {
+      const customEvent = e as CustomEvent<{ scope?: string }>;
+      if (customEvent.detail?.scope) {
+        setScope(customEvent.detail.scope);
+      }
+      setInternalIsOpen(true);
+    };
+
+    window.addEventListener("navaroha-open-booking", handleGlobalOpen);
+    return () => window.removeEventListener("navaroha-open-booking", handleGlobalOpen);
+  }, []);
+
+  // Close on Escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isOpen) {
+        handleClose();
+      }
+    };
+    window.addEventListener("keydown", handleEscape);
+    return () => window.removeEventListener("keydown", handleEscape);
+  }, [isOpen, handleClose]);
 
   if (!isOpen) return null;
 
@@ -26,7 +80,7 @@ export function BookingModal({ isOpen, onClose, defaultScope }: BookingModalProp
 
   const handleReset = () => {
     setIsConfirmed(false);
-    onClose();
+    handleClose();
   };
 
   return (
@@ -40,7 +94,7 @@ export function BookingModal({ isOpen, onClose, defaultScope }: BookingModalProp
         {/* Close Button */}
         <button
           type="button"
-          onClick={onClose}
+          onClick={handleClose}
           aria-label="Close booking modal"
           className="absolute top-5 right-5 text-slate-400 hover:text-white p-2 rounded-xl hover:bg-slate-800 transition-colors cursor-pointer"
         >
