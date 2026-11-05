@@ -6,18 +6,21 @@
 
 :root {
   /* Brand Colors */
-  --color-midnight: #0b0f1a;
+  --color-midnight: #040916;
+  --color-obsidian: #0b0f1a;
+  --color-studio-dark: #0f172a;
   --color-astra-blue: #3b82f6;
   --color-violet: #8b5cf6;
   --color-cyan: #06b6d4;
   --color-cloud: #f8fafc;
   --color-slate: #94a3b8;
+  --color-amber: #f59e0b;
 
   /* Semantic Tokens */
   --color-background: var(--color-cloud);
   --color-surface: #ffffff;
   --color-surface-elevated: #ffffff;
-  --color-text: var(--color-midnight);
+  --color-text: #0f172a;
   --color-text-secondary: #475569;
   --color-muted: var(--color-slate);
   --color-primary: var(--color-astra-blue);

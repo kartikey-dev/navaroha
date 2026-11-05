@@ -10,6 +10,7 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [selectedCurrency, setSelectedCurrency] = useState<CurrencyCode>("USD");
+  const [selectedLanguage, setSelectedLanguage] = useState<string>("EN");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -94,6 +95,28 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
+
+            {/* Language Selector Pill */}
+            <div className="relative inline-flex items-center">
+              <label htmlFor="header-language-select" className="sr-only">
+                Select Language
+              </label>
+              <select
+                id="header-language-select"
+                aria-label="Select Language"
+                value={selectedLanguage}
+                onChange={(e) => setSelectedLanguage(e.target.value)}
+                className="appearance-none bg-slate-900/90 text-xs font-semibold text-slate-200 border border-slate-700/80 rounded-lg py-1.5 pl-2.5 pr-6 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                <option value="EN">EN (English)</option>
+                <option value="ES">ES (Español)</option>
+                <option value="DE">DE (Deutsch)</option>
+                <option value="HI">HI (हिंदी)</option>
+              </select>
+              <span className="pointer-events-none absolute right-2 text-slate-400 text-[10px]">
+                ▼
+              </span>
+            </div>
 
             {/* Currency Selector Pill */}
             <div className="relative inline-flex items-center">
@@ -205,8 +228,29 @@ export function Header() {
           </Link>
         ))}
 
-        {/* Currency Switcher in Mobile Drawer */}
+        {/* Language Switcher in Mobile Drawer */}
         <div className="flex items-center gap-2 pt-2">
+          <span className="text-xs text-slate-400">Language:</span>
+          <div className="inline-flex rounded-lg border border-slate-700 bg-slate-900 p-0.5">
+            {["EN", "ES", "DE", "HI"].map((lang) => (
+              <button
+                key={lang}
+                type="button"
+                onClick={() => setSelectedLanguage(lang)}
+                className={`px-2.5 py-1 text-xs font-semibold rounded ${
+                  selectedLanguage === lang
+                    ? "bg-blue-600 text-white"
+                    : "text-slate-400 hover:text-white"
+                }`}
+              >
+                {lang}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Currency Switcher in Mobile Drawer */}
+        <div className="flex items-center gap-2 pt-1">
           <span className="text-xs text-slate-400">Currency:</span>
           <div className="inline-flex rounded-lg border border-slate-700 bg-slate-900 p-0.5">
             {(["USD", "EUR", "GBP", "INR"] as CurrencyCode[]).map((c) => (

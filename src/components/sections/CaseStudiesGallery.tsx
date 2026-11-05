@@ -7,13 +7,16 @@ interface CaseStudiesGalleryProps {
   studies: CaseStudy[];
 }
 
-type FilterCategory = "all" | "websites" | "mobile" | "ai" | "interactive";
+type FilterCategory =
+  "all" | "ecommerce" | "fashion" | "travel" | "industrial" | "mobile-ai" | "interactive";
 
 const FILTERS: { id: FilterCategory; label: string }[] = [
   { id: "all", label: "All Projects" },
-  { id: "websites", label: "Websites & Flagships" },
-  { id: "mobile", label: "Mobile & Desktop" },
-  { id: "ai", label: "AI & Workflow Systems" },
+  { id: "ecommerce", label: "Gourmet & E-Commerce" },
+  { id: "fashion", label: "Artisan & Fashion" },
+  { id: "travel", label: "Travel & Booking" },
+  { id: "industrial", label: "Industrial & B2B" },
+  { id: "mobile-ai", label: "Mobile & AI Systems" },
   { id: "interactive", label: "Interactive 3D" },
 ];
 
@@ -26,26 +29,43 @@ export function CaseStudiesGallery({ studies }: CaseStudiesGalleryProps) {
     return studies.filter((study) => {
       const cat = study.category.toLowerCase();
       const tech = study.technologies.join(" ").toLowerCase();
+      const title = study.title.toLowerCase();
 
-      if (activeFilter === "websites") {
+      if (activeFilter === "ecommerce") {
         return (
-          cat.includes("flagship") ||
+          cat.includes("food") ||
+          cat.includes("gourmet") ||
           cat.includes("e-commerce") ||
-          cat.includes("website") ||
-          cat.includes("industrial")
+          title.includes("devavo")
         );
       }
-      if (activeFilter === "mobile") {
+      if (activeFilter === "fashion") {
+        return (
+          cat.includes("fashion") ||
+          cat.includes("textile") ||
+          cat.includes("handloom") ||
+          title.includes("bunavat") ||
+          title.includes("armaan")
+        );
+      }
+      if (activeFilter === "travel") {
+        return (
+          cat.includes("travel") ||
+          cat.includes("adventure") ||
+          cat.includes("tour") ||
+          title.includes("full moon")
+        );
+      }
+      if (activeFilter === "industrial") {
+        return cat.includes("industrial") || title.includes("thermal energy");
+      }
+      if (activeFilter === "mobile-ai") {
         return (
           cat.includes("mobile") ||
+          cat.includes("ai") ||
+          cat.includes("healthcare") ||
           tech.includes("react native") ||
-          tech.includes("swiftui") ||
-          tech.includes("expo")
-        );
-      }
-      if (activeFilter === "ai") {
-        return (
-          cat.includes("ai") || cat.includes("nlp") || tech.includes("ai") || tech.includes("llm")
+          tech.includes("swiftui")
         );
       }
       if (activeFilter === "interactive") {
@@ -88,32 +108,34 @@ export function CaseStudiesGallery({ studies }: CaseStudiesGalleryProps) {
       </div>
 
       {/* Grid of Filtered Studies */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10">
         {filteredStudies.map((study, index) => (
           <div
             key={study.slug}
-            className="group flex flex-col rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-white p-8 md:p-10 shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-xl)] transition-all duration-300"
+            className="group flex flex-col rounded-3xl border border-slate-200 bg-white p-7 md:p-9 shadow-sm hover:shadow-xl transition-all duration-300"
           >
+            {/* Header / Badges */}
             <div className="flex items-center justify-between gap-4 mb-4">
-              <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)] bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
+              <span className="text-xs font-semibold uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
                 {study.category}
               </span>
-              <span className="font-mono text-xs text-slate-400">
+              <span className="font-mono text-xs text-slate-400 font-bold">
                 {String(index + 1).padStart(2, "0")}
               </span>
             </div>
 
-            <h2 className="text-2xl font-bold font-heading text-slate-900 mb-2">
+            {/* Title with optional live link */}
+            <h2 className="text-xl md:text-2xl font-bold font-heading text-slate-900 mb-2">
               {study.liveUrl ? (
                 <a
                   href={study.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[var(--color-primary)] transition-colors inline-flex items-center gap-2 group/title"
+                  className="hover:text-blue-600 transition-colors inline-flex items-center gap-2 group/title"
                 >
                   <span>{study.title}</span>
                   <svg
-                    className="w-4 h-4 opacity-70 group-hover/title:opacity-100 transition-opacity"
+                    className="w-4 h-4 opacity-60 group-hover/title:opacity-100 group-hover/title:translate-x-0.5 group-hover/title:-translate-y-0.5 transition-all text-blue-600 shrink-0"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -131,43 +153,71 @@ export function CaseStudiesGallery({ studies }: CaseStudiesGalleryProps) {
               )}
             </h2>
 
-            <p className="text-sm font-medium text-slate-700 mb-4">{study.tagline}</p>
+            <p className="text-sm font-semibold text-slate-700 mb-4">{study.tagline}</p>
 
-            <p className="text-sm text-slate-600 leading-relaxed mb-6 flex-1">{study.overview}</p>
+            <p className="text-xs md:text-sm text-slate-600 leading-relaxed mb-6">
+              {study.overview}
+            </p>
 
-            <div className="space-y-3 mb-6 pt-4 border-t border-slate-100">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-800">
-                Key Highlights
-              </h3>
-              <ul className="space-y-1.5">
-                {study.architectureHighlights.slice(0, 3).map((hl, idx) => (
-                  <li key={idx} className="text-xs text-slate-600 flex items-start gap-2">
-                    <span className="text-[var(--color-primary)] font-bold">•</span>
-                    <span>{hl}</span>
-                  </li>
-                ))}
-              </ul>
+            {/* Structured 3-Part Engineering Framework: Problem -> What We Did -> Measurable Results */}
+            <div className="space-y-4 mb-6 pt-5 border-t border-slate-100 flex-1">
+              {/* 1. Problem */}
+              <div className="p-3.5 rounded-xl bg-rose-50/60 border border-rose-100">
+                <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-rose-700 mb-1">
+                  <span>🔴</span> The Problem
+                </div>
+                <p className="text-xs text-slate-700 leading-relaxed">
+                  {study.problem || study.challenge}
+                </p>
+              </div>
+
+              {/* 2. What We Did */}
+              <div className="p-3.5 rounded-xl bg-blue-50/60 border border-blue-100">
+                <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-blue-700 mb-1">
+                  <span>🔵</span> What We Did
+                </div>
+                <p className="text-xs text-slate-700 leading-relaxed">{study.solution}</p>
+              </div>
+
+              {/* 3. Measurable Results */}
+              {study.measurableResults && study.measurableResults.length > 0 && (
+                <div className="p-3.5 rounded-xl bg-emerald-50/60 border border-emerald-100">
+                  <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-800 mb-2">
+                    <span>🟢</span> Measurable Results
+                  </div>
+                  <ul className="space-y-1.5">
+                    {study.measurableResults.map((result, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-xs text-slate-700">
+                        <span className="text-emerald-600 font-bold">✓</span>
+                        <span className="font-medium">{result}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
 
-            <div className="flex flex-wrap gap-1.5 mb-6">
-              {study.technologies.map((tech) => (
+            {/* Technology Badges */}
+            <div className="flex flex-wrap gap-1.5 mb-6 pt-2">
+              {study.technologies.slice(0, 6).map((tech) => (
                 <span
                   key={tech}
-                  className="text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-slate-50 text-slate-600 border border-slate-200"
+                  className="text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200"
                 >
                   {tech}
                 </span>
               ))}
             </div>
 
+            {/* Visit Live Action */}
             {study.liveUrl && (
               <div className="pt-4 flex items-center justify-between gap-3 border-t border-slate-100 mt-auto">
                 <a
                   href={study.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)] hover:underline group-hover:gap-2.5 transition-all"
-                  aria-label={`Visit live site for ${study.title}`}
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700 hover:underline group-hover:gap-2.5 transition-all"
+                  aria-label={`Visit live verified deployment for ${study.title}`}
                 >
                   <span>Visit Live Website</span>
                   <svg
@@ -184,7 +234,9 @@ export function CaseStudiesGallery({ studies }: CaseStudiesGalleryProps) {
                     />
                   </svg>
                 </a>
-                <span className="text-xs font-mono text-slate-400">Live ↗</span>
+                <span className="text-xs font-mono font-medium text-emerald-600 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                  ● Live Deployment ↗
+                </span>
               </div>
             )}
           </div>

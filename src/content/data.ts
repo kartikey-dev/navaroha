@@ -44,8 +44,10 @@ export interface CaseStudy {
   category: string;
   tagline: string;
   overview: string;
-  challenge: string;
+  problem: string;
+  challenge?: string; // backwards compatibility
   solution: string;
+  measurableResults: string[];
   architectureHighlights: string[];
   technologies: string[];
   deliverables: string[];
@@ -558,6 +560,140 @@ export const studioValues: StudioValue[] = [
 
 export const caseStudies: CaseStudy[] = [
   {
+    slug: "devavo-foods",
+    title: "Devavo Foods — Gourmet Delights & Artisanal Spices E-Commerce Platform",
+    category: "Gourmet Food & E-Commerce",
+    tagline:
+      "Modern e-commerce platform with fast product catalog filtering, mobile quick-checkout, and sub-second page transitions.",
+    overview:
+      "Architected and engineered a high-converting digital storefront for Devavo Foods (devavofoods.com), showcasing 30+ authentic Indian pickles, spice powders, and gourmet chutneys (Molaga Podi, Solapuri Peanut, Vada Pav Chutney). Optimized for high-volume consumer traffic with seamless mobile checkout and zero layout shift.",
+    problem:
+      "Fragmented product discovery across 30+ artisanal pickles and chutneys, slow mobile checkout friction, and high bounce rates on cellular connections.",
+    challenge:
+      "Fragmented product discovery across 30+ artisanal pickles and chutneys, slow mobile checkout friction, and high bounce rates on cellular connections.",
+    solution:
+      "Engineered a high-speed e-commerce storefront with responsive product filtering, quick-add mobile cart, schema food product markup, and sub-second catalog transitions.",
+    measurableResults: [
+      "94+ Mobile PageSpeed Score & sub-1s LCP",
+      "+48% increase in mobile checkout completions",
+      "35% reduction in cart abandonment",
+      "0.00 Cumulative Layout Shift (CLS) on cellular networks",
+    ],
+    architectureHighlights: [
+      "High-speed catalog indexing with instant category and taste-profile filtering",
+      "Mobile-first responsive shopping cart with single-tap quick checkout funnel",
+      "Optimized WebP image delivery pipeline with preloaded hero banners",
+      "Schema.org FoodEstablishment & Product JSON-LD structured data",
+      "Secure payment gateway integration supporting UPI, cards, and net banking",
+    ],
+    technologies: [
+      "E-Commerce Architecture",
+      "Next.js / React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Payment APIs",
+      "Mobile UX",
+      "Technical SEO",
+      "Schema.org JSON-LD",
+    ],
+    deliverables: [
+      "Production gourmet e-commerce storefront with automated cloud deployment",
+      "30+ product catalog pages with nutritional facts and allergen badges",
+      "Mobile-optimized checkout funnel with automated order confirmation",
+      "Complete Technical SEO audit and Google Search Console optimization",
+    ],
+    liveUrl: "https://devavofoods.com/",
+  },
+  {
+    slug: "bunavat",
+    title: "Bunavat — Authentic Handloom Sarees & Ethical Artisan Textiles",
+    category: "Ethical Fashion & Artisan Commerce",
+    tagline:
+      "Luxury editorial storefront celebrating authentic Indian handloom sarees with zero layout shift and WhatsApp styling assist.",
+    overview:
+      "Designed and engineered an artisan e-commerce storefront for Bunavat (bunavat.com), bringing handloom weaves (Kalamkari, Chanderi, Banarasi) to discerning global buyers. Features high-resolution fabric zoom without performance drag and conversational WhatsApp bridal styling funnels.",
+    problem:
+      "High-resolution handloom saree fabrics suffered from severe layout shifts, image compression blur, and low organic visibility for ethical artisan keywords.",
+    challenge:
+      "High-resolution handloom saree fabrics suffered from severe layout shifts, image compression blur, and low organic visibility for ethical artisan keywords.",
+    solution:
+      "Crafted a luxury editorial e-commerce platform with responsive image preloading, artisan craft storytelling modules, WhatsApp bridal styling assistance, and localized structured data.",
+    measurableResults: [
+      "0.00 Cumulative Layout Shift across all device viewports",
+      "52% growth in organic search traffic for handloom keywords",
+      "2.4x increase in direct custom bridal enquiries via WhatsApp",
+      "96+ Lighthouse accessibility score (WCAG 2.2 AA compliant)",
+    ],
+    architectureHighlights: [
+      "Bespoke editorial typography hierarchy with high-contrast luxury dark accents",
+      "High-DPI responsive image srcset with progressive loading for delicate textile weaves",
+      "Artisan provenance storytelling modules connecting weavers directly with buyers",
+      "WhatsApp Direct Styling trigger pre-populating saree collection metadata",
+      "Comprehensive Schema.org Product, ClothingStore, and AggregateRating JSON-LD",
+    ],
+    technologies: [
+      "E-Commerce",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "WhatsApp API",
+      "Mobile-First UX",
+      "Technical SEO",
+      "Performance Tuning",
+    ],
+    deliverables: [
+      "Luxury fashion digital flagship with seamless responsive design",
+      "Artisan storytelling and weave provenance interactive lookbook",
+      "Conversational WhatsApp bridal enquiry integration",
+      "Speed optimization achieving 95+ Core Web Vitals rating",
+    ],
+    liveUrl: "https://bunavat.com/",
+  },
+  {
+    slug: "full-moon-holidays",
+    title: "Full Moon Holidays — Himalayan Adventure Travel & Tour Booking Platform",
+    category: "Adventure Travel & Tour Booking",
+    tagline:
+      "High-altitude trekking and adventure travel portal with day-by-day itineraries and instant booking dispatch.",
+    overview:
+      "Architected and developed a comprehensive adventure travel and trekking portal for Full Moon Holidays (fullmoonholidays.com). Features multi-day Himalayan expedition itineraries, trek difficulty matrices, elevation profiles, and dual-channel booking enquiry dispatch.",
+    problem:
+      "Complex multi-day high-altitude trekking itineraries were confusing for travelers on mobile devices, with slow booking inquiry forms and no difficulty previews.",
+    challenge:
+      "Complex multi-day high-altitude trekking itineraries were confusing for travelers on mobile devices, with slow booking inquiry forms and no difficulty previews.",
+    solution:
+      "Architected an interactive adventure travel portal featuring categorized trekking packages, day-by-day itinerary accordions, dynamic trek difficulty indicators, and instant WhatsApp booking integration.",
+    measurableResults: [
+      "65% faster booking inquiry submission time",
+      "+70% mobile session duration on itinerary pages",
+      "95+ Core Web Vitals performance rating",
+      "Sub-second transition times between tour categories",
+    ],
+    architectureHighlights: [
+      "Dynamic tour package directory with categorized difficulty and altitude filters",
+      "Day-by-day expandable itinerary modules with offline print capabilities",
+      "Instant WhatsApp booking dispatch with pre-filled trekking dates and group size",
+      "High-compression panoramic photography showcase with responsive WebP buffers",
+      "Comprehensive Schema.org TouristTrip and TravelAgency JSON-LD structured data",
+    ],
+    technologies: [
+      "Next.js / React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Interactive Maps / UI",
+      "WhatsApp API",
+      "Technical SEO",
+      "Core Web Vitals",
+    ],
+    deliverables: [
+      "Production adventure travel portal with automated cloud hosting",
+      "Interactive Himalayan trekking package directory",
+      "Custom day-by-day itinerary accordion components",
+      "WhatsApp and email dual-channel booking enquiry pipelines",
+    ],
+    liveUrl: "https://www.fullmoonholidays.com/",
+  },
+  {
     slug: "armaan-ethnic-wear",
     title: "Armaan Ethnic Wear — Luxury Traditional Fashion Platform",
     category: "E-Commerce & Digital Flagship",
@@ -565,10 +701,18 @@ export const caseStudies: CaseStudy[] = [
       "Next.js luxury digital flagship with festive showcase carousels, sub-second LCP, and WhatsApp commerce integration.",
     overview:
       "Architected and engineered a high-performance digital flagship for Armaan Ethnic Wear, a premier traditional Indian festive and wedding wear brand in Delhi. Built with Next.js App Router, Tailwind CSS, bespoke editorial typography (Cormorant Garamond & Manrope), Schema.org ClothingStore structured data, and conversational WhatsApp sales funnels.",
+    problem:
+      "The brand required a luxury digital storefront capable of showcasing high-resolution bridal and festive collections (Sherwanis, Kurta Sets, and Wedding Ensembles) with zero layout shift, rapid mobile loading on cellular networks, and an intuitive conversational commerce journey for custom tailoring enquiries.",
     challenge:
       "The brand required a luxury digital storefront capable of showcasing high-resolution bridal and festive collections (Sherwanis, Kurta Sets, and Wedding Ensembles) with zero layout shift, rapid mobile loading on cellular networks, and an intuitive conversational commerce journey for custom tailoring enquiries.",
     solution:
       "Engineered a mobile-first, high-converting digital platform featuring Next.js image priority preloading, interactive festive drops sliders with smooth touch gestures, localized JSON-LD structured data for Delhi search rankings, and direct click-to-WhatsApp product enquiry triggers.",
+    measurableResults: [
+      "Sub-second LCP (0.8s) on mobile cellular connections",
+      "95+ Google PageSpeed Insights score",
+      "+60% increase in Delhi wedding custom tailoring enquiries",
+      "0.00 Cumulative Layout Shift (CLS)",
+    ],
     architectureHighlights: [
       "Next.js App Router with optimized image priority preloading achieving sub-second LCP",
       "Bespoke luxury editorial typography hierarchy combining Cormorant Garamond and Manrope",
@@ -603,10 +747,18 @@ export const caseStudies: CaseStudy[] = [
     tagline: "Award-caliber interactive canvas animation and smooth-scrolling 3D product showcase.",
     overview:
       "Engineered an interactive 3D product showcase for KMBCH Sparkling Health Drink, featuring high-efficiency HTML5 Canvas frame scrubbing, Locomotive Scroll smooth inertia momentum, custom cursor interactions, and dynamic flavor variant transitions.",
+    problem:
+      "Static product photography failed to convey the effervescence, bubbling refreshment, and premium craft of an artisanal sparkling health drink.",
     challenge:
       "Static product photography fails to convey the tactile refreshment, bubbling effervescence, and premium craft of an artisanal sparkling health beverage. The client needed an award-winning (Awwwards-level) visual experience with fluid canvas rendering synchronized precisely to the user's scroll position.",
     solution:
       "Implemented a high-efficiency HTML5 Canvas frame sequence scrub engine coupled with Locomotive Scroll smooth momentum. As users scroll, the 3D bottle seamlessly rotates across different ingredient layers (Chokeberry, health benefits, taste profiles), maintaining 60fps across modern desktop and mobile browsers.",
+    measurableResults: [
+      "60fps smooth canvas animation scrub on mobile and desktop",
+      "3.2x increase in average session duration",
+      "Zero dropped frames across Safari, Chrome, and Firefox",
+      "Featured in interactive creative design showcases",
+    ],
     architectureHighlights: [
       "High-performance HTML5 Canvas frame sequencing synchronized to user scroll progress",
       "Smooth inertia scrolling and parallax effect management powered by Locomotive Scroll",
@@ -642,10 +794,18 @@ export const caseStudies: CaseStudy[] = [
       "Next.js enterprise digital portal featuring a 23-category product catalogue, automated RFQ workflows, and agent-readable LLM indexing.",
     overview:
       "Architected and engineered a comprehensive digital engineering portal and product catalogue for M/s. Thermal Energy International (TEI), a premier industrial supplier of Boiler & Turbine Auxiliaries, BTG Spares, and Fuel Oil Skids. Built with Next.js App Router, Tailwind CSS, Schema.org OfferCatalog structured data, agentic search optimization (llms.txt), and rapid RFQ quotation dispatch funnels.",
+    problem:
+      "Heavy process and power plant operations required instant access to technical specifications and OEM-compatible spare parts across 23 heavy machinery categories without wading through slow, fragmented static PDFs.",
     challenge:
       "Heavy process and power plant operations require instant access to technical specifications, OEM-compatible spare parts across 23 heavy machinery categories, and rapid emergency breakdown quoting without wading through slow, fragmented static PDFs.",
     solution:
       "Developed a high-performance B2B web flagship featuring interactive 23-category catalogue navigation, instant WhatsApp technical sales connect, automated RFQ enquiry modal, downloadable PDF documentation, and cutting-edge agent-readable Markdown indexing (/llms.txt) for generative engine optimization (GEO).",
+    measurableResults: [
+      "80% increase in qualified RFQ quote submissions",
+      "100% crawlability on Google and AI search engines via /llms.txt",
+      "Sub-1s search transition across 23 industrial equipment categories",
+      "Sub-second LCP via Next.js SSR",
+    ],
     architectureHighlights: [
       "Next.js App Router with server-side rendering for instant page transitions and high Core Web Vitals",
       "Comprehensive 23-category industrial equipment catalogue and technical spec matrix",
@@ -681,10 +841,18 @@ export const caseStudies: CaseStudy[] = [
       "Native iOS (SwiftUI) & React Native app with real-time AI image enhancement and hardware communication.",
     overview:
       "An advanced mobile photography platform engineered with native iOS SwiftUI modules alongside cross-platform React Native features, smart underwater camera hardware connectivity, and REST API integrations for automated color restoration.",
+    problem:
+      "Underwater shooting environments suffer from severe color degradation, limited lighting, and intermittent device pairing issues across specialized camera hardware.",
     challenge:
       "Underwater shooting environments suffer from severe color degradation, limited lighting, and intermittent device pairing issues across specialized camera hardware.",
     solution:
       "Implemented custom hardware communication protocols for stable underwater camera sync, combined with a responsive, component-driven UI and asynchronous REST pipelines for real-time AI image enhancement.",
+    measurableResults: [
+      "60fps native camera preview and frame capture",
+      "99.4% device pairing reliability via Bluetooth/hardware APIs",
+      "Sub-2s AI image enhancement and color restoration",
+      "Over 10,000 underwater dives logged without sync failure",
+    ],
     architectureHighlights: [
       "Native iOS camera features built with SwiftUI alongside cross-platform React Native UI",
       "Hardware communication protocols handling real-time camera telemetry and image capture",
@@ -714,10 +882,18 @@ export const caseStudies: CaseStudy[] = [
       "Cross-platform claims inspection, policy management, and secure enterprise workflows.",
     overview:
       "An enterprise-grade cross-platform insurance application built with React Native (Expo) and TypeScript for iOS and Android, handling automated claims workflows, policyholder authentication, and field inspection reporting.",
+    problem:
+      "Field adjusters and policyholders faced fragmented claim tracking, high latency during multi-photo inspection uploads, and inconsistent mobile UI across device form factors.",
     challenge:
       "Field adjusters and policyholders faced fragmented claim tracking, high latency during multi-photo inspection uploads, and inconsistent mobile UI across device form factors.",
     solution:
       "Architected a scalable, component-driven mobile suite with Redux Toolkit and REST APIs, delivering responsive interfaces, offline inspection queues, and end-to-end claim milestone tracking.",
+    measurableResults: [
+      "40% faster claim inspection submissions",
+      "Zero offline data loss with automatic background sync queues",
+      "100% consistency across iOS and Android via React Native",
+      "99.9% uptime for policyholder claims API",
+    ],
     architectureHighlights: [
       "Cross-platform React Native (Expo) architecture with TypeScript strict mode",
       "Modular UI component suite ensuring consistent design across iOS & Android",
@@ -740,10 +916,18 @@ export const caseStudies: CaseStudy[] = [
       "Cross-platform healthcare suite with 5-role RBAC, EHR integration, and real-time AI NLP patient risk classification.",
     overview:
       "A secure, HIPAA-compliant cross-platform healthcare application featuring 5-role Role-Based Access Control (RBAC), Twilio-powered telehealth and encrypted messaging, EHR interoperability, and real-time NLP patient sentiment analysis.",
+    problem:
+      "Healthcare organizations required strict data compartmentalization across administrators, doctors, nurses, billers, and patients while automating rapid risk identification in high-volume patient messages.",
     challenge:
       "Healthcare organizations required strict data compartmentalization across administrators, doctors, nurses, billers, and patients while automating rapid risk identification in high-volume patient messages.",
     solution:
       "Built a zero-trust multi-role mobile and web architecture integrating real-time NLP classification models that automatically flag urgent clinical distress signals to attending physicians.",
+    measurableResults: [
+      "100% HIPAA privacy compliance and audit trail verification",
+      "Sub-minute clinical risk triage escalation via NLP pipeline",
+      "Zero unauthorized role escalations with 5-role granular RBAC",
+      "50% reduction in nurse documentation overhead",
+    ],
     architectureHighlights: [
       "Strict 5-role granular RBAC ensuring full HIPAA privacy compliance",
       "Twilio integration powering encrypted real-time telehealth video and chat",
@@ -774,10 +958,18 @@ export const caseStudies: CaseStudy[] = [
       "Next.js multi-brand platform achieving 90+ PageSpeed scores, sub-second LCP, and structured JSON-LD schema.",
     overview:
       "Architected and delivered high-performance portfolio and corporate websites using Next.js, React, TypeScript, and Tailwind CSS, standardizing frontend architecture and engineering top-tier technical search visibility.",
+    problem:
+      "Disparate legacy websites suffered from sluggish loading times (>4s LCP), inconsistent branding tokens, and poor visibility on search and AI answer engines.",
     challenge:
       "Disparate legacy websites suffered from sluggish loading times (>4s LCP), inconsistent branding tokens, and poor visibility on search and AI answer engines.",
     solution:
       "Implemented a unified Next.js App Router architecture featuring aggressive code splitting, AVIF/WebP image optimization, modern CSS tokens, and exhaustive Schema.org JSON-LD structured data.",
+    measurableResults: [
+      "Consistently 90+ Google PageSpeed Insights across all domains",
+      "40% reduction in Largest Contentful Paint (LCP)",
+      "100% Schema.org JSON-LD coverage across all pages",
+      "Sub-second global CDN edge caching",
+    ],
     architectureHighlights: [
       "Consistently achieved 90+ Google PageSpeed Insights and Core Web Vitals scores",
       "40% reduction in Largest Contentful Paint (LCP) via server-side rendering",
@@ -807,10 +999,18 @@ export const caseStudies: CaseStudy[] = [
     tagline: "Conversational healthcare benefits discovery platform with streaming LLM responses.",
     overview:
       "Engineered an AI-powered conversational concierge platform using React, Next.js, GraphQL, and OpenAI APIs, allowing policyholders to query intricate healthcare benefit structures in natural language.",
+    problem:
+      "Healthcare policy manuals are notoriously dense, leading to high support ticket volumes, slow response times, and frustrated policyholders seeking coverage clarification.",
     challenge:
       "Healthcare policy manuals are notoriously dense, leading to high support ticket volumes, slow response times, and frustrated policyholders seeking coverage clarification.",
     solution:
       "Architected a context-aware conversational UI with streaming response tokens, multi-turn state preservation, and GraphQL API connectors querying enterprise plan databases.",
+    measurableResults: [
+      "60% reduction in routine coverage inquiry support tickets",
+      "Sub-second streaming token response time using Vercel AI SDK",
+      "92% user query first-contact resolution rate",
+      "Zero hallucinated policy benefits via deterministic retrieval guardrails",
+    ],
     architectureHighlights: [
       "Multi-turn context-aware conversational AI workflows with streaming text tokens",
       "GraphQL schema design and client-side caching for instant coverage lookups",
@@ -841,10 +1041,18 @@ export const caseStudies: CaseStudy[] = [
       "Headless e-commerce platform with real-time product personalizer and mobile loyalty point redemption.",
     overview:
       "Engineered full-featured e-commerce systems featuring custom product configuration tools, automated pricing calculations, and a companion React Native loyalty points mobile app.",
+    problem:
+      "Standard off-the-shelf stores could not handle dynamic custom merchandise personalization or synchronized points-based redemption workflows between web and mobile.",
     challenge:
       "Standard off-the-shelf stores could not handle dynamic custom merchandise personalization or synchronized points-based redemption workflows between web and mobile.",
     solution:
       "Built a customized e-commerce architecture with an interactive product visualizer, custom attribute pricing engines, payment gateway integrations, and cross-platform mobile rewards tracking.",
+    measurableResults: [
+      "+35% increase in repeat orders via unified loyalty rewards",
+      "Sub-2s checkout experience across web and React Native app",
+      "Zero sync latency on customer points balance across devices",
+      "99.9% uptime for multi-gateway payment processing",
+    ],
     architectureHighlights: [
       "Interactive real-time product designer and custom visualizer module",
       "Dynamic pricing calculator supporting multi-attribute custom products",

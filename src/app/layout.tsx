@@ -3,6 +3,7 @@ import Script from "next/script";
 import { Inter, Space_Grotesk } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { FloatingLiveChat } from "@/components/interactive/FloatingLiveChat";
 import { siteConfig } from "@/lib/site-config";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
@@ -89,6 +90,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <FloatingLiveChat />
         <Analytics />
       </body>
     </html>
