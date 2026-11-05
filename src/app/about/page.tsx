@@ -109,6 +109,76 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* How We Work: 4-Stage Studio Engineering Cycle */}
+      <section className="py-20 border-b border-[var(--color-border)]">
+        <div className="container-main">
+          <div className="text-center mb-16 max-w-2xl mx-auto">
+            <p className="text-eyebrow mb-3">Our Methodology</p>
+            <h2 className="text-3xl font-bold font-heading text-slate-900">
+              How we work: Predictable, transparent sprints
+            </h2>
+            <p className="text-slate-600 text-sm mt-3">
+              We eliminate guesswork with a disciplined 4-stage engineering cycle, keeping you in
+              control at every milestone.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+              <span className="font-mono text-xs font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md mb-3 inline-block">
+                Stage 01
+              </span>
+              <h3 className="text-lg font-bold text-slate-900 mb-2 font-heading">
+                Discovery & Scoping
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                We analyze your business objectives, review technical constraints, and define a
+                clear scope with fixed milestone deliverables.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+              <span className="font-mono text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-md mb-3 inline-block">
+                Stage 02
+              </span>
+              <h3 className="text-lg font-bold text-slate-900 mb-2 font-heading">
+                System Design & Tokens
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Crafting interactive Figma prototypes, modular design tokens, and validating user
+                flows with WCAG 2.2 AA accessibility standards.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+              <span className="font-mono text-xs font-bold text-purple-600 bg-purple-50 px-2.5 py-1 rounded-md mb-3 inline-block">
+                Stage 03
+              </span>
+              <h3 className="text-lg font-bold text-slate-900 mb-2 font-heading">
+                Agile Sprints & TDD
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Writing strict TypeScript, automated unit and component tests, with live weekly
+                staging previews to inspect working features.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+              <span className="font-mono text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md mb-3 inline-block">
+                Stage 04
+              </span>
+              <h3 className="text-lg font-bold text-slate-900 mb-2 font-heading">
+                Quality Gates & Launch
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Executing 11-stage CI/CD checks, performance optimization, domain switchover, and
+                post-launch warranty support.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Honest Commitment */}
       <section className="py-20">
         <div className="container-main">

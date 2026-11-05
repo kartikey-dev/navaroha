@@ -84,4 +84,34 @@ describe("VirtualOffice Component", () => {
       "true"
     );
   });
+
+  it("allows switching code files in Development Lab", () => {
+    render(<VirtualOffice />);
+
+    // Switch to Development Lab
+    const labTab = screen.getByRole("tab", { name: /development lab/i });
+    fireEvent.click(labTab);
+
+    // Check default file
+    expect(screen.getByText(/DigitalProductEngine/i)).toBeInTheDocument();
+
+    // Switch to Pipeline tab
+    const pipelineBtn = screen.getByRole("button", { name: /ci-cd-pipeline\.yml/i });
+    fireEvent.click(pipelineBtn);
+    expect(screen.getByText(/quality-gates-stage-11/i)).toBeInTheDocument();
+  });
+
+  it("opens interactive booking modal in Meeting Room", () => {
+    render(<VirtualOffice />);
+
+    // Switch to Meeting Room
+    const meetingTab = screen.getByRole("tab", { name: /meeting room/i });
+    fireEvent.click(meetingTab);
+
+    const bookSlotBtn = screen.getByRole("button", { name: /Instant Calendar Booking/i });
+    fireEvent.click(bookSlotBtn);
+
+    expect(screen.getByText(/Select Meeting Time Slot/i)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /^10:00 AM UTC$/i })).toBeInTheDocument();
+  });
 });

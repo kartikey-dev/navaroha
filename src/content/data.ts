@@ -147,12 +147,12 @@ export const services: Service[] = [
   },
   {
     slug: "android-ios-development",
-    title: "Android & iOS App Development",
-    shortTitle: "Android & iOS Apps",
+    title: "Mobile & Desktop App Development",
+    shortTitle: "Mobile & Desktop Apps",
     tagline:
-      "Native and cross-platform mobile apps engineered for fluid 60fps performance and store dominance.",
+      "Native and cross-platform mobile and desktop apps engineered for fluid 60fps performance and store dominance.",
     description:
-      "Full-lifecycle mobile app development for Android and iOS. Using React Native, Flutter, Swift, and Kotlin, we build beautiful, responsive applications with offline persistence, hardware sensor integrations, push notifications, and seamless App Store and Google Play publishing.",
+      "Full-lifecycle app development across iOS, Android, macOS, and Windows. Using React Native, Flutter, Swift, Kotlin, and Tauri, we build beautiful, responsive applications with offline persistence, hardware integrations, push notifications, and store publishing.",
     icon: "📱",
     features: [
       "Cross-platform mobile development with React Native and Flutter for rapid time-to-market",
@@ -229,6 +229,49 @@ export const services: Service[] = [
       "Docker",
     ],
     href: "/services/web-applications",
+  },
+  {
+    slug: "mobile-desktop-apps",
+    title: "Mobile & Desktop Apps",
+    shortTitle: "Mobile & Desktop",
+    tagline:
+      "Native-performing iOS, Android, and Desktop applications built for smooth gestures and high reliability.",
+    description:
+      "Cross-platform mobile applications for iOS & Android engineered with React Native, Expo, and native SwiftUI / Kotlin bridges, as well as desktop applications built with Electron and Tauri. From camera hardware integrations and offline-first SQLite sync to enterprise claims and healthcare workflows.",
+    icon: "📱",
+    features: [
+      "Cross-platform iOS and Android applications with React Native and Expo",
+      "Native platform modules and bridges (SwiftUI for iOS, Kotlin/Java for Android)",
+      "Cross-platform desktop applications (macOS, Windows, Linux) with Electron and Tauri",
+      "Offline-first architecture with local SQLite / WatermelonDB and background sync queues",
+      "Hardware device communication protocols (Bluetooth Low Energy BLE, camera hardware, IoT sensors)",
+      "App Store & Google Play Store release management, code signing, and guidelines compliance",
+    ],
+    deliverables: [
+      "Production-ready iOS (.ipa) and Android (.aab) builds submitted to TestFlight & Google Play",
+      "Unified TypeScript codebase with modular component design systems",
+      "Desktop application installer packages (macOS .dmg, Windows .msi / .exe, Linux AppImage)",
+      "Native bridge integrations and hardware communication APIs",
+      "Store listing visual assets, privacy compliance documentation, and release pipeline",
+    ],
+    idealFor: [
+      "Companies launching unified consumer or enterprise mobile apps across iOS and Android",
+      "SaaS platforms needing desktop apps with native system trays, offline access, and file access",
+      "Hardware and IoT startups needing mobile control interfaces and camera connectivity",
+    ],
+    technologies: [
+      "React Native",
+      "Expo",
+      "SwiftUI",
+      "TypeScript",
+      "Electron",
+      "Tauri",
+      "REST APIs",
+      "Redux Toolkit",
+      "SQLite",
+      "BLE Protocols",
+    ],
+    href: "/services/mobile-desktop-apps",
   },
   {
     slug: "browser-extension-development",

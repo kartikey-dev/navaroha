@@ -71,7 +71,7 @@ export function Footer() {
                   {siteConfig.contact.email}
                 </a>
               </div>
-              <div className="flex items-center gap-1">
+              <div>
                 <a
                   href={`tel:${siteConfig.contact.phoneRaw}`}
                   className="text-slate-300 hover:text-white transition-colors inline-flex items-center gap-2"
@@ -90,14 +90,6 @@ export function Footer() {
                     />
                   </svg>
                   {siteConfig.contact.phoneDisplay}
-                </a>
-                <span className="text-slate-500 text-xs">/</span>
-                <a
-                  href={`tel:${siteConfig.contact.alternatePhoneRaw}`}
-                  className="text-slate-300 hover:text-white transition-colors inline-flex items-center gap-2"
-                  title="Alternate number"
-                >
-                  {siteConfig.contact.alternatePhoneDisplay}
                 </a>
               </div>
               <div>

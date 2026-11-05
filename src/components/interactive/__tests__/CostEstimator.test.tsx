@@ -25,10 +25,10 @@ describe("CostEstimator Component", () => {
   it("updates cost when switching service type and scope", () => {
     render(<CostEstimator />);
 
-    const webAppButton = screen.getByRole("button", { name: /Web Apps & SaaS/i });
+    const webAppButton = screen.getByRole("button", { name: /Web Applications & SaaS/i });
     fireEvent.click(webAppButton);
 
-    const enterpriseScopeButton = screen.getByRole("button", { name: /Enterprise/i });
+    const enterpriseScopeButton = screen.getByRole("button", { name: /Enterprise Scale/i });
     fireEvent.click(enterpriseScopeButton);
 
     // Enterprise web app is $20,000 USD

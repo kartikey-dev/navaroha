@@ -4,10 +4,12 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
+import { CurrencyCode, CURRENCIES } from "@/lib/currency";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [selectedCurrency, setSelectedCurrency] = useState<CurrencyCode>("USD");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,9 +52,9 @@ export function Header() {
       role="banner"
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-200"
       style={{
-        backgroundColor: "#FFFFFF",
-        borderBottom: "1px solid var(--color-border)",
-        boxShadow: isScrolled ? "0 4px 20px -2px rgba(15, 23, 42, 0.06)" : "none",
+        backgroundColor: "#040916", // Exact color matching the Navaroha brand logo background
+        borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
+        boxShadow: isScrolled ? "0 4px 24px -2px rgba(0, 0, 0, 0.4)" : "none",
       }}
     >
       <div className="container-main">
@@ -64,7 +66,7 @@ export function Header() {
           }}
           aria-label="Main navigation"
         >
-          {/* Official Brand Logo */}
+          {/* Official Brand Logo — Perfect match with header background */}
           <Link
             href="/"
             className="relative z-50 flex items-center no-underline group"
@@ -72,26 +74,49 @@ export function Header() {
             onClick={closeMenu}
           >
             <Image
-              src="/brand/navaroha-logo-light.png"
+              src="/brand/navaroha-logo-dark.png"
               alt={`${siteConfig.name} — ${siteConfig.tagline}`}
               width={180}
-              height={43}
+              height={48}
               priority
               className="h-9 md:h-10 w-auto object-contain transition-transform group-hover:scale-[1.02]"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-7">
             {siteConfig.navigation.main.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium no-underline text-[var(--color-text-secondary)] hover:text-[var(--color-text)] transition-colors"
+                className="text-sm font-medium no-underline text-slate-300 hover:text-white transition-colors"
               >
                 {item.label}
               </Link>
             ))}
+
+            {/* Currency Selector Pill */}
+            <div className="relative inline-flex items-center">
+              <label htmlFor="header-currency-select" className="sr-only">
+                Select Currency
+              </label>
+              <select
+                id="header-currency-select"
+                aria-label="Select Currency"
+                value={selectedCurrency}
+                onChange={(e) => setSelectedCurrency(e.target.value as CurrencyCode)}
+                className="appearance-none bg-slate-900/90 text-xs font-semibold text-slate-200 border border-slate-700/80 rounded-lg py-1.5 pl-2.5 pr-6 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                <option value="USD">USD ($)</option>
+                <option value="EUR">EUR (€)</option>
+                <option value="GBP">GBP (£)</option>
+                <option value="INR">INR (₹)</option>
+              </select>
+              <span className="pointer-events-none absolute right-2 text-slate-400 text-[10px]">
+                ▼
+              </span>
+            </div>
+
             <Link href={siteConfig.navigation.cta.href} className="btn btn-primary btn-sm">
               {siteConfig.navigation.cta.label}
             </Link>
@@ -112,7 +137,7 @@ export function Header() {
                 style={{
                   display: "block",
                   height: "2px",
-                  background: "var(--color-text)",
+                  background: "#FFFFFF",
                   borderRadius: "1px",
                   transition: "all var(--duration-base) var(--ease-out)",
                   transform: isMenuOpen ? "rotate(45deg) translateY(5px)" : "none",
@@ -122,7 +147,7 @@ export function Header() {
                 style={{
                   display: "block",
                   height: "2px",
-                  background: "var(--color-text)",
+                  background: "#FFFFFF",
                   borderRadius: "1px",
                   transition: "all var(--duration-base) var(--ease-out)",
                   opacity: isMenuOpen ? 0 : 1,
@@ -132,7 +157,7 @@ export function Header() {
                 style={{
                   display: "block",
                   height: "2px",
-                  background: "var(--color-text)",
+                  background: "#FFFFFF",
                   borderRadius: "1px",
                   transition: "all var(--duration-base) var(--ease-out)",
                   transform: isMenuOpen ? "rotate(-45deg) translateY(-5px)" : "none",
@@ -154,12 +179,12 @@ export function Header() {
           position: "fixed",
           inset: 0,
           zIndex: 40,
-          background: "#FFFFFF",
+          backgroundColor: "#040916", // Perfectly matching header and brand
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          gap: "2rem",
+          gap: "1.75rem",
           transition: "all var(--duration-slow) var(--ease-out)",
           opacity: isMenuOpen ? 1 : 0,
           pointerEvents: isMenuOpen ? "auto" : "none",
@@ -171,15 +196,36 @@ export function Header() {
             key={item.href}
             href={item.href}
             onClick={closeMenu}
-            className="text-h3 font-semibold no-underline"
+            className="text-2xl font-bold no-underline text-white hover:text-blue-400 transition-colors"
             style={{
               fontFamily: "var(--font-heading)",
-              color: "var(--color-text)",
             }}
           >
             {item.label}
           </Link>
         ))}
+
+        {/* Currency Switcher in Mobile Drawer */}
+        <div className="flex items-center gap-2 pt-2">
+          <span className="text-xs text-slate-400">Currency:</span>
+          <div className="inline-flex rounded-lg border border-slate-700 bg-slate-900 p-0.5">
+            {(["USD", "EUR", "GBP", "INR"] as CurrencyCode[]).map((c) => (
+              <button
+                key={c}
+                type="button"
+                onClick={() => setSelectedCurrency(c)}
+                className={`px-2.5 py-1 text-xs font-semibold rounded ${
+                  selectedCurrency === c
+                    ? "bg-blue-600 text-white"
+                    : "text-slate-400 hover:text-white"
+                }`}
+              >
+                {c} ({CURRENCIES[c].symbol})
+              </button>
+            ))}
+          </div>
+        </div>
+
         <Link
           href={siteConfig.navigation.cta.href}
           onClick={closeMenu}

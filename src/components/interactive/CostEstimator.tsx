@@ -15,28 +15,28 @@ import { CurrencyCode, CURRENCIES } from "@/lib/currency";
 const SERVICE_OPTIONS: { id: ProjectType; label: string; desc: string }[] = [
   {
     id: "website",
-    label: "Websites & Portals",
-    desc: "Corporate sites, headless CMS, marketing hubs",
+    label: "Website Development",
+    desc: "Digital flagships, headless CMS, marketing platforms",
   },
   {
     id: "web-app",
-    label: "Web Apps & SaaS",
-    desc: "Full-stack platforms, dashboards, user portals",
+    label: "Web Applications & SaaS",
+    desc: "Full-stack cloud platforms, dashboards, user portals",
   },
   {
     id: "mobile-app",
     label: "Mobile & Desktop Apps",
-    desc: "React Native, Flutter, cross-platform apps",
+    desc: "Cross-platform iOS, Android, and Desktop apps",
   },
   {
     id: "ai-automation",
-    label: "AI & Automation",
-    desc: "LLM workflows, agents, automated pipelines",
+    label: "AI & Workflow Automation",
+    desc: "Private on-prem LLMs, agentic workflows, pipelines",
   },
   {
     id: "advisory",
-    label: "Technical Advisory",
-    desc: "Architecture reviews, DevOps, CTO guidance",
+    label: "Technical Advisory & Architecture",
+    desc: "Architecture audits, performance tuning, fractional CTO",
   },
 ];
 

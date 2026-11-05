@@ -89,8 +89,7 @@ export default function ContactPage() {
                         href={`tel:${siteConfig.contact.phoneRaw}`}
                         className="text-base font-semibold text-slate-900 hover:text-[var(--color-primary)] transition-colors inline-flex items-center gap-2"
                       >
-                        <span>📞</span> {siteConfig.contact.phoneDisplay},{" "}
-                        {siteConfig.contact.alternatePhoneDisplay}
+                        <span>📞</span> {siteConfig.contact.phoneDisplay}
                       </a>
                     </div>
                   </div>

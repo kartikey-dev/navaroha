@@ -48,6 +48,10 @@ const ROOMS: RoomMeta[] = [
 
 export function VirtualOffice() {
   const [activeRoom, setActiveRoom] = useState<RoomId>("reception");
+  const [activeCodeFile, setActiveCodeFile] = useState<"engine" | "pipeline" | "tests">("engine");
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [selectedSlot, setSelectedSlot] = useState<string>("10:00 AM UTC");
+  const [bookingConfirmed, setBookingConfirmed] = useState(false);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>, index: number) => {
@@ -76,15 +80,15 @@ export function VirtualOffice() {
       aria-labelledby="virtual-office-title"
       className="py-16 md:py-24 relative overflow-hidden"
       style={{
-        background: "linear-gradient(180deg, #0B0F1A 0%, #111827 50%, #0F172A 100%)",
+        background: "linear-gradient(180deg, #040916 0%, #0B0F1A 50%, #0F172A 100%)",
         color: "#F8FAFC",
       }}
     >
-      {/* Ambient background glow */}
+      {/* Ambient background glow & architectural lighting */}
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-96 pointer-events-none opacity-20 blur-3xl"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl h-96 pointer-events-none opacity-25 blur-3xl"
         style={{
-          background: "radial-gradient(circle, #3B82F6 0%, #8B5CF6 40%, transparent 70%)",
+          background: "radial-gradient(circle, #3B82F6 0%, #8B5CF6 35%, transparent 70%)",
         }}
         aria-hidden="true"
       />
@@ -173,7 +177,7 @@ export function VirtualOffice() {
           {activeRoom === "reception" && (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               {/* Architectural Reception Wall Rendering */}
-              <div className="lg:col-span-7 rounded-2xl bg-gradient-to-br from-slate-950 to-slate-900 border border-slate-800 p-8 relative overflow-hidden shadow-inner">
+              <div className="lg:col-span-7 rounded-2xl bg-gradient-to-br from-[#040916] to-[#0B0F1A] border border-slate-800 p-8 relative overflow-hidden shadow-inner">
                 {/* Architectural Wall Slat Texture */}
                 <div
                   className="absolute inset-0 opacity-15 pointer-events-none"
@@ -186,19 +190,19 @@ export function VirtualOffice() {
 
                 {/* Overhead Lighting Effect */}
                 <div
-                  className="w-48 h-3 bg-blue-400/40 rounded-full mx-auto mb-6 blur-[6px]"
+                  className="w-56 h-3 bg-blue-400/50 rounded-full mx-auto mb-6 blur-[8px]"
                   aria-hidden="true"
                 />
 
                 {/* Branded Reception Wall Display with Real Navaroha Logo */}
-                <div className="relative z-10 text-center py-6 px-4 rounded-xl bg-slate-900/90 border border-slate-700/60 shadow-xl max-w-md mx-auto">
+                <div className="relative z-10 text-center py-6 px-4 rounded-xl bg-[#040916] border border-slate-700/60 shadow-2xl max-w-md mx-auto">
                   <div className="flex justify-center mb-3">
                     <Image
-                      src="/brand/navaroha-logo-light.png"
+                      src="/brand/navaroha-logo-dark.png"
                       alt={`${siteConfig.name} — Brand Wall`}
                       width={220}
-                      height={52}
-                      className="h-10 w-auto object-contain drop-shadow"
+                      height={58}
+                      className="h-11 w-auto object-contain drop-shadow"
                     />
                   </div>
                   <p className="text-xs font-mono text-slate-400 tracking-wider uppercase">
@@ -206,23 +210,23 @@ export function VirtualOffice() {
                   </p>
                   <div className="mt-4 pt-3 border-t border-slate-800 flex justify-center items-center gap-4 text-xs text-slate-300">
                     <span>Build</span>
-                    <span className="w-1 h-1 rounded-full bg-blue-500" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
                     <span>Manage</span>
-                    <span className="w-1 h-1 rounded-full bg-indigo-500" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
                     <span>Grow</span>
                   </div>
                 </div>
 
                 {/* Receptionist Desk / Touchpoint Display */}
                 <div className="relative z-10 mt-8 grid grid-cols-2 gap-4 text-xs">
-                  <div className="p-3.5 rounded-lg bg-slate-900/80 border border-slate-800">
+                  <div className="p-3.5 rounded-lg bg-slate-900/90 border border-slate-800">
                     <div className="text-slate-400 mb-1">Global Studio Availability</div>
                     <div className="font-semibold text-emerald-400 flex items-center gap-1.5">
                       <span className="w-2 h-2 rounded-full bg-emerald-400" />
                       24/7 Worldwide Client Ops
                     </div>
                   </div>
-                  <div className="p-3.5 rounded-lg bg-slate-900/80 border border-slate-800">
+                  <div className="p-3.5 rounded-lg bg-slate-900/90 border border-slate-800">
                     <div className="text-slate-400 mb-1">Direct Line & WhatsApp</div>
                     <div className="font-semibold text-slate-200">
                       {siteConfig.contact.phoneDisplay}
@@ -334,9 +338,9 @@ export function VirtualOffice() {
                       <div className="text-[10px] text-slate-400 font-mono">#06B6D4</div>
                     </div>
                     <div className="rounded-lg p-2.5 bg-slate-900 border border-slate-800">
-                      <div className="w-full h-8 rounded bg-[#0B0F1A] border border-slate-700 mb-1.5 shadow" />
+                      <div className="w-full h-8 rounded bg-[#040916] border border-slate-700 mb-1.5 shadow" />
                       <div className="text-[11px] font-mono text-slate-200">Midnight</div>
-                      <div className="text-[10px] text-slate-400 font-mono">#0B0F1A</div>
+                      <div className="text-[10px] text-slate-400 font-mono">#040916</div>
                     </div>
                   </div>
                 </div>
@@ -401,10 +405,10 @@ export function VirtualOffice() {
                 </div>
 
                 <Link
-                  href="/services/ui-ux-brand-design"
+                  href="/services/website-development"
                   className="inline-flex items-center gap-2 text-sm font-semibold text-blue-400 hover:text-blue-300 no-underline"
                 >
-                  Explore UI/UX & Brand Services →
+                  Explore Web & Design Systems →
                 </Link>
               </div>
             </div>
@@ -413,53 +417,154 @@ export function VirtualOffice() {
           {/* ROOM 3: DEVELOPMENT LAB */}
           {activeRoom === "lab" && (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              {/* Studio Code Editor & Terminal Rendering */}
-              <div className="lg:col-span-7 rounded-2xl bg-[#0B0F1A] border border-slate-800 p-6 relative overflow-hidden font-mono text-xs">
-                {/* Editor Header Bar */}
+              {/* Studio Code Editor & Terminal Rendering with Interactive File Tabs */}
+              <div className="lg:col-span-7 rounded-2xl bg-[#040916] border border-slate-800 p-6 relative overflow-hidden font-mono text-xs shadow-2xl">
+                {/* Editor File Selector Header Bar */}
                 <div className="flex items-center justify-between pb-3 border-b border-slate-800 text-slate-400">
-                  <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block" />
-                    <span className="w-3 h-3 rounded-full bg-yellow-500/80 inline-block" />
-                    <span className="w-3 h-3 rounded-full bg-green-500/80 inline-block" />
-                    <span className="ml-2 text-slate-300">src/services/digital-platform.ts</span>
+                  <div className="flex items-center gap-1.5">
+                    <button
+                      type="button"
+                      onClick={() => setActiveCodeFile("engine")}
+                      className={`px-2.5 py-1 rounded text-xs transition-colors ${
+                        activeCodeFile === "engine"
+                          ? "bg-slate-800 text-slate-200 border border-slate-700"
+                          : "text-slate-500 hover:text-slate-300"
+                      }`}
+                    >
+                      digital-platform.ts
+                    </button>
+                    <button
+                      type="button"
+                      aria-label="ci-cd-pipeline.yml"
+                      onClick={() => setActiveCodeFile("pipeline")}
+                      className={`px-2.5 py-1 rounded text-xs transition-colors ${
+                        activeCodeFile === "pipeline"
+                          ? "bg-slate-800 text-slate-200 border border-slate-700"
+                          : "text-slate-500 hover:text-slate-300"
+                      }`}
+                    >
+                      ci-cd-pipeline.yml
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setActiveCodeFile("tests")}
+                      className={`px-2.5 py-1 rounded text-xs transition-colors ${
+                        activeCodeFile === "tests"
+                          ? "bg-slate-800 text-slate-200 border border-slate-700"
+                          : "text-slate-500 hover:text-slate-300"
+                      }`}
+                    >
+                      vitest.report.json
+                    </button>
                   </div>
-                  <span className="text-emerald-400">TypeScript 5 Strict</span>
+                  <span className="text-emerald-400 text-[11px]">TypeScript 5 Strict</span>
                 </div>
 
-                {/* Code Body */}
+                {/* Code Body Dynamic Display */}
                 <div className="py-4 space-y-1 text-slate-300 overflow-x-auto leading-relaxed">
-                  <div>
-                    <span className="text-purple-400">export class</span>{" "}
-                    <span className="text-yellow-300">DigitalProductEngine</span> {"{"}
-                  </div>
-                  <div className="pl-4">
-                    <span className="text-purple-400">public readonly</span> brand:{" "}
-                    <span className="text-green-300">&quot;Navaroha&quot;</span> ={" "}
-                    <span className="text-green-300">&quot;Navaroha&quot;</span>;
-                  </div>
-                  <div className="pl-4">
-                    <span className="text-blue-400">async executeDeployment</span>(config:{" "}
-                    <span className="text-cyan-300">ReleaseConfig</span>):{" "}
-                    <span className="text-purple-400">Promise</span>&lt;
-                    <span className="text-cyan-300">DeploymentStatus</span>&gt; {"{"}
-                  </div>
-                  <div className="pl-8 text-slate-400">
-                    {"// Run 11-stage automated quality gates"}
-                  </div>
-                  <div className="pl-8">
-                    <span className="text-purple-400">await</span> this.
-                    <span className="text-blue-300">verifyQualityGates</span>({"{ "}
-                    coverage: <span className="text-orange-400">96.4</span>, a11y:{" "}
-                    <span className="text-green-300">&quot;WCAG_AA&quot;</span> {"}"});
-                  </div>
-                  <div className="pl-8">
-                    <span className="text-purple-400">return</span> {"{ status: "}
-                    <span className="text-green-300">&quot;PRODUCTION_READY&quot;</span>
-                    {", uptime: "}
-                    <span className="text-orange-400">99.98</span> {"};"}
-                  </div>
-                  <div className="pl-4">{"}"}</div>
-                  <div>{"}"}</div>
+                  {activeCodeFile === "engine" && (
+                    <>
+                      <div>
+                        <span className="text-purple-400">export class</span>{" "}
+                        <span className="text-yellow-300">DigitalProductEngine</span> {"{"}
+                      </div>
+                      <div className="pl-4">
+                        <span className="text-purple-400">public readonly</span> brand:{" "}
+                        <span className="text-green-300">&quot;Navaroha&quot;</span> ={" "}
+                        <span className="text-green-300">&quot;Navaroha&quot;</span>;
+                      </div>
+                      <div className="pl-4">
+                        <span className="text-blue-400">async executeDeployment</span>(config:{" "}
+                        <span className="text-cyan-300">ReleaseConfig</span>):{" "}
+                        <span className="text-purple-400">Promise</span>&lt;
+                        <span className="text-cyan-300">DeploymentStatus</span>&gt; {"{"}
+                      </div>
+                      <div className="pl-8 text-slate-400">
+                        {"// Run 11-stage automated quality gates"}
+                      </div>
+                      <div className="pl-8">
+                        <span className="text-purple-400">await</span> this.
+                        <span className="text-blue-300">verifyQualityGates</span>({"{ "}
+                        coverage: <span className="text-orange-400">96.4</span>, a11y:{" "}
+                        <span className="text-green-300">&quot;WCAG_AA&quot;</span> {"}"});
+                      </div>
+                      <div className="pl-8">
+                        <span className="text-purple-400">return</span> {"{ status: "}
+                        <span className="text-green-300">&quot;PRODUCTION_READY&quot;</span>
+                        {", uptime: "}
+                        <span className="text-orange-400">99.98</span> {"};"}
+                      </div>
+                      <div className="pl-4">{"}"}</div>
+                      <div>{"}"}</div>
+                    </>
+                  )}
+
+                  {activeCodeFile === "pipeline" && (
+                    <>
+                      <div>
+                        <span className="text-cyan-400">name</span>:{" "}
+                        <span className="text-green-300">quality-gates-stage-11</span>
+                      </div>
+                      <div>
+                        <span className="text-cyan-400">on</span>: [
+                        <span className="text-yellow-300">push</span>,{" "}
+                        <span className="text-yellow-300">pull_request</span>]
+                      </div>
+                      <div>
+                        <span className="text-cyan-400">jobs</span>:
+                      </div>
+                      <div className="pl-4">
+                        <span className="text-blue-400">pipeline-verification</span>:
+                      </div>
+                      <div className="pl-8">
+                        <span className="text-purple-400">runs-on</span>:{" "}
+                        <span className="text-green-300">ubuntu-latest</span>
+                      </div>
+                      <div className="pl-8">
+                        <span className="text-purple-400">steps</span>:
+                      </div>
+                      <div className="pl-12 text-slate-400">
+                        - run: npm run typecheck && npm run lint
+                      </div>
+                      <div className="pl-12 text-slate-400">
+                        - run: npm run test:coverage -- --threshold=80
+                      </div>
+                      <div className="pl-12 text-slate-400">
+                        - run: npm run test:e2e && npx lhci autorun
+                      </div>
+                    </>
+                  )}
+
+                  {activeCodeFile === "tests" && (
+                    <>
+                      <div>{"{"}</div>
+                      <div className="pl-4">
+                        <span className="text-cyan-400">&quot;suitesTotal&quot;</span>:{" "}
+                        <span className="text-orange-400">6</span>,
+                      </div>
+                      <div className="pl-4">
+                        <span className="text-cyan-400">&quot;testsPassed&quot;</span>:{" "}
+                        <span className="text-orange-400">35</span>,
+                      </div>
+                      <div className="pl-4">
+                        <span className="text-cyan-400">&quot;coverageSummary&quot;</span>: {"{"}
+                      </div>
+                      <div className="pl-8">
+                        <span className="text-green-300">&quot;statements&quot;</span>:{" "}
+                        <span className="text-orange-400">96.4</span>,
+                      </div>
+                      <div className="pl-8">
+                        <span className="text-green-300">&quot;branches&quot;</span>:{" "}
+                        <span className="text-orange-400">92.8</span>,
+                      </div>
+                      <div className="pl-8">
+                        <span className="text-green-300">&quot;lines&quot;</span>:{" "}
+                        <span className="text-orange-400">98.7</span>
+                      </div>
+                      <div className="pl-4">{"}"}</div>
+                      <div>{"}"}</div>
+                    </>
+                  )}
                 </div>
 
                 {/* Live Terminal Output Mockup */}
@@ -469,7 +574,7 @@ export function VirtualOffice() {
                     <span className="text-emerald-400 font-semibold">● PASS</span>
                   </div>
                   <div className="text-emerald-400">
-                    ✓ 20 tests passed (2 suites) · Statements 96.4% · Lines 98.7%
+                    ✓ 35 tests passed (6 suites) · Statements 96.4% · Lines 98.7%
                   </div>
                   <div className="text-slate-400 text-[10px] mt-0.5">
                     Production build optimized with Next.js Turbopack
@@ -522,8 +627,8 @@ export function VirtualOffice() {
           {/* ROOM 4: MEETING ROOM */}
           {activeRoom === "meeting" && (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              {/* Executive Boardroom 4K Presentation Display Rendering */}
-              <div className="lg:col-span-7 rounded-2xl bg-gradient-to-br from-slate-950 to-slate-900 border border-slate-800 p-8 relative overflow-hidden text-center">
+              {/* Executive Boardroom Presentation Display & Instant Calendar Booking Modal */}
+              <div className="lg:col-span-7 rounded-2xl bg-gradient-to-br from-slate-950 to-slate-900 border border-slate-800 p-8 relative overflow-hidden text-center shadow-2xl">
                 <div className="max-w-md mx-auto">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-500/10 border border-blue-500/20 text-blue-400 mb-6">
                     Navaroha Executive Strategy Suite
@@ -534,12 +639,13 @@ export function VirtualOffice() {
                   >
                     Turn Your Vision Into a Scalable Reality
                   </h4>
-                  <p className="text-sm text-slate-300 mb-8 leading-relaxed">
+                  <p className="text-sm text-slate-300 mb-6 leading-relaxed">
                     Collaborate directly with our Creative Director and Frontend Architects to scope
                     deliverables, determine project timelines, and validate architecture before
                     writing code.
                   </p>
 
+                  {/* Interactive Discovery Agenda Card */}
                   <div className="p-4 rounded-xl bg-slate-900/90 border border-slate-800 mb-6 text-left">
                     <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
                       Discovery Call Agenda (30 Mins)
@@ -560,20 +666,75 @@ export function VirtualOffice() {
                     </ul>
                   </div>
 
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center justify-center gap-2 w-full py-3.5 px-6 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 transition-all shadow-xl shadow-blue-600/30 no-underline"
-                  >
-                    Schedule a Project Discovery Call
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                      />
-                    </svg>
-                  </Link>
+                  {/* Action Buttons: Direct Contact and Instant Booking Scheduler */}
+                  <div className="space-y-3">
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center justify-center gap-2 w-full py-3.5 px-6 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 transition-all shadow-xl shadow-blue-600/30 no-underline"
+                    >
+                      Schedule a Project Discovery Call
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                        />
+                      </svg>
+                    </Link>
+
+                    <button
+                      type="button"
+                      onClick={() => setIsBookingOpen(!isBookingOpen)}
+                      className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl text-xs font-semibold text-slate-300 bg-slate-800 hover:bg-slate-700 transition-colors cursor-pointer"
+                    >
+                      <span>📅</span> Instant Calendar Booking
+                    </button>
+                  </div>
+
+                  {/* Booking Drawer / Slot Selector */}
+                  {isBookingOpen && (
+                    <div className="mt-5 p-5 rounded-xl bg-slate-900 border border-blue-500/40 text-left animate-fadeIn">
+                      <div className="text-xs font-bold uppercase tracking-wider text-blue-400 mb-2">
+                        Select Meeting Time Slot
+                      </div>
+                      <div className="grid grid-cols-3 gap-2 mb-3">
+                        {["10:00 AM UTC", "02:00 PM UTC", "05:30 PM UTC"].map((slot) => (
+                          <button
+                            key={slot}
+                            type="button"
+                            onClick={() => setSelectedSlot(slot)}
+                            className={`p-2 text-[11px] font-semibold rounded-lg text-center transition-colors ${
+                              selectedSlot === slot
+                                ? "bg-blue-600 text-white"
+                                : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                            }`}
+                          >
+                            {slot}
+                          </button>
+                        ))}
+                      </div>
+
+                      {bookingConfirmed ? (
+                        <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs text-center font-medium">
+                          ✓ Time reserved for {selectedSlot}! Calendar invite generated.
+                        </div>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => setBookingConfirmed(true)}
+                          className="w-full py-2 rounded-lg text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white transition-colors"
+                        >
+                          Confirm {selectedSlot} Strategy Slot
+                        </button>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
 
